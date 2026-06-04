@@ -17,6 +17,7 @@ const DATA_URL = 'characters.json';
 const MEDIA_DATA_URL = 'media.json';
 const RATINGS_DATA_URL = 'calificaciones.json';
 const BATTLES_DATA_URL = 'Batallas.json';
+const BATTLES_DOWNLOAD_FILENAME = 'Batallas.txt';
 const CHARACTERS_API_URL = '/api/characters';
 
 const RATING_TAGS = [
@@ -197,6 +198,31 @@ function hasBattleResult(battleResults, tag, firstId, secondId) {
     return battleResults.some(result => result.tag === tag && result.pairKey === pairKey);
 }
 
+function getLatestDirectBattleForTag(battleResults, tag) {
+    return battleResults
+        .filter(result => result.tag === tag && !result.inherited)
+        .sort((first, second) => (second.createdAt || '').localeCompare(first.createdAt || ''))[0] || null;
+}
+
+function getNextOpponentAfterLastLoser(characters, battleResults, tag, championId, lastLoserId) {
+    const startIndex = Math.max(0, characters.findIndex(character => character.id === lastLoserId));
+    for (let offset = 1; offset <= characters.length; offset += 1) {
+        const candidate = characters[(startIndex + offset) % characters.length];
+        if (!candidate || candidate.id === championId) continue;
+        if (!hasBattleResult(battleResults, tag, championId, candidate.id)) return candidate;
+    }
+    return null;
+}
+
+function getNextBattleForTag(characters, battleResults, tag, availableBattles) {
+    const latestDirectBattle = getLatestDirectBattleForTag(battleResults, tag);
+    const champion = latestDirectBattle ? characters.find(character => character.id === latestDirectBattle.winnerId) : null;
+    if (champion) {
+        const nextOpponent = getNextOpponentAfterLastLoser(characters, battleResults, tag, champion.id, latestDirectBattle.loserId);
+        if (nextOpponent) return [champion, nextOpponent];
+    }
+    return availableBattles[0] || null;
+}
 
 function completeTransitiveBattleResults(results, targetTag = null) {
     const normalizedResults = results.map(normalizeBattleResult).filter(Boolean);
@@ -270,8 +296,12 @@ function calculateBattleRatings(characters, battleResults, tags) {
     return ratingsByCharacter;
 }
 
-function downloadJsonFile(filename, payload) {
-    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json;charset=utf-8' });
+function parseJsonText(text) {
+    return JSON.parse(text);
+}
+
+function downloadTextFile(filename, payload) {
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'text/plain;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
@@ -287,10 +317,10 @@ async function loadBattlesFromJson() {
     try {
         const response = await fetch(BATTLES_DATA_URL, { cache: 'no-store' });
         if (!response.ok) return [];
-        const data = await response.json();
-        return normalizeBattleResultsPayload(data);
+        const text = await response.text();
+        return normalizeBattleResultsPayload(parseJsonText(text));
     } catch (error) {
-        console.warn('No se pudo cargar Batallas.json.', error);
+        console.warn(`No se pudo cargar ${BATTLES_DATA_URL}.`, error);
         return [];
     }
 }
@@ -513,19 +543,8 @@ function App() {
         setBattleResults(prev => addBattleResultWithInheritance(prev, { tag, winnerId, loserId, pairKey: getBattlePairKey(winnerId, loserId), createdAt: new Date().toISOString() }));
     };
 
-    const downloadRatings = () => downloadJsonFile('calificaciones.txt', calculatedRatings);
-    const downloadBattles = () => downloadJsonFile('Batallas.json', { battles: battleResults });
-    const importBattles = async (file) => {
-        if (!file) return;
-        try {
-            const text = await file.text();
-            const importedResults = normalizeBattleResultsPayload(JSON.parse(text));
-            setBattleResults(prev => mergeBattleResults(prev, importedResults));
-        } catch (error) {
-            console.error(error);
-            alert('No se pudo leer el archivo Batallas.json. Revisa que sea un JSON válido.');
-        }
-    };
+    const downloadRatings = () => downloadTextFile('calificaciones.txt', calculatedRatings);
+    const downloadBattles = () => downloadTextFile(BATTLES_DOWNLOAD_FILENAME, { battles: battleResults });
 
     return (
         <div className="min-h-screen">
@@ -535,7 +554,7 @@ function App() {
                 {persistenceStatus && <div className="metal-panel metal-shadow mb-5 rounded-2xl border border-cyan-400/50 p-4 font-bold text-cyan-100">{persistenceStatus}</div>}
                 {view.page === 'characters' && <GroupsScreen onOpenGroup={(groupId) => navigate({ page: 'group', groupId })} />}
                 {view.page === 'gallery' && <GeneralGallery items={mediaWithCharacters} settings={playbackSettings} onSettingsChange={updatePlaybackSettings} onPlay={() => openPlayer(mediaWithCharacters, 'Galería general')} />}
-                {view.page === 'battles' && <BattlesScreen characters={characters} mediaCountByCharacter={mediaCountByCharacter} ratings={calculatedRatings} battleResults={battleResults} onBattleResult={saveBattleResult} onDownloadRatings={downloadRatings} onDownloadBattles={downloadBattles} onImportBattles={importBattles} onOpenProfile={(id) => navigate({ page: 'profile', characterId: id })} />}
+                {view.page === 'battles' && <BattlesScreen characters={characters} mediaCountByCharacter={mediaCountByCharacter} ratings={calculatedRatings} battleResults={battleResults} onBattleResult={saveBattleResult} onDownloadRatings={downloadRatings} onDownloadBattles={downloadBattles} onOpenProfile={(id) => navigate({ page: 'profile', characterId: id })} />}
                 {view.page === 'ranking' && <RankingScreen characters={characters} mediaCountByCharacter={mediaCountByCharacter} ratings={calculatedRatings} onOpenProfile={(id) => navigate({ page: 'profile', characterId: id })} />}
                 {view.page === 'group' && <GroupScreen group={selectedGroup} characters={groupCharacters} onBack={() => navigate({ page: 'characters' })} onAdd={() => openNewCharacter(selectedGroup.id)} onOpen={(id) => navigate({ page: 'profile', characterId: id })} />}
                 {view.page === 'profile' && selectedCharacter && <ProfileScreen character={selectedCharacter} mediaCount={selectedCharacterMedia.length} onBack={() => navigate({ page: 'group', groupId: selectedCharacter.group })} onGallery={() => navigate({ page: 'characterGallery', characterId: selectedCharacter.id })} onEdit={() => openEditCharacter(selectedCharacter)} onDelete={() => deleteCharacter(selectedCharacter.id)} />}
@@ -602,7 +621,7 @@ function BattleCard({ character, score, mediaCount, tag, onChooseWinner, onOpenP
     );
 }
 
-function BattlesScreen({ characters, mediaCountByCharacter, ratings, battleResults, onBattleResult, onDownloadRatings, onDownloadBattles, onImportBattles, onOpenProfile }) {
+function BattlesScreen({ characters, mediaCountByCharacter, ratings, battleResults, onBattleResult, onDownloadRatings, onDownloadBattles, onOpenProfile }) {
     const tags = useMemo(() => getBattleTags(ratings, battleResults), [ratings, battleResults]);
     const [selectedTag, setSelectedTag] = useState(tags[0] || 'Facciones');
 
@@ -622,8 +641,9 @@ function BattlesScreen({ characters, mediaCountByCharacter, ratings, battleResul
         return battles;
     }, [characters, battleResults, selectedTag]);
 
+    const nextBattle = useMemo(() => getNextBattleForTag(characters, battleResults, selectedTag, availableBattles), [characters, battleResults, selectedTag, availableBattles]);
     const completedForTag = Math.max(0, (characters.length * (characters.length - 1)) / 2 - availableBattles.length);
-    const contenders = availableBattles[0] || [];
+    const contenders = nextBattle || [];
     const chooseWinner = (winnerId) => {
         if (contenders.length < 2) return;
         const loser = contenders.find(character => character.id !== winnerId);
@@ -633,7 +653,7 @@ function BattlesScreen({ characters, mediaCountByCharacter, ratings, battleResul
 
     return (
         <section>
-            <SectionTitle eyebrow="Arena Elite" title="Batallas" description="Elige una etiqueta y toca la tarjeta ganadora. Las victorias heredadas se registran automáticamente, las calificaciones se calculan por porcentaje de victorias y puedes descargar o cargar el historial Batallas.json." />
+            <SectionTitle eyebrow="Arena Elite" title="Batallas" description={`Elige una etiqueta y toca la tarjeta ganadora. El ganador se queda para la siguiente batalla contra un nuevo rival, sin repetir parejas; las victorias heredadas se registran automáticamente y puedes descargar ${BATTLES_DOWNLOAD_FILENAME}.`} />
             {characters.length < 2 ? <EmptyState title="Faltan participantes" text="Agrega al menos dos personajes para preparar una batalla." /> : (
                 <div className="grid gap-5">
                     <div className="metal-panel metal-shadow chrome-border grid gap-4 rounded-3xl p-5 md:grid-cols-[1fr_auto] md:items-end">
@@ -647,13 +667,9 @@ function BattlesScreen({ characters, mediaCountByCharacter, ratings, battleResul
                             <Info label="Hechas" value={completedForTag} />
                             <Info label="Pendientes" value={availableBattles.length} />
                         </div>
-                        <div className="grid gap-3 md:col-span-2 lg:grid-cols-3">
+                        <div className="grid gap-3 md:col-span-2 lg:grid-cols-2">
                             <button onClick={onDownloadRatings} className="metal-button rounded-2xl bg-gradient-to-br from-cyan-300 via-blue-600 to-blue-950 px-5 py-3 font-black">⬇ Descargar calificaciones</button>
-                            <button onClick={onDownloadBattles} className="metal-button rounded-2xl bg-gradient-to-br from-emerald-300 via-emerald-600 to-emerald-950 px-5 py-3 font-black">⬇ Descargar Batallas.json</button>
-                            <label className="metal-button cursor-pointer rounded-2xl bg-gradient-to-br from-amber-200 via-orange-600 to-orange-950 px-5 py-3 text-center font-black">
-                                ⬆ Cargar Batallas.json
-                                <input type="file" accept="application/json,.json" onChange={event => { onImportBattles(event.target.files?.[0]); event.target.value = ''; }} className="hidden" />
-                            </label>
+                            <button onClick={onDownloadBattles} className="metal-button rounded-2xl bg-gradient-to-br from-emerald-300 via-emerald-600 to-emerald-950 px-5 py-3 font-black">⬇ Descargar {BATTLES_DOWNLOAD_FILENAME}</button>
                         </div>
                     </div>
                     {contenders.length < 2 ? <EmptyState title="Etiqueta completada" text={`Ya se jugaron todas las batallas posibles en ${selectedTag}. Elige otra etiqueta para continuar.`} /> : (
