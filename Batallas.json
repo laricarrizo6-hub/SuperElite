@@ -1,3 +1,328 @@
 {
-  "battles": []
+  "battles": [
+    {
+      "id": "1780605612129-6k29i3b",
+      "tag": "Facciones",
+      "winnerId": "becky-g",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::becky-g",
+      "inherited": false,
+      "createdAt": "2026-06-04T20:40:12.129Z"
+    },
+    {
+      "id": "1780605609913-x7ex1rb",
+      "tag": "Facciones",
+      "winnerId": "clara-galle",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-04T20:40:09.913Z"
+    },
+    {
+      "id": "1780605608266-45zme27",
+      "tag": "Facciones",
+      "winnerId": "becky-g",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "becky-g::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-04T20:40:08.266Z"
+    },
+    {
+      "id": "1780605608266-fnjmlz0",
+      "tag": "Facciones",
+      "winnerId": "becky-g",
+      "loserId": "sidney-sweeney",
+      "pairKey": "becky-g::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-04T20:40:08.266Z"
+    },
+    {
+      "id": "1780605606722-0nzqurf",
+      "tag": "Facciones",
+      "winnerId": "anya-olsen",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "anya-olsen::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-04T20:40:06.722Z"
+    },
+    {
+      "id": "1780605606722-v8ianba",
+      "tag": "Facciones",
+      "winnerId": "anya-olsen",
+      "loserId": "sidney-sweeney",
+      "pairKey": "anya-olsen::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-04T20:40:06.722Z"
+    },
+    {
+      "id": "1780605604498-i4ppivr",
+      "tag": "Facciones",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "sidney-sweeney",
+      "pairKey": "sabrina-carpenter::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-04T20:40:04.498Z"
+    },
+    {
+      "id": "1780605601089-k6o9rbl",
+      "tag": "Facciones",
+      "winnerId": "clara-galle",
+      "loserId": "emilia-mernes",
+      "pairKey": "clara-galle::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-04T20:40:01.089Z"
+    },
+    {
+      "id": "1780605599466-9lnnflq",
+      "tag": "Facciones",
+      "winnerId": "ana-de-armas",
+      "loserId": "emilia-mernes",
+      "pairKey": "ana-de-armas::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-04T20:39:59.466Z"
+    },
+    {
+      "id": "1780605596105-5nwzmta",
+      "tag": "Facciones",
+      "winnerId": "nicki-nicole",
+      "loserId": "becky-g",
+      "pairKey": "becky-g::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-04T20:39:56.105Z"
+    },
+    {
+      "id": "1780605596105-9n248hr",
+      "tag": "Facciones",
+      "winnerId": "clara-galle",
+      "loserId": "becky-g",
+      "pairKey": "becky-g::clara-galle",
+      "inherited": true,
+      "createdAt": "2026-06-04T20:39:56.105Z"
+    },
+    {
+      "id": "1780605596105-yue2aur",
+      "tag": "Facciones",
+      "winnerId": "ana-de-armas",
+      "loserId": "becky-g",
+      "pairKey": "ana-de-armas::becky-g",
+      "inherited": true,
+      "createdAt": "2026-06-04T20:39:56.105Z"
+    },
+    {
+      "id": "1780605596105-dqehyjm",
+      "tag": "Facciones",
+      "winnerId": "emilia-mernes",
+      "loserId": "becky-g",
+      "pairKey": "becky-g::emilia-mernes",
+      "inherited": true,
+      "createdAt": "2026-06-04T20:39:56.105Z"
+    },
+    {
+      "id": "1780605593970-6bblo4o",
+      "tag": "Facciones",
+      "winnerId": "clara-galle",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::clara-galle",
+      "inherited": true,
+      "createdAt": "2026-06-04T20:39:53.970Z"
+    },
+    {
+      "id": "1780605593970-823z8to",
+      "tag": "Facciones",
+      "winnerId": "ana-de-armas",
+      "loserId": "anya-olsen",
+      "pairKey": "ana-de-armas::anya-olsen",
+      "inherited": true,
+      "createdAt": "2026-06-04T20:39:53.970Z"
+    },
+    {
+      "id": "1780605593970-222n32t",
+      "tag": "Facciones",
+      "winnerId": "emilia-mernes",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::emilia-mernes",
+      "inherited": true,
+      "createdAt": "2026-06-04T20:39:53.970Z"
+    },
+    {
+      "id": "1780605593969-wxp8oqs",
+      "tag": "Facciones",
+      "winnerId": "nicki-nicole",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-04T20:39:53.969Z"
+    },
+    {
+      "id": "1780605591715-yb1ddkv",
+      "tag": "Facciones",
+      "winnerId": "nicki-nicole",
+      "loserId": "sidney-sweeney",
+      "pairKey": "nicki-nicole::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-04T20:39:51.715Z"
+    },
+    {
+      "id": "1780605591715-jg9qr80",
+      "tag": "Facciones",
+      "winnerId": "clara-galle",
+      "loserId": "sidney-sweeney",
+      "pairKey": "clara-galle::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-04T20:39:51.715Z"
+    },
+    {
+      "id": "1780605591715-azdizoj",
+      "tag": "Facciones",
+      "winnerId": "ana-de-armas",
+      "loserId": "sidney-sweeney",
+      "pairKey": "ana-de-armas::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-04T20:39:51.715Z"
+    },
+    {
+      "id": "1780605591715-ok3wd8t",
+      "tag": "Facciones",
+      "winnerId": "emilia-mernes",
+      "loserId": "sidney-sweeney",
+      "pairKey": "emilia-mernes::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-04T20:39:51.715Z"
+    },
+    {
+      "id": "1780605588522-w234txa",
+      "tag": "Facciones",
+      "winnerId": "clara-galle",
+      "loserId": "nicki-nicole",
+      "pairKey": "clara-galle::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-04T20:39:48.522Z"
+    },
+    {
+      "id": "1780605588522-nq8b5hn",
+      "tag": "Facciones",
+      "winnerId": "clara-galle",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "clara-galle::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-04T20:39:48.522Z"
+    },
+    {
+      "id": "1780605586922-qib53if",
+      "tag": "Facciones",
+      "winnerId": "ana-de-armas",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "ana-de-armas::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-04T20:39:46.922Z"
+    },
+    {
+      "id": "1780605586921-7joovib",
+      "tag": "Facciones",
+      "winnerId": "ana-de-armas",
+      "loserId": "nicki-nicole",
+      "pairKey": "ana-de-armas::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-04T20:39:46.921Z"
+    },
+    {
+      "id": "1780605579593-vy477ak",
+      "tag": "Facciones",
+      "winnerId": "nicki-nicole",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "nicki-nicole::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-04T20:39:39.593Z"
+    },
+    {
+      "id": "1780605579593-bepkbz9",
+      "tag": "Facciones",
+      "winnerId": "emilia-mernes",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "emilia-mernes::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-04T20:39:39.593Z"
+    },
+    {
+      "id": "1780605570241-n3aiugw",
+      "tag": "Facciones",
+      "winnerId": "emilia-mernes",
+      "loserId": "nicki-nicole",
+      "pairKey": "emilia-mernes::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-04T20:39:30.241Z"
+    },
+    {
+      "id": "1780605564457-lezx390",
+      "tag": "Facciones",
+      "winnerId": "ariana-grande",
+      "loserId": "becky-g",
+      "pairKey": "ariana-grande::becky-g",
+      "inherited": false,
+      "createdAt": "2026-06-04T20:39:24.457Z"
+    },
+    {
+      "id": "1780605562218-9wzbqhc",
+      "tag": "Facciones",
+      "winnerId": "ariana-grande",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::ariana-grande",
+      "inherited": false,
+      "createdAt": "2026-06-04T20:39:22.218Z"
+    },
+    {
+      "id": "1780605560953-tvg1f2u",
+      "tag": "Facciones",
+      "winnerId": "ariana-grande",
+      "loserId": "sidney-sweeney",
+      "pairKey": "ariana-grande::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-04T20:39:20.953Z"
+    },
+    {
+      "id": "1780605559761-jbefzmb",
+      "tag": "Facciones",
+      "winnerId": "ariana-grande",
+      "loserId": "clara-galle",
+      "pairKey": "ariana-grande::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-04T20:39:19.761Z"
+    },
+    {
+      "id": "1780605557377-q1iyq3f",
+      "tag": "Facciones",
+      "winnerId": "ariana-grande",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::ariana-grande",
+      "inherited": false,
+      "createdAt": "2026-06-04T20:39:17.377Z"
+    },
+    {
+      "id": "1780605554249-60vipp5",
+      "tag": "Facciones",
+      "winnerId": "ariana-grande",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "ariana-grande::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-04T20:39:14.249Z"
+    },
+    {
+      "id": "1780605552641-v4aypgy",
+      "tag": "Facciones",
+      "winnerId": "ariana-grande",
+      "loserId": "emilia-mernes",
+      "pairKey": "ariana-grande::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-04T20:39:12.641Z"
+    },
+    {
+      "id": "1780605550266-6z66tq8",
+      "tag": "Facciones",
+      "winnerId": "ariana-grande",
+      "loserId": "nicki-nicole",
+      "pairKey": "ariana-grande::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-04T20:39:10.265Z"
+    }
+  ]
 }
