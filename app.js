@@ -16,6 +16,7 @@ const DEFAULT_BATTLE_TAGS = ['Facciones', 'Ojos', 'Boca', 'Cabello', 'Cintura', 
 const DATA_URL = 'characters.json';
 const MEDIA_DATA_URL = 'media.json';
 const RATINGS_DATA_URL = 'calificaciones.json';
+const BATTLES_DATA_URL = 'Batallas.json';
 const CHARACTERS_API_URL = '/api/characters';
 
 const RATING_TAGS = [
@@ -125,7 +126,8 @@ function normalizeRatingValue(value) {
 }
 
 function getRatingTag(tagId) {
-    return RATING_TAGS.find(tag => tag.id === tagId);
+    const normalizedTagId = normalizeRatingKey(tagId);
+    return RATING_TAGS.find(tag => [tag.id, tag.label, ...(tag.aliases || [])].map(normalizeRatingKey).includes(normalizedTagId));
 }
 
 function getRatingGroup(groupId) {
@@ -172,13 +174,16 @@ function getRankingScoreForOption(rating, option) {
     return rating.average || 0;
 }
 
-function getBattleTags(ratings = {}) {
+function getBattleTags(ratings = {}, battleResults = []) {
     const tags = new Set(DEFAULT_BATTLE_TAGS);
     Object.values(ratings).forEach(ratingSet => {
         if (!ratingSet || typeof ratingSet !== 'object') return;
         Object.entries(ratingSet).forEach(([tag, value]) => {
             if (typeof value === 'number' && Number.isFinite(value)) tags.add(tag);
         });
+    });
+    battleResults.forEach(result => {
+        if (result?.tag) tags.add(result.tag);
     });
     return Array.from(tags);
 }
@@ -190,6 +195,141 @@ function getBattlePairKey(firstId, secondId) {
 function hasBattleResult(battleResults, tag, firstId, secondId) {
     const pairKey = getBattlePairKey(firstId, secondId);
     return battleResults.some(result => result.tag === tag && result.pairKey === pairKey);
+}
+
+
+function completeTransitiveBattleResults(results, targetTag = null) {
+    const normalizedResults = results.map(normalizeBattleResult).filter(Boolean);
+    const existingByPair = new Map();
+    normalizedResults.forEach(result => existingByPair.set(`${result.tag}::${result.pairKey}`, result));
+
+    const tagsToComplete = targetTag ? [targetTag] : Array.from(new Set(normalizedResults.map(result => result.tag)));
+    tagsToComplete.forEach(tag => {
+        const adjacency = new Map();
+        normalizedResults.filter(result => result.tag === tag).forEach(result => {
+            if (!adjacency.has(result.winnerId)) adjacency.set(result.winnerId, new Set());
+            adjacency.get(result.winnerId).add(result.loserId);
+        });
+
+        Array.from(adjacency.keys()).forEach(winnerId => {
+            const visited = new Set();
+            const stack = Array.from(adjacency.get(winnerId) || []);
+            while (stack.length) {
+                const loserId = stack.pop();
+                if (visited.has(loserId) || loserId === winnerId) continue;
+                visited.add(loserId);
+                const pairKey = getBattlePairKey(winnerId, loserId);
+                const resultKey = `${tag}::${pairKey}`;
+                if (!existingByPair.has(resultKey)) {
+                    existingByPair.set(resultKey, {
+                        id: uid(),
+                        tag,
+                        winnerId,
+                        loserId,
+                        pairKey,
+                        inherited: true,
+                        createdAt: new Date().toISOString(),
+                    });
+                }
+                (adjacency.get(loserId) || []).forEach(nextLoserId => stack.push(nextLoserId));
+            }
+        });
+    });
+
+    return Array.from(existingByPair.values()).sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || ''));
+}
+
+function addBattleResultWithInheritance(results, battle) {
+    const normalizedBattle = normalizeBattleResult(battle);
+    if (!normalizedBattle || hasBattleResult(results, normalizedBattle.tag, normalizedBattle.winnerId, normalizedBattle.loserId)) return results;
+    return completeTransitiveBattleResults([normalizedBattle, ...results], normalizedBattle.tag);
+}
+
+function calculateBattleRatings(characters, battleResults, tags) {
+    const ratingsByCharacter = characters.reduce((result, character) => ({ ...result, [character.id]: {} }), {});
+    const stats = new Map();
+    const ensureStats = (characterId, tag) => {
+        const key = `${characterId}::${tag}`;
+        if (!stats.has(key)) stats.set(key, { wins: 0, losses: 0 });
+        return stats.get(key);
+    };
+
+    battleResults.forEach(result => {
+        ensureStats(result.winnerId, result.tag).wins += 1;
+        ensureStats(result.loserId, result.tag).losses += 1;
+    });
+
+    characters.forEach(character => {
+        tags.forEach(tag => {
+            const { wins, losses } = ensureStats(character.id, tag);
+            const total = wins + losses;
+            ratingsByCharacter[character.id][tag] = total ? Number(((wins / total) * 100).toFixed(1)) : 0;
+        });
+    });
+
+    return ratingsByCharacter;
+}
+
+function downloadJsonFile(filename, payload) {
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+}
+
+
+async function loadBattlesFromJson() {
+    try {
+        const response = await fetch(BATTLES_DATA_URL, { cache: 'no-store' });
+        if (!response.ok) return [];
+        const data = await response.json();
+        return normalizeBattleResultsPayload(data);
+    } catch (error) {
+        console.warn('No se pudo cargar Batallas.json.', error);
+        return [];
+    }
+}
+
+function normalizeBattleResult(result) {
+    if (!result || typeof result !== 'object') return null;
+    const tag = String(result.tag || result.etiqueta || '').trim();
+    const winnerId = String(result.winnerId || result.ganadorId || result.ganador || '').trim();
+    const loserId = String(result.loserId || result.perdedorId || result.perdedor || '').trim();
+    if (!tag || !winnerId || !loserId || winnerId === loserId) return null;
+    return {
+        id: result.id || uid(),
+        tag,
+        winnerId,
+        loserId,
+        pairKey: getBattlePairKey(winnerId, loserId),
+        inherited: Boolean(result.inherited || result.heredada),
+        createdAt: result.createdAt || result.fecha || new Date().toISOString(),
+    };
+}
+
+function normalizeBattleResultsPayload(data) {
+    const source = Array.isArray(data) ? data : (Array.isArray(data?.battles) ? data.battles : (Array.isArray(data?.batallas) ? data.batallas : []));
+    const normalized = source.map(normalizeBattleResult).filter(Boolean);
+    const unique = new Map();
+    normalized.forEach(result => {
+        const key = `${result.tag}::${result.pairKey}`;
+        if (!unique.has(key)) unique.set(key, result);
+    });
+    return Array.from(unique.values());
+}
+
+function mergeBattleResults(...battleGroups) {
+    const unique = new Map();
+    battleGroups.flat().map(normalizeBattleResult).filter(Boolean).forEach(result => {
+        const key = `${result.tag}::${result.pairKey}`;
+        if (!unique.has(key)) unique.set(key, result);
+    });
+    return completeTransitiveBattleResults(Array.from(unique.values()));
 }
 
 async function loadMediaFromJson() {
@@ -251,6 +391,7 @@ function App() {
             let jsonCharacters = [];
             let jsonMedia = [];
             let jsonRatings = {};
+            let jsonBattleResults = [];
             let storedCharacters = [];
             let storedMedia = [];
             let storedBattleResults = [];
@@ -275,6 +416,12 @@ function App() {
             }
 
             try {
+                jsonBattleResults = await loadBattlesFromJson();
+            } catch (error) {
+                console.error(error);
+            }
+
+            try {
                 const stored = localStorage.getItem(STORAGE_KEY);
                 if (stored) {
                     const parsed = JSON.parse(stored);
@@ -290,7 +437,7 @@ function App() {
             setCharacters(mergeCharacters(jsonCharacters, storedCharacters));
             setMedia(mergeMedia(jsonMedia, storedMedia));
             setRatings(jsonRatings);
-            setBattleResults(storedBattleResults);
+            setBattleResults(mergeBattleResults(jsonBattleResults, storedBattleResults));
             setIsLoaded(true);
         }
 
@@ -309,6 +456,8 @@ function App() {
     const selectedCharacterMedia = selectedCharacter ? media.filter(item => item.characterId === selectedCharacter.id) : [];
     const mediaWithCharacters = useMemo(() => media.map(item => ({ ...item, type: normalizeMediaType(item.type, item.src), character: characters.find(character => character.id === item.characterId) })).filter(item => item.character), [media, characters]);
     const mediaCountByCharacter = useMemo(() => media.reduce((counts, item) => ({ ...counts, [item.characterId]: (counts[item.characterId] || 0) + 1 }), {}), [media]);
+    const battleTags = useMemo(() => getBattleTags(ratings, battleResults), [ratings, battleResults]);
+    const calculatedRatings = useMemo(() => calculateBattleRatings(characters, battleResults, battleTags), [characters, battleResults, battleTags]);
 
     const navigate = (nextView) => setView(nextView);
 
@@ -361,10 +510,21 @@ function App() {
     };
     const updatePlaybackSettings = (nextSettings) => setPlaybackSettings(prev => ({ ...prev, ...nextSettings }));
     const saveBattleResult = ({ tag, winnerId, loserId }) => {
-        setBattleResults(prev => {
-            if (hasBattleResult(prev, tag, winnerId, loserId)) return prev;
-            return [{ id: uid(), tag, winnerId, loserId, pairKey: getBattlePairKey(winnerId, loserId), createdAt: new Date().toISOString() }, ...prev];
-        });
+        setBattleResults(prev => addBattleResultWithInheritance(prev, { tag, winnerId, loserId, pairKey: getBattlePairKey(winnerId, loserId), createdAt: new Date().toISOString() }));
+    };
+
+    const downloadRatings = () => downloadJsonFile('calificaciones.txt', calculatedRatings);
+    const downloadBattles = () => downloadJsonFile('Batallas.json', { battles: battleResults });
+    const importBattles = async (file) => {
+        if (!file) return;
+        try {
+            const text = await file.text();
+            const importedResults = normalizeBattleResultsPayload(JSON.parse(text));
+            setBattleResults(prev => mergeBattleResults(prev, importedResults));
+        } catch (error) {
+            console.error(error);
+            alert('No se pudo leer el archivo Batallas.json. Revisa que sea un JSON válido.');
+        }
     };
 
     return (
@@ -375,8 +535,8 @@ function App() {
                 {persistenceStatus && <div className="metal-panel metal-shadow mb-5 rounded-2xl border border-cyan-400/50 p-4 font-bold text-cyan-100">{persistenceStatus}</div>}
                 {view.page === 'characters' && <GroupsScreen onOpenGroup={(groupId) => navigate({ page: 'group', groupId })} />}
                 {view.page === 'gallery' && <GeneralGallery items={mediaWithCharacters} settings={playbackSettings} onSettingsChange={updatePlaybackSettings} onPlay={() => openPlayer(mediaWithCharacters, 'Galería general')} />}
-                {view.page === 'battles' && <BattlesScreen characters={characters} mediaCountByCharacter={mediaCountByCharacter} ratings={ratings} battleResults={battleResults} onBattleResult={saveBattleResult} onOpenProfile={(id) => navigate({ page: 'profile', characterId: id })} />}
-                {view.page === 'ranking' && <RankingScreen characters={characters} mediaCountByCharacter={mediaCountByCharacter} ratings={ratings} onOpenProfile={(id) => navigate({ page: 'profile', characterId: id })} />}
+                {view.page === 'battles' && <BattlesScreen characters={characters} mediaCountByCharacter={mediaCountByCharacter} ratings={calculatedRatings} battleResults={battleResults} onBattleResult={saveBattleResult} onDownloadRatings={downloadRatings} onDownloadBattles={downloadBattles} onImportBattles={importBattles} onOpenProfile={(id) => navigate({ page: 'profile', characterId: id })} />}
+                {view.page === 'ranking' && <RankingScreen characters={characters} mediaCountByCharacter={mediaCountByCharacter} ratings={calculatedRatings} onOpenProfile={(id) => navigate({ page: 'profile', characterId: id })} />}
                 {view.page === 'group' && <GroupScreen group={selectedGroup} characters={groupCharacters} onBack={() => navigate({ page: 'characters' })} onAdd={() => openNewCharacter(selectedGroup.id)} onOpen={(id) => navigate({ page: 'profile', characterId: id })} />}
                 {view.page === 'profile' && selectedCharacter && <ProfileScreen character={selectedCharacter} mediaCount={selectedCharacterMedia.length} onBack={() => navigate({ page: 'group', groupId: selectedCharacter.group })} onGallery={() => navigate({ page: 'characterGallery', characterId: selectedCharacter.id })} onEdit={() => openEditCharacter(selectedCharacter)} onDelete={() => deleteCharacter(selectedCharacter.id)} />}
                 {view.page === 'characterGallery' && selectedCharacter && <CharacterGallery character={selectedCharacter} items={selectedCharacterMedia} settings={playbackSettings} onSettingsChange={updatePlaybackSettings} onPlay={(items) => openPlayer(items, `Galería de ${selectedCharacter.name}`)} onBack={() => navigate({ page: 'profile', characterId: selectedCharacter.id })} onAdd={() => setMediaModal({ character: selectedCharacter })} />}
@@ -442,8 +602,8 @@ function BattleCard({ character, score, mediaCount, tag, onChooseWinner, onOpenP
     );
 }
 
-function BattlesScreen({ characters, mediaCountByCharacter, ratings, battleResults, onBattleResult, onOpenProfile }) {
-    const tags = useMemo(() => getBattleTags(ratings), [ratings]);
+function BattlesScreen({ characters, mediaCountByCharacter, ratings, battleResults, onBattleResult, onDownloadRatings, onDownloadBattles, onImportBattles, onOpenProfile }) {
+    const tags = useMemo(() => getBattleTags(ratings, battleResults), [ratings, battleResults]);
     const [selectedTag, setSelectedTag] = useState(tags[0] || 'Facciones');
 
     useEffect(() => {
@@ -473,7 +633,7 @@ function BattlesScreen({ characters, mediaCountByCharacter, ratings, battleResul
 
     return (
         <section>
-            <SectionTitle eyebrow="Arena Elite" title="Batallas" description="Elige una etiqueta y toca la tarjeta del personaje que gana. Esa pareja no volverá a repetirse en la misma etiqueta, pero sí puede competir en las demás." />
+            <SectionTitle eyebrow="Arena Elite" title="Batallas" description="Elige una etiqueta y toca la tarjeta ganadora. Las victorias heredadas se registran automáticamente, las calificaciones se calculan por porcentaje de victorias y puedes descargar o cargar el historial Batallas.json." />
             {characters.length < 2 ? <EmptyState title="Faltan participantes" text="Agrega al menos dos personajes para preparar una batalla." /> : (
                 <div className="grid gap-5">
                     <div className="metal-panel metal-shadow chrome-border grid gap-4 rounded-3xl p-5 md:grid-cols-[1fr_auto] md:items-end">
@@ -487,15 +647,23 @@ function BattlesScreen({ characters, mediaCountByCharacter, ratings, battleResul
                             <Info label="Hechas" value={completedForTag} />
                             <Info label="Pendientes" value={availableBattles.length} />
                         </div>
+                        <div className="grid gap-3 md:col-span-2 lg:grid-cols-3">
+                            <button onClick={onDownloadRatings} className="metal-button rounded-2xl bg-gradient-to-br from-cyan-300 via-blue-600 to-blue-950 px-5 py-3 font-black">⬇ Descargar calificaciones</button>
+                            <button onClick={onDownloadBattles} className="metal-button rounded-2xl bg-gradient-to-br from-emerald-300 via-emerald-600 to-emerald-950 px-5 py-3 font-black">⬇ Descargar Batallas.json</button>
+                            <label className="metal-button cursor-pointer rounded-2xl bg-gradient-to-br from-amber-200 via-orange-600 to-orange-950 px-5 py-3 text-center font-black">
+                                ⬆ Cargar Batallas.json
+                                <input type="file" accept="application/json,.json" onChange={event => { onImportBattles(event.target.files?.[0]); event.target.value = ''; }} className="hidden" />
+                            </label>
+                        </div>
                     </div>
                     {contenders.length < 2 ? <EmptyState title="Etiqueta completada" text={`Ya se jugaron todas las batallas posibles en ${selectedTag}. Elige otra etiqueta para continuar.`} /> : (
                         <div className="grid gap-5 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
-                            <BattleCard character={contenders[0]} tag={selectedTag} score={(ratings[contenders[0].id] || {})[selectedTag]} mediaCount={mediaCountByCharacter[contenders[0].id] || 0} onChooseWinner={chooseWinner} onOpenProfile={onOpenProfile} />
+                            <BattleCard character={contenders[0]} tag={selectedTag} score={getRatingValue(ratings[contenders[0].id] || {}, selectedTag)} mediaCount={mediaCountByCharacter[contenders[0].id] || 0} onChooseWinner={chooseWinner} onOpenProfile={onOpenProfile} />
                             <div className="metal-panel metal-shadow chrome-border rounded-full px-8 py-6 text-center">
                                 <p className="cartoon-title text-6xl">VS</p>
                                 <p className="mt-1 text-xs font-black uppercase tracking-[.25em] text-cyan-100/80">{selectedTag}</p>
                             </div>
-                            <BattleCard character={contenders[1]} tag={selectedTag} score={(ratings[contenders[1].id] || {})[selectedTag]} mediaCount={mediaCountByCharacter[contenders[1].id] || 0} onChooseWinner={chooseWinner} onOpenProfile={onOpenProfile} />
+                            <BattleCard character={contenders[1]} tag={selectedTag} score={getRatingValue(ratings[contenders[1].id] || {}, selectedTag)} mediaCount={mediaCountByCharacter[contenders[1].id] || 0} onChooseWinner={chooseWinner} onOpenProfile={onOpenProfile} />
                         </div>
                     )}
                 </div>
