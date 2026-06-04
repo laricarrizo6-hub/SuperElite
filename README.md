@@ -23,3 +23,10 @@ El navegador por sí solo no puede escribir archivos locales. Por eso `server.js
 - Los personajes se cargan desde `characters.json`.
 - Las altas, ediciones y eliminaciones de personajes se persisten en `characters.json` cuando la app está corriendo con `node server.js`.
 - La multimedia continúa guardándose en el almacenamiento local del navegador.
+
+## Batallas y calificaciones
+
+- La página **Batallas** carga el historial desde `Batallas.json` y lo combina con las batallas guardadas en el navegador.
+- Cuando un personaje gana, también hereda automáticamente las victorias del personaje derrotado dentro de la misma etiqueta.
+- Las calificaciones se calculan como porcentaje de victorias por etiqueta: `victorias / (victorias + derrotas) * 100`.
+- Desde **Batallas** puedes descargar `calificaciones.txt` para copiar su contenido a `calificaciones.json`, descargar `Batallas.json` con el historial actualizado o cargar un `Batallas.json` anterior para no perder batallas ya disputadas.
