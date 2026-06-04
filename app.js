@@ -601,15 +601,15 @@ function BattleCard({ character, score, mediaCount, tag, onChooseWinner, onOpenP
     };
 
     return (
-        <article onClick={() => onChooseWinner(character.id)} onKeyDown={handleKeyDown} role="button" tabIndex="0" aria-label={`Dar como ganador a ${character.name} en ${tag}`} className={`metal-card metal-shadow illuminated-card cursor-pointer overflow-hidden rounded-[2rem] border-2 transition hover:-translate-y-1 hover:brightness-110 ${group.border}`}>
-            <div className="relative h-80 bg-black/40">
+        <article onClick={() => onChooseWinner(character.id)} onKeyDown={handleKeyDown} role="button" tabIndex="0" aria-label={`Dar como ganador a ${character.name} en ${tag}`} className={`battle-card metal-card metal-shadow illuminated-card cursor-pointer overflow-hidden rounded-[2rem] border-2 transition hover:-translate-y-1 hover:brightness-110 ${group.border}`}>
+            <div className="battle-card-media relative h-80 bg-black/40">
                 <img src={character.photo || fallbackPhoto} alt={character.name} className="h-full w-full object-cover" />
-                <span className="absolute left-4 top-4 rounded-full border border-white/30 bg-black/65 px-4 py-2 text-sm font-black uppercase tracking-[.25em] text-cyan-100">Elegir ganador</span>
+                <span className="battle-card-action absolute left-4 top-4 rounded-full border border-white/30 bg-black/65 px-4 py-2 text-sm font-black uppercase tracking-[.25em] text-cyan-100">Elegir ganador</span>
             </div>
-            <div className="grid gap-4 p-5">
+            <div className="battle-card-body grid gap-4 p-5">
                 <div>
                     <p className="text-sm font-black uppercase tracking-[.25em]" style={{ color: group.color }}>{group.emoji} {group.label}</p>
-                    <h3 className="letter-relief texture-text mt-2 text-4xl uppercase">{character.name}</h3>
+                    <h3 className="battle-card-title letter-relief texture-text mt-2 text-4xl uppercase">{character.name}</h3>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                     <Info label="Puntaje" value={Number.isFinite(score) ? score.toFixed(1) : '0.0'} />
@@ -673,9 +673,9 @@ function BattlesScreen({ characters, mediaCountByCharacter, ratings, battleResul
                         </div>
                     </div>
                     {contenders.length < 2 ? <EmptyState title="Etiqueta completada" text={`Ya se jugaron todas las batallas posibles en ${selectedTag}. Elige otra etiqueta para continuar.`} /> : (
-                        <div className="grid gap-5 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
+                        <div className="battle-duel grid gap-5 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
                             <BattleCard character={contenders[0]} tag={selectedTag} score={getRatingValue(ratings[contenders[0].id] || {}, selectedTag)} mediaCount={mediaCountByCharacter[contenders[0].id] || 0} onChooseWinner={chooseWinner} onOpenProfile={onOpenProfile} />
-                            <div className="metal-panel metal-shadow chrome-border rounded-full px-8 py-6 text-center">
+                            <div className="vs-badge metal-panel metal-shadow chrome-border rounded-full px-8 py-6 text-center">
                                 <p className="cartoon-title text-6xl">VS</p>
                                 <p className="mt-1 text-xs font-black uppercase tracking-[.25em] text-cyan-100/80">{selectedTag}</p>
                             </div>
@@ -972,32 +972,32 @@ function MediaPlayer({ items, title, settings, onSettingsChange, onClose }) {
     if (!current) return null;
 
     return (
-        <div className="fixed inset-0 z-[60] bg-black text-white">
-            <div className="absolute left-4 right-4 top-4 z-20 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                <div className="rounded-2xl bg-black/55 p-4 backdrop-blur-md">
+        <div className="media-player fixed inset-0 z-[60] bg-black text-white">
+            <div className="media-player-bar absolute left-4 right-4 top-4 z-20 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <div className="media-player-info rounded-2xl bg-black/55 p-4 backdrop-blur-md">
                     <p className="text-xs font-black uppercase tracking-[.25em] text-cyan-200">{title}</p>
                     <h2 className="mt-1 text-2xl font-black">{current.character?.name || current.caption}</h2>
                     <p className="text-sm font-semibold text-zinc-300">{index + 1} / {playlist.length} · {current.type === 'video' ? 'Video: avanza al finalizar' : current.type === 'gif' ? 'GIF: avanza al finalizar' : `${settings.interval}s por foto`}</p>
                 </div>
-                <div className="flex flex-wrap justify-end gap-2">
-                    <label className="cursor-pointer rounded-2xl bg-white/15 px-4 py-3 font-black backdrop-blur-md hover:bg-white/25">🎵 Sonido
+                <div className="media-player-controls flex flex-wrap justify-end gap-2">
+                    <label className="media-control-button cursor-pointer rounded-2xl bg-white/15 px-4 py-3 font-black backdrop-blur-md hover:bg-white/25">🎵 Sonido
                         <input type="file" accept="audio/*" onChange={pickAudio} className="hidden" />
                     </label>
-                    <button onClick={() => onSettingsChange({ shuffle: !settings.shuffle })} className={`rounded-2xl px-4 py-3 font-black backdrop-blur-md ${settings.shuffle ? 'bg-cyan-400 text-zinc-950' : 'bg-white/15 hover:bg-white/25'}`}>🔀</button>
-                    <button onClick={() => setShowSettings(prev => !prev)} className="rounded-2xl bg-white/15 px-4 py-3 font-black backdrop-blur-md hover:bg-white/25">⚙</button>
-                    <button onClick={onClose} className="rounded-2xl bg-red-600 px-4 py-3 font-black hover:bg-red-500">✕</button>
+                    <button onClick={() => onSettingsChange({ shuffle: !settings.shuffle })} className={`media-control-button rounded-2xl px-4 py-3 font-black backdrop-blur-md ${settings.shuffle ? 'bg-cyan-400 text-zinc-950' : 'bg-white/15 hover:bg-white/25'}`}>🔀</button>
+                    <button onClick={() => setShowSettings(prev => !prev)} className="media-control-button rounded-2xl bg-white/15 px-4 py-3 font-black backdrop-blur-md hover:bg-white/25">⚙</button>
+                    <button onClick={onClose} className="media-control-button rounded-2xl bg-red-600 px-4 py-3 font-black hover:bg-red-500">✕</button>
                 </div>
             </div>
-            {showSettings && <div className="absolute right-4 top-28 z-20 w-[min(28rem,calc(100vw-2rem))]"><PlaybackSettingsPanel settings={settings} onSettingsChange={onSettingsChange} /></div>}
-            <div className="flex h-full w-full items-center justify-center">
+            {showSettings && <div className="media-player-settings absolute right-4 top-28 z-20 w-[min(28rem,calc(100vw-2rem))]"><PlaybackSettingsPanel settings={settings} onSettingsChange={onSettingsChange} /></div>}
+            <div className="media-player-stage flex h-full w-full items-center justify-center">
                 {current.type === 'video' ? (
-                    <video ref={videoRef} key={current.id} src={current.src} controls autoPlay onEnded={goNext} className="max-h-full max-w-full object-contain" />
+                    <video ref={videoRef} key={current.id} src={current.src} controls autoPlay onEnded={goNext} className="media-player-content max-h-full max-w-full object-contain" />
                 ) : (
-                    <img key={current.id} src={current.src} alt={current.caption || current.character?.name || 'Multimedia'} className="max-h-full max-w-full object-contain" />
+                    <img key={current.id} src={current.src} alt={current.caption || current.character?.name || 'Multimedia'} className="media-player-content max-h-full max-w-full object-contain" />
                 )}
             </div>
-            <button onClick={goNext} className="absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/15 px-5 py-6 text-4xl font-black backdrop-blur-md hover:bg-white/25" aria-label="Siguiente multimedia">›</button>
-            {audioSrc && <audio ref={audioRef} src={audioSrc} loop controls className="absolute bottom-4 left-1/2 z-20 w-[min(36rem,calc(100vw-2rem))] -translate-x-1/2" />}
+            <button onClick={goNext} className="media-next-button absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/15 px-5 py-6 text-4xl font-black backdrop-blur-md hover:bg-white/25" aria-label="Siguiente multimedia">›</button>
+            {audioSrc && <audio ref={audioRef} src={audioSrc} loop controls className="media-player-audio absolute bottom-4 left-1/2 z-20 w-[min(36rem,calc(100vw-2rem))] -translate-x-1/2" />}
         </div>
     );
 }
