@@ -1,6 +1,1950 @@
 {
   "battles": [
     {
+      "id": "1780662609399-vsy7p6l",
+      "tag": "Dulzura",
+      "winnerId": "becky-g",
+      "loserId": "sidney-sweeney",
+      "pairKey": "becky-g::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:30:09.399Z"
+    },
+    {
+      "id": "1780662609399-eigxu8u",
+      "tag": "Dulzura",
+      "winnerId": "becky-g",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::becky-g",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:30:09.399Z"
+    },
+    {
+      "id": "1780662609398-lklylkz",
+      "tag": "Dulzura",
+      "winnerId": "becky-g",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::becky-g",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:30:09.398Z"
+    },
+    {
+      "id": "1780662606982-gb08i3x",
+      "tag": "Dulzura",
+      "winnerId": "anya-olsen",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::anya-olsen",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:30:06.982Z"
+    },
+    {
+      "id": "1780662606982-0vg9r0r",
+      "tag": "Dulzura",
+      "winnerId": "anya-olsen",
+      "loserId": "sidney-sweeney",
+      "pairKey": "anya-olsen::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:30:06.982Z"
+    },
+    {
+      "id": "1780662605165-gb2ws29",
+      "tag": "Dulzura",
+      "winnerId": "ana-de-armas",
+      "loserId": "sidney-sweeney",
+      "pairKey": "ana-de-armas::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:30:05.165Z"
+    },
+    {
+      "id": "1780662602549-o9pty8t",
+      "tag": "Dulzura",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "becky-g",
+      "pairKey": "becky-g::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:30:02.549Z"
+    },
+    {
+      "id": "1780662601693-l5dqdcq",
+      "tag": "Dulzura",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:30:01.693Z"
+    },
+    {
+      "id": "1780662600861-hb85idc",
+      "tag": "Dulzura",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "sidney-sweeney",
+      "pairKey": "sabrina-carpenter::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:30:00.861Z"
+    },
+    {
+      "id": "1780662599957-ksp6z1p",
+      "tag": "Dulzura",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:59.957Z"
+    },
+    {
+      "id": "1780662597749-rkde06x",
+      "tag": "Dulzura",
+      "winnerId": "emilia-mernes",
+      "loserId": "becky-g",
+      "pairKey": "becky-g::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:57.749Z"
+    },
+    {
+      "id": "1780662596949-trdqlmd",
+      "tag": "Dulzura",
+      "winnerId": "emilia-mernes",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:56.949Z"
+    },
+    {
+      "id": "1780662596150-ycxteyb",
+      "tag": "Dulzura",
+      "winnerId": "emilia-mernes",
+      "loserId": "sidney-sweeney",
+      "pairKey": "emilia-mernes::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:56.150Z"
+    },
+    {
+      "id": "1780662595437-u9fta2d",
+      "tag": "Dulzura",
+      "winnerId": "emilia-mernes",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:55.437Z"
+    },
+    {
+      "id": "1780662594621-loctuby",
+      "tag": "Dulzura",
+      "winnerId": "emilia-mernes",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "emilia-mernes::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:54.621Z"
+    },
+    {
+      "id": "1780662593069-gthn0gn",
+      "tag": "Dulzura",
+      "winnerId": "nicki-nicole",
+      "loserId": "becky-g",
+      "pairKey": "becky-g::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:53.069Z"
+    },
+    {
+      "id": "1780662592069-ze7wyvz",
+      "tag": "Dulzura",
+      "winnerId": "nicki-nicole",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:52.069Z"
+    },
+    {
+      "id": "1780662591005-rol3vk1",
+      "tag": "Dulzura",
+      "winnerId": "nicki-nicole",
+      "loserId": "sidney-sweeney",
+      "pairKey": "nicki-nicole::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:51.005Z"
+    },
+    {
+      "id": "1780662585965-r90lnlm",
+      "tag": "Dulzura",
+      "winnerId": "clara-galle",
+      "loserId": "becky-g",
+      "pairKey": "becky-g::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:45.965Z"
+    },
+    {
+      "id": "1780662584933-s365srb",
+      "tag": "Dulzura",
+      "winnerId": "clara-galle",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:44.933Z"
+    },
+    {
+      "id": "1780662583877-gew3g6z",
+      "tag": "Dulzura",
+      "winnerId": "clara-galle",
+      "loserId": "sidney-sweeney",
+      "pairKey": "clara-galle::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:43.877Z"
+    },
+    {
+      "id": "1780662582609-xxte9gb",
+      "tag": "Dulzura",
+      "winnerId": "clara-galle",
+      "loserId": "emilia-mernes",
+      "pairKey": "clara-galle::emilia-mernes",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:29:42.609Z"
+    },
+    {
+      "id": "1780662582609-0aivkba",
+      "tag": "Dulzura",
+      "winnerId": "clara-galle",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "clara-galle::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:29:42.609Z"
+    },
+    {
+      "id": "1780662582609-u1si50y",
+      "tag": "Dulzura",
+      "winnerId": "clara-galle",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::clara-galle",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:29:42.609Z"
+    },
+    {
+      "id": "1780662582608-tsc8nto",
+      "tag": "Dulzura",
+      "winnerId": "clara-galle",
+      "loserId": "nicki-nicole",
+      "pairKey": "clara-galle::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:42.608Z"
+    },
+    {
+      "id": "1780662581077-f7v45e1",
+      "tag": "Dulzura",
+      "winnerId": "nicki-nicole",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:41.077Z"
+    },
+    {
+      "id": "1780662579670-nv4953h",
+      "tag": "Dulzura",
+      "winnerId": "nicki-nicole",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "nicki-nicole::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:39.670Z"
+    },
+    {
+      "id": "1780662575621-ymip9os",
+      "tag": "Dulzura",
+      "winnerId": "nicki-nicole",
+      "loserId": "emilia-mernes",
+      "pairKey": "emilia-mernes::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:35.621Z"
+    },
+    {
+      "id": "1780662574261-ip79ji4",
+      "tag": "Dulzura",
+      "winnerId": "ariana-grande",
+      "loserId": "becky-g",
+      "pairKey": "ariana-grande::becky-g",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:34.261Z"
+    },
+    {
+      "id": "1780662573237-nuqa59r",
+      "tag": "Dulzura",
+      "winnerId": "ariana-grande",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::ariana-grande",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:33.237Z"
+    },
+    {
+      "id": "1780662572285-mopxdao",
+      "tag": "Dulzura",
+      "winnerId": "ariana-grande",
+      "loserId": "sidney-sweeney",
+      "pairKey": "ariana-grande::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:32.285Z"
+    },
+    {
+      "id": "1780662571317-e8o2tk3",
+      "tag": "Dulzura",
+      "winnerId": "ariana-grande",
+      "loserId": "clara-galle",
+      "pairKey": "ariana-grande::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:31.317Z"
+    },
+    {
+      "id": "1780662570590-8um41pd",
+      "tag": "Dulzura",
+      "winnerId": "ariana-grande",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::ariana-grande",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:30.590Z"
+    },
+    {
+      "id": "1780662569477-5ghuhzv",
+      "tag": "Dulzura",
+      "winnerId": "ariana-grande",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "ariana-grande::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:29.477Z"
+    },
+    {
+      "id": "1780662568725-zl3x1uj",
+      "tag": "Dulzura",
+      "winnerId": "ariana-grande",
+      "loserId": "emilia-mernes",
+      "pairKey": "ariana-grande::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:28.725Z"
+    },
+    {
+      "id": "1780662568029-gn8i5e6",
+      "tag": "Dulzura",
+      "winnerId": "ariana-grande",
+      "loserId": "nicki-nicole",
+      "pairKey": "ariana-grande::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:28.029Z"
+    },
+    {
+      "id": "1780662561717-fr3rotr",
+      "tag": "Altura",
+      "winnerId": "anya-olsen",
+      "loserId": "emilia-mernes",
+      "pairKey": "anya-olsen::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:21.717Z"
+    },
+    {
+      "id": "1780662559806-t492k4i",
+      "tag": "Altura",
+      "winnerId": "ana-de-armas",
+      "loserId": "anya-olsen",
+      "pairKey": "ana-de-armas::anya-olsen",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:29:19.806Z"
+    },
+    {
+      "id": "1780662559805-k8405jf",
+      "tag": "Altura",
+      "winnerId": "clara-galle",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:19.805Z"
+    },
+    {
+      "id": "1780662558381-97cwy26",
+      "tag": "Altura",
+      "winnerId": "clara-galle",
+      "loserId": "emilia-mernes",
+      "pairKey": "clara-galle::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:18.381Z"
+    },
+    {
+      "id": "1780662556434-jdnn5mm",
+      "tag": "Altura",
+      "winnerId": "becky-g",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::becky-g",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:29:16.434Z"
+    },
+    {
+      "id": "1780662556434-u600riu",
+      "tag": "Altura",
+      "winnerId": "becky-g",
+      "loserId": "emilia-mernes",
+      "pairKey": "becky-g::emilia-mernes",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:29:16.434Z"
+    },
+    {
+      "id": "1780662556434-mdeh5og",
+      "tag": "Altura",
+      "winnerId": "becky-g",
+      "loserId": "clara-galle",
+      "pairKey": "becky-g::clara-galle",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:29:16.434Z"
+    },
+    {
+      "id": "1780662556434-w644odg",
+      "tag": "Altura",
+      "winnerId": "becky-g",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::becky-g",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:29:16.434Z"
+    },
+    {
+      "id": "1780662556433-c0i41el",
+      "tag": "Altura",
+      "winnerId": "becky-g",
+      "loserId": "sidney-sweeney",
+      "pairKey": "becky-g::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:16.433Z"
+    },
+    {
+      "id": "1780662554951-nqzkud1",
+      "tag": "Altura",
+      "winnerId": "sidney-sweeney",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:14.951Z"
+    },
+    {
+      "id": "1780662553518-y6vbrhj",
+      "tag": "Altura",
+      "winnerId": "sidney-sweeney",
+      "loserId": "emilia-mernes",
+      "pairKey": "emilia-mernes::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:29:13.518Z"
+    },
+    {
+      "id": "1780662553518-0dbk5eu",
+      "tag": "Altura",
+      "winnerId": "sidney-sweeney",
+      "loserId": "clara-galle",
+      "pairKey": "clara-galle::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:29:13.518Z"
+    },
+    {
+      "id": "1780662553518-l3eonbc",
+      "tag": "Altura",
+      "winnerId": "sidney-sweeney",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:13.517Z"
+    },
+    {
+      "id": "1780662550581-gpswcq3",
+      "tag": "Altura",
+      "winnerId": "ana-de-armas",
+      "loserId": "clara-galle",
+      "pairKey": "ana-de-armas::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:10.581Z"
+    },
+    {
+      "id": "1780662547581-vf6rjtn",
+      "tag": "Altura",
+      "winnerId": "ana-de-armas",
+      "loserId": "emilia-mernes",
+      "pairKey": "ana-de-armas::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:07.581Z"
+    },
+    {
+      "id": "1780662546069-95i4pgs",
+      "tag": "Altura",
+      "winnerId": "ariana-grande",
+      "loserId": "becky-g",
+      "pairKey": "ariana-grande::becky-g",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:06.069Z"
+    },
+    {
+      "id": "1780662545061-k3dnxjf",
+      "tag": "Altura",
+      "winnerId": "ariana-grande",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::ariana-grande",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:05.061Z"
+    },
+    {
+      "id": "1780662544021-461jfoq",
+      "tag": "Altura",
+      "winnerId": "ariana-grande",
+      "loserId": "sidney-sweeney",
+      "pairKey": "ariana-grande::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:04.021Z"
+    },
+    {
+      "id": "1780662543077-sfdoruv",
+      "tag": "Altura",
+      "winnerId": "ariana-grande",
+      "loserId": "clara-galle",
+      "pairKey": "ariana-grande::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:03.077Z"
+    },
+    {
+      "id": "1780662542029-hsz1nwz",
+      "tag": "Altura",
+      "winnerId": "ariana-grande",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::ariana-grande",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:02.029Z"
+    },
+    {
+      "id": "1780662540885-dgodfym",
+      "tag": "Altura",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "becky-g",
+      "pairKey": "becky-g::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:29:00.885Z"
+    },
+    {
+      "id": "1780662539877-ohilaw1",
+      "tag": "Altura",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:28:59.877Z"
+    },
+    {
+      "id": "1780662538813-9ly40r2",
+      "tag": "Altura",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "sidney-sweeney",
+      "pairKey": "sabrina-carpenter::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:28:58.813Z"
+    },
+    {
+      "id": "1780662537677-o1uk6d2",
+      "tag": "Altura",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "clara-galle",
+      "pairKey": "clara-galle::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:28:57.677Z"
+    },
+    {
+      "id": "1780662536374-cdx5a1n",
+      "tag": "Altura",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:28:56.374Z"
+    },
+    {
+      "id": "1780662534846-82gvmkw",
+      "tag": "Altura",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "emilia-mernes",
+      "pairKey": "emilia-mernes::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:28:54.846Z"
+    },
+    {
+      "id": "1780662534845-1lcjdqp",
+      "tag": "Altura",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "ariana-grande",
+      "pairKey": "ariana-grande::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:28:54.845Z"
+    },
+    {
+      "id": "1780662533013-0ta0e6q",
+      "tag": "Altura",
+      "winnerId": "ariana-grande",
+      "loserId": "emilia-mernes",
+      "pairKey": "ariana-grande::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:28:53.013Z"
+    },
+    {
+      "id": "1780662531653-0xikiuc",
+      "tag": "Altura",
+      "winnerId": "nicki-nicole",
+      "loserId": "becky-g",
+      "pairKey": "becky-g::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:28:51.653Z"
+    },
+    {
+      "id": "1780662530773-fop52ks",
+      "tag": "Altura",
+      "winnerId": "nicki-nicole",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:28:50.773Z"
+    },
+    {
+      "id": "1780662529925-0eexb68",
+      "tag": "Altura",
+      "winnerId": "nicki-nicole",
+      "loserId": "sidney-sweeney",
+      "pairKey": "nicki-nicole::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:28:49.925Z"
+    },
+    {
+      "id": "1780662528997-do8rb2c",
+      "tag": "Altura",
+      "winnerId": "nicki-nicole",
+      "loserId": "clara-galle",
+      "pairKey": "clara-galle::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:28:48.997Z"
+    },
+    {
+      "id": "1780662528101-o1stycr",
+      "tag": "Altura",
+      "winnerId": "nicki-nicole",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:28:48.101Z"
+    },
+    {
+      "id": "1780662527157-n0dheym",
+      "tag": "Altura",
+      "winnerId": "nicki-nicole",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "nicki-nicole::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:28:47.157Z"
+    },
+    {
+      "id": "1780662525974-exzb1zi",
+      "tag": "Altura",
+      "winnerId": "nicki-nicole",
+      "loserId": "emilia-mernes",
+      "pairKey": "emilia-mernes::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:28:45.974Z"
+    },
+    {
+      "id": "1780662524381-kh5yzeq",
+      "tag": "Altura",
+      "winnerId": "nicki-nicole",
+      "loserId": "ariana-grande",
+      "pairKey": "ariana-grande::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:28:44.381Z"
+    },
+    {
+      "id": "1780662485510-81k85x1",
+      "tag": "Elegancia",
+      "winnerId": "clara-galle",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:28:05.510Z"
+    },
+    {
+      "id": "1780662483206-2xg1h21",
+      "tag": "Elegancia",
+      "winnerId": "becky-g",
+      "loserId": "emilia-mernes",
+      "pairKey": "becky-g::emilia-mernes",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:28:03.206Z"
+    },
+    {
+      "id": "1780662483206-64r4rix",
+      "tag": "Elegancia",
+      "winnerId": "becky-g",
+      "loserId": "nicki-nicole",
+      "pairKey": "becky-g::nicki-nicole",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:28:03.206Z"
+    },
+    {
+      "id": "1780662483206-mfrj8lj",
+      "tag": "Elegancia",
+      "winnerId": "becky-g",
+      "loserId": "clara-galle",
+      "pairKey": "becky-g::clara-galle",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:28:03.206Z"
+    },
+    {
+      "id": "1780662483206-bwhm7lf",
+      "tag": "Elegancia",
+      "winnerId": "becky-g",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::becky-g",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:28:03.206Z"
+    },
+    {
+      "id": "1780662483205-g72as8y",
+      "tag": "Elegancia",
+      "winnerId": "becky-g",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "becky-g::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:28:03.205Z"
+    },
+    {
+      "id": "1780662481413-ozvqahz",
+      "tag": "Elegancia",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:28:01.413Z"
+    },
+    {
+      "id": "1780662479341-qa8murg",
+      "tag": "Elegancia",
+      "winnerId": "anya-olsen",
+      "loserId": "emilia-mernes",
+      "pairKey": "anya-olsen::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:59.341Z"
+    },
+    {
+      "id": "1780662477421-jv1kgwd",
+      "tag": "Elegancia",
+      "winnerId": "anya-olsen",
+      "loserId": "nicki-nicole",
+      "pairKey": "anya-olsen::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:57.421Z"
+    },
+    {
+      "id": "1780662475541-fyoeimy",
+      "tag": "Elegancia",
+      "winnerId": "sidney-sweeney",
+      "loserId": "becky-g",
+      "pairKey": "becky-g::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:55.541Z"
+    },
+    {
+      "id": "1780662473509-axi4uo1",
+      "tag": "Elegancia",
+      "winnerId": "sidney-sweeney",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:53.509Z"
+    },
+    {
+      "id": "1780662471165-vjabmk8",
+      "tag": "Elegancia",
+      "winnerId": "sidney-sweeney",
+      "loserId": "nicki-nicole",
+      "pairKey": "nicki-nicole::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:27:51.166Z"
+    },
+    {
+      "id": "1780662471166-c2wv4m7",
+      "tag": "Elegancia",
+      "winnerId": "sidney-sweeney",
+      "loserId": "clara-galle",
+      "pairKey": "clara-galle::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:27:51.166Z"
+    },
+    {
+      "id": "1780662471165-x4dxtdr",
+      "tag": "Elegancia",
+      "winnerId": "sidney-sweeney",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "sabrina-carpenter::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:51.165Z"
+    },
+    {
+      "id": "1780662471165-iuuzsty",
+      "tag": "Elegancia",
+      "winnerId": "sidney-sweeney",
+      "loserId": "emilia-mernes",
+      "pairKey": "emilia-mernes::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:27:51.165Z"
+    },
+    {
+      "id": "1780662468854-z3hdqoc",
+      "tag": "Elegancia",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "clara-galle",
+      "pairKey": "clara-galle::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:48.854Z"
+    },
+    {
+      "id": "1780662467053-ekclxs7",
+      "tag": "Elegancia",
+      "winnerId": "clara-galle",
+      "loserId": "emilia-mernes",
+      "pairKey": "clara-galle::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:47.053Z"
+    },
+    {
+      "id": "1780662464718-wzax7a3",
+      "tag": "Elegancia",
+      "winnerId": "clara-galle",
+      "loserId": "nicki-nicole",
+      "pairKey": "clara-galle::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:44.718Z"
+    },
+    {
+      "id": "1780662457325-x9lxve2",
+      "tag": "Elegancia",
+      "winnerId": "ana-de-armas",
+      "loserId": "becky-g",
+      "pairKey": "ana-de-armas::becky-g",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:37.325Z"
+    },
+    {
+      "id": "1780662455550-br7duqs",
+      "tag": "Elegancia",
+      "winnerId": "ana-de-armas",
+      "loserId": "anya-olsen",
+      "pairKey": "ana-de-armas::anya-olsen",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:35.550Z"
+    },
+    {
+      "id": "1780662453773-v32af9m",
+      "tag": "Elegancia",
+      "winnerId": "ana-de-armas",
+      "loserId": "sidney-sweeney",
+      "pairKey": "ana-de-armas::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:33.773Z"
+    },
+    {
+      "id": "1780662448315-lzga4ve",
+      "tag": "Elegancia",
+      "winnerId": "ana-de-armas",
+      "loserId": "clara-galle",
+      "pairKey": "ana-de-armas::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:28.315Z"
+    },
+    {
+      "id": "1780662446222-kanwzjs",
+      "tag": "Elegancia",
+      "winnerId": "ana-de-armas",
+      "loserId": "emilia-mernes",
+      "pairKey": "ana-de-armas::emilia-mernes",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:27:26.222Z"
+    },
+    {
+      "id": "1780662446222-eo5sjqd",
+      "tag": "Elegancia",
+      "winnerId": "ana-de-armas",
+      "loserId": "nicki-nicole",
+      "pairKey": "ana-de-armas::nicki-nicole",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:27:26.222Z"
+    },
+    {
+      "id": "1780662446221-ogu3e87",
+      "tag": "Elegancia",
+      "winnerId": "ana-de-armas",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "ana-de-armas::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:26.221Z"
+    },
+    {
+      "id": "1780662444790-uw6lbej",
+      "tag": "Elegancia",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "nicki-nicole",
+      "pairKey": "nicki-nicole::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:27:24.790Z"
+    },
+    {
+      "id": "1780662444789-falrnfr",
+      "tag": "Elegancia",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "emilia-mernes",
+      "pairKey": "emilia-mernes::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:24.789Z"
+    },
+    {
+      "id": "1780662442797-j6rc1xx",
+      "tag": "Elegancia",
+      "winnerId": "emilia-mernes",
+      "loserId": "nicki-nicole",
+      "pairKey": "emilia-mernes::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:22.797Z"
+    },
+    {
+      "id": "1780662440309-5gki1pq",
+      "tag": "Elegancia",
+      "winnerId": "ariana-grande",
+      "loserId": "becky-g",
+      "pairKey": "ariana-grande::becky-g",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:20.309Z"
+    },
+    {
+      "id": "1780662439261-d06yxhx",
+      "tag": "Elegancia",
+      "winnerId": "ariana-grande",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::ariana-grande",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:19.261Z"
+    },
+    {
+      "id": "1780662438077-dvpz0sp",
+      "tag": "Elegancia",
+      "winnerId": "ariana-grande",
+      "loserId": "sidney-sweeney",
+      "pairKey": "ariana-grande::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:18.077Z"
+    },
+    {
+      "id": "1780662437117-xx8itsx",
+      "tag": "Elegancia",
+      "winnerId": "ariana-grande",
+      "loserId": "clara-galle",
+      "pairKey": "ariana-grande::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:17.117Z"
+    },
+    {
+      "id": "1780662436045-h61z7em",
+      "tag": "Elegancia",
+      "winnerId": "ariana-grande",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::ariana-grande",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:16.045Z"
+    },
+    {
+      "id": "1780662434757-48005cr",
+      "tag": "Elegancia",
+      "winnerId": "ariana-grande",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "ariana-grande::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:14.757Z"
+    },
+    {
+      "id": "1780662433181-rpv3c9m",
+      "tag": "Elegancia",
+      "winnerId": "ariana-grande",
+      "loserId": "emilia-mernes",
+      "pairKey": "ariana-grande::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:13.181Z"
+    },
+    {
+      "id": "1780662431797-crzb5m5",
+      "tag": "Elegancia",
+      "winnerId": "ariana-grande",
+      "loserId": "nicki-nicole",
+      "pairKey": "ariana-grande::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:11.797Z"
+    },
+    {
+      "id": "1780662420406-we9hhe5",
+      "tag": "Carisma",
+      "winnerId": "sidney-sweeney",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:27:00.406Z"
+    },
+    {
+      "id": "1780662418375-0xqnobw",
+      "tag": "Carisma",
+      "winnerId": "becky-g",
+      "loserId": "sidney-sweeney",
+      "pairKey": "becky-g::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:26:58.375Z"
+    },
+    {
+      "id": "1780662418375-jebys47",
+      "tag": "Carisma",
+      "winnerId": "becky-g",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::becky-g",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:26:58.375Z"
+    },
+    {
+      "id": "1780662418374-gho0dn4",
+      "tag": "Carisma",
+      "winnerId": "becky-g",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::becky-g",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:26:58.374Z"
+    },
+    {
+      "id": "1780662416878-nh5xvi0",
+      "tag": "Carisma",
+      "winnerId": "ana-de-armas",
+      "loserId": "anya-olsen",
+      "pairKey": "ana-de-armas::anya-olsen",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:26:56.878Z"
+    },
+    {
+      "id": "1780662408697-6w873qz",
+      "tag": "Carisma",
+      "winnerId": "ana-de-armas",
+      "loserId": "sidney-sweeney",
+      "pairKey": "ana-de-armas::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:26:48.697Z"
+    },
+    {
+      "id": "1780662385597-5nu37ko",
+      "tag": "Carisma",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "becky-g",
+      "pairKey": "becky-g::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:26:25.597Z"
+    },
+    {
+      "id": "1780662378237-a1wgwjj",
+      "tag": "Carisma",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:26:18.237Z"
+    },
+    {
+      "id": "1780662375725-saq96j8",
+      "tag": "Carisma",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "sidney-sweeney",
+      "pairKey": "sabrina-carpenter::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:26:15.725Z"
+    },
+    {
+      "id": "1780662370861-fwmoyet",
+      "tag": "Carisma",
+      "winnerId": "clara-galle",
+      "loserId": "becky-g",
+      "pairKey": "becky-g::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:26:10.861Z"
+    },
+    {
+      "id": "1780662369640-5fgmfgk",
+      "tag": "Carisma",
+      "winnerId": "clara-galle",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:26:09.640Z"
+    },
+    {
+      "id": "1780662367870-16v1n8p",
+      "tag": "Carisma",
+      "winnerId": "clara-galle",
+      "loserId": "sidney-sweeney",
+      "pairKey": "clara-galle::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:26:07.870Z"
+    },
+    {
+      "id": "1780662365806-8ipcfll",
+      "tag": "Carisma",
+      "winnerId": "clara-galle",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::clara-galle",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:26:05.806Z"
+    },
+    {
+      "id": "1780662365805-8t4l764",
+      "tag": "Carisma",
+      "winnerId": "clara-galle",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "clara-galle::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:26:05.805Z"
+    },
+    {
+      "id": "1780662364061-zlrntqy",
+      "tag": "Carisma",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:26:04.061Z"
+    },
+    {
+      "id": "1780662361589-a67m0me",
+      "tag": "Carisma",
+      "winnerId": "nicki-nicole",
+      "loserId": "becky-g",
+      "pairKey": "becky-g::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:26:01.589Z"
+    },
+    {
+      "id": "1780662360709-7ng23rg",
+      "tag": "Carisma",
+      "winnerId": "nicki-nicole",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:26:00.709Z"
+    },
+    {
+      "id": "1780662359869-jf52kk6",
+      "tag": "Carisma",
+      "winnerId": "nicki-nicole",
+      "loserId": "sidney-sweeney",
+      "pairKey": "nicki-nicole::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:59.869Z"
+    },
+    {
+      "id": "1780662358941-yd8u22p",
+      "tag": "Carisma",
+      "winnerId": "nicki-nicole",
+      "loserId": "clara-galle",
+      "pairKey": "clara-galle::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:58.941Z"
+    },
+    {
+      "id": "1780662357813-i289nme",
+      "tag": "Carisma",
+      "winnerId": "nicki-nicole",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:57.813Z"
+    },
+    {
+      "id": "1780662356693-vmbpqf3",
+      "tag": "Carisma",
+      "winnerId": "nicki-nicole",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "nicki-nicole::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:56.693Z"
+    },
+    {
+      "id": "1780662355045-d0mgkkv",
+      "tag": "Carisma",
+      "winnerId": "emilia-mernes",
+      "loserId": "becky-g",
+      "pairKey": "becky-g::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:55.045Z"
+    },
+    {
+      "id": "1780662353590-nx9t32m",
+      "tag": "Carisma",
+      "winnerId": "emilia-mernes",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:53.590Z"
+    },
+    {
+      "id": "1780662352613-nngvfug",
+      "tag": "Carisma",
+      "winnerId": "emilia-mernes",
+      "loserId": "sidney-sweeney",
+      "pairKey": "emilia-mernes::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:52.613Z"
+    },
+    {
+      "id": "1780662351693-7tst9sf",
+      "tag": "Carisma",
+      "winnerId": "emilia-mernes",
+      "loserId": "clara-galle",
+      "pairKey": "clara-galle::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:51.693Z"
+    },
+    {
+      "id": "1780662350621-xt79jfd",
+      "tag": "Carisma",
+      "winnerId": "emilia-mernes",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:50.621Z"
+    },
+    {
+      "id": "1780662349349-xuef9gv",
+      "tag": "Carisma",
+      "winnerId": "emilia-mernes",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "emilia-mernes::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:49.349Z"
+    },
+    {
+      "id": "1780662347805-e625ws8",
+      "tag": "Carisma",
+      "winnerId": "emilia-mernes",
+      "loserId": "nicki-nicole",
+      "pairKey": "emilia-mernes::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:47.805Z"
+    },
+    {
+      "id": "1780662344613-zqbah7p",
+      "tag": "Carisma",
+      "winnerId": "ariana-grande",
+      "loserId": "becky-g",
+      "pairKey": "ariana-grande::becky-g",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:44.613Z"
+    },
+    {
+      "id": "1780662343813-t017wvd",
+      "tag": "Carisma",
+      "winnerId": "ariana-grande",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::ariana-grande",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:43.813Z"
+    },
+    {
+      "id": "1780662343093-4e7h252",
+      "tag": "Carisma",
+      "winnerId": "ariana-grande",
+      "loserId": "sidney-sweeney",
+      "pairKey": "ariana-grande::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:43.093Z"
+    },
+    {
+      "id": "1780662342405-yt0hdkw",
+      "tag": "Carisma",
+      "winnerId": "ariana-grande",
+      "loserId": "clara-galle",
+      "pairKey": "ariana-grande::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:42.405Z"
+    },
+    {
+      "id": "1780662341710-w05r52p",
+      "tag": "Carisma",
+      "winnerId": "ariana-grande",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::ariana-grande",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:41.709Z"
+    },
+    {
+      "id": "1780662341005-2xr3mhv",
+      "tag": "Carisma",
+      "winnerId": "ariana-grande",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "ariana-grande::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:41.005Z"
+    },
+    {
+      "id": "1780662339757-69nb1ev",
+      "tag": "Carisma",
+      "winnerId": "ariana-grande",
+      "loserId": "emilia-mernes",
+      "pairKey": "ariana-grande::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:39.757Z"
+    },
+    {
+      "id": "1780662337541-s7fk8wh",
+      "tag": "Carisma",
+      "winnerId": "ariana-grande",
+      "loserId": "nicki-nicole",
+      "pairKey": "ariana-grande::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:37.541Z"
+    },
+    {
+      "id": "1780662326487-r2qqfng",
+      "tag": "Cabello",
+      "winnerId": "becky-g",
+      "loserId": "clara-galle",
+      "pairKey": "becky-g::clara-galle",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:25:26.487Z"
+    },
+    {
+      "id": "1780662326487-l828g7z",
+      "tag": "Cabello",
+      "winnerId": "becky-g",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::becky-g",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:25:26.487Z"
+    },
+    {
+      "id": "1780662326486-5p7lyrf",
+      "tag": "Cabello",
+      "winnerId": "becky-g",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::becky-g",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:26.486Z"
+    },
+    {
+      "id": "1780662323021-x4dyl8n",
+      "tag": "Cabello",
+      "winnerId": "anya-olsen",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::anya-olsen",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:23.021Z"
+    },
+    {
+      "id": "1780662323021-19gqr4v",
+      "tag": "Cabello",
+      "winnerId": "anya-olsen",
+      "loserId": "clara-galle",
+      "pairKey": "anya-olsen::clara-galle",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:25:23.021Z"
+    },
+    {
+      "id": "1780662321261-d5afwet",
+      "tag": "Cabello",
+      "winnerId": "ana-de-armas",
+      "loserId": "clara-galle",
+      "pairKey": "ana-de-armas::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:21.261Z"
+    },
+    {
+      "id": "1780662319229-g7t9nhz",
+      "tag": "Cabello",
+      "winnerId": "nicki-nicole",
+      "loserId": "becky-g",
+      "pairKey": "becky-g::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:19.229Z"
+    },
+    {
+      "id": "1780662319229-xtkdvll",
+      "tag": "Cabello",
+      "winnerId": "emilia-mernes",
+      "loserId": "becky-g",
+      "pairKey": "becky-g::emilia-mernes",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:25:19.229Z"
+    },
+    {
+      "id": "1780662319229-7zxqxkr",
+      "tag": "Cabello",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "becky-g",
+      "pairKey": "becky-g::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:25:19.229Z"
+    },
+    {
+      "id": "1780662317485-h2wom59",
+      "tag": "Cabello",
+      "winnerId": "nicki-nicole",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:17.485Z"
+    },
+    {
+      "id": "1780662317485-slpeuko",
+      "tag": "Cabello",
+      "winnerId": "emilia-mernes",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::emilia-mernes",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:25:17.485Z"
+    },
+    {
+      "id": "1780662317485-vlv5pm6",
+      "tag": "Cabello",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:25:17.485Z"
+    },
+    {
+      "id": "1780662316357-elxs1cf",
+      "tag": "Cabello",
+      "winnerId": "nicki-nicole",
+      "loserId": "clara-galle",
+      "pairKey": "clara-galle::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:16.357Z"
+    },
+    {
+      "id": "1780662316357-6t3v80j",
+      "tag": "Cabello",
+      "winnerId": "emilia-mernes",
+      "loserId": "clara-galle",
+      "pairKey": "clara-galle::emilia-mernes",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:25:16.357Z"
+    },
+    {
+      "id": "1780662315165-fy81pfx",
+      "tag": "Cabello",
+      "winnerId": "emilia-mernes",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::emilia-mernes",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:25:15.166Z"
+    },
+    {
+      "id": "1780662315165-cpioqa2",
+      "tag": "Cabello",
+      "winnerId": "nicki-nicole",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:15.165Z"
+    },
+    {
+      "id": "1780662313445-5yqi40h",
+      "tag": "Cabello",
+      "winnerId": "sidney-sweeney",
+      "loserId": "becky-g",
+      "pairKey": "becky-g::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:13.445Z"
+    },
+    {
+      "id": "1780662311597-m8y7ikl",
+      "tag": "Cabello",
+      "winnerId": "sidney-sweeney",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:11.597Z"
+    },
+    {
+      "id": "1780662308941-08jbi3n",
+      "tag": "Cabello",
+      "winnerId": "sidney-sweeney",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "sabrina-carpenter::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:08.941Z"
+    },
+    {
+      "id": "1780662308941-1eme43n",
+      "tag": "Cabello",
+      "winnerId": "sidney-sweeney",
+      "loserId": "nicki-nicole",
+      "pairKey": "nicki-nicole::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:25:08.941Z"
+    },
+    {
+      "id": "1780662308941-k3lm6ts",
+      "tag": "Cabello",
+      "winnerId": "sidney-sweeney",
+      "loserId": "emilia-mernes",
+      "pairKey": "emilia-mernes::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:25:08.941Z"
+    },
+    {
+      "id": "1780662308941-o0ht85x",
+      "tag": "Cabello",
+      "winnerId": "sidney-sweeney",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:25:08.941Z"
+    },
+    {
+      "id": "1780662308941-2b2i7g5",
+      "tag": "Cabello",
+      "winnerId": "sidney-sweeney",
+      "loserId": "clara-galle",
+      "pairKey": "clara-galle::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:25:08.941Z"
+    },
+    {
+      "id": "1780662306437-cznygw8",
+      "tag": "Cabello",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "clara-galle",
+      "pairKey": "clara-galle::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:06.437Z"
+    },
+    {
+      "id": "1780662304686-h5ssqp8",
+      "tag": "Cabello",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:04.686Z"
+    },
+    {
+      "id": "1780662302589-p6ok6wu",
+      "tag": "Cabello",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "emilia-mernes",
+      "pairKey": "emilia-mernes::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:25:02.589Z"
+    },
+    {
+      "id": "1780662302589-rnwpoyj",
+      "tag": "Cabello",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "nicki-nicole",
+      "pairKey": "nicki-nicole::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:25:02.589Z"
+    },
+    {
+      "id": "1780662298557-n4hu4pv",
+      "tag": "Cabello",
+      "winnerId": "emilia-mernes",
+      "loserId": "nicki-nicole",
+      "pairKey": "emilia-mernes::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:58.557Z"
+    },
+    {
+      "id": "1780662294989-jbhsbfz",
+      "tag": "Cabello",
+      "winnerId": "ariana-grande",
+      "loserId": "becky-g",
+      "pairKey": "ariana-grande::becky-g",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:54.989Z"
+    },
+    {
+      "id": "1780662293925-mpechvw",
+      "tag": "Cabello",
+      "winnerId": "ariana-grande",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::ariana-grande",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:53.925Z"
+    },
+    {
+      "id": "1780662293173-ve5ylqw",
+      "tag": "Cabello",
+      "winnerId": "ariana-grande",
+      "loserId": "sidney-sweeney",
+      "pairKey": "ariana-grande::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:53.173Z"
+    },
+    {
+      "id": "1780662292493-l3nmou6",
+      "tag": "Cabello",
+      "winnerId": "ariana-grande",
+      "loserId": "clara-galle",
+      "pairKey": "ariana-grande::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:52.493Z"
+    },
+    {
+      "id": "1780662291461-qvz87zn",
+      "tag": "Cabello",
+      "winnerId": "ariana-grande",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::ariana-grande",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:51.461Z"
+    },
+    {
+      "id": "1780662290317-rumqz3j",
+      "tag": "Cabello",
+      "winnerId": "ariana-grande",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "ariana-grande::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:50.317Z"
+    },
+    {
+      "id": "1780662288861-ix59miv",
+      "tag": "Cabello",
+      "winnerId": "ariana-grande",
+      "loserId": "emilia-mernes",
+      "pairKey": "ariana-grande::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:48.861Z"
+    },
+    {
+      "id": "1780662286925-qm0kv1o",
+      "tag": "Cabello",
+      "winnerId": "ariana-grande",
+      "loserId": "nicki-nicole",
+      "pairKey": "ariana-grande::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:46.925Z"
+    },
+    {
+      "id": "1780662279445-c5putya",
+      "tag": "Boca",
+      "winnerId": "clara-galle",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:39.445Z"
+    },
+    {
+      "id": "1780662276743-4u5yidq",
+      "tag": "Boca",
+      "winnerId": "sidney-sweeney",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:36.743Z"
+    },
+    {
+      "id": "1780662275086-rl7b5bk",
+      "tag": "Boca",
+      "winnerId": "sidney-sweeney",
+      "loserId": "clara-galle",
+      "pairKey": "clara-galle::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:35.086Z"
+    },
+    {
+      "id": "1780662272661-x3nkg3o",
+      "tag": "Boca",
+      "winnerId": "nicki-nicole",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:32.661Z"
+    },
+    {
+      "id": "1780662272661-z2e8w80",
+      "tag": "Boca",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:24:32.661Z"
+    },
+    {
+      "id": "1780662272661-j22ljmq",
+      "tag": "Boca",
+      "winnerId": "emilia-mernes",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::emilia-mernes",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:24:32.661Z"
+    },
+    {
+      "id": "1780662271262-amdjftl",
+      "tag": "Boca",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "sidney-sweeney",
+      "pairKey": "sabrina-carpenter::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:24:31.262Z"
+    },
+    {
+      "id": "1780662271262-mdnk65c",
+      "tag": "Boca",
+      "winnerId": "emilia-mernes",
+      "loserId": "sidney-sweeney",
+      "pairKey": "emilia-mernes::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:24:31.262Z"
+    },
+    {
+      "id": "1780662271261-uehci5a",
+      "tag": "Boca",
+      "winnerId": "nicki-nicole",
+      "loserId": "sidney-sweeney",
+      "pairKey": "nicki-nicole::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:31.261Z"
+    },
+    {
+      "id": "1780662268366-4fedo11",
+      "tag": "Boca",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "clara-galle",
+      "pairKey": "clara-galle::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:24:28.366Z"
+    },
+    {
+      "id": "1780662268366-k9agoqe",
+      "tag": "Boca",
+      "winnerId": "emilia-mernes",
+      "loserId": "clara-galle",
+      "pairKey": "clara-galle::emilia-mernes",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:24:28.366Z"
+    },
+    {
+      "id": "1780662268366-r4ie5rk",
+      "tag": "Boca",
+      "winnerId": "nicki-nicole",
+      "loserId": "clara-galle",
+      "pairKey": "clara-galle::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:28.365Z"
+    },
+    {
+      "id": "1780662266261-sbiishh",
+      "tag": "Boca",
+      "winnerId": "ana-de-armas",
+      "loserId": "anya-olsen",
+      "pairKey": "ana-de-armas::anya-olsen",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:26.261Z"
+    },
+    {
+      "id": "1780662265069-w9x66w1",
+      "tag": "Boca",
+      "winnerId": "ana-de-armas",
+      "loserId": "sidney-sweeney",
+      "pairKey": "ana-de-armas::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:25.069Z"
+    },
+    {
+      "id": "1780662263446-o9jdnrd",
+      "tag": "Boca",
+      "winnerId": "ana-de-armas",
+      "loserId": "clara-galle",
+      "pairKey": "ana-de-armas::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:23.446Z"
+    },
+    {
+      "id": "1780662261270-3pkhx2t",
+      "tag": "Boca",
+      "winnerId": "ana-de-armas",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "ana-de-armas::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:21.270Z"
+    },
+    {
+      "id": "1780662261270-xcbzufz",
+      "tag": "Boca",
+      "winnerId": "ana-de-armas",
+      "loserId": "emilia-mernes",
+      "pairKey": "ana-de-armas::emilia-mernes",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:24:21.270Z"
+    },
+    {
+      "id": "1780662261270-68trbwe",
+      "tag": "Boca",
+      "winnerId": "ana-de-armas",
+      "loserId": "nicki-nicole",
+      "pairKey": "ana-de-armas::nicki-nicole",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:24:21.270Z"
+    },
+    {
+      "id": "1780662257990-4ma6c21",
+      "tag": "Boca",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "nicki-nicole",
+      "pairKey": "nicki-nicole::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:24:17.990Z"
+    },
+    {
+      "id": "1780662257989-w2vg5jo",
+      "tag": "Boca",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "emilia-mernes",
+      "pairKey": "emilia-mernes::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:17.989Z"
+    },
+    {
+      "id": "1780662255973-5hj17bl",
+      "tag": "Boca",
+      "winnerId": "emilia-mernes",
+      "loserId": "nicki-nicole",
+      "pairKey": "emilia-mernes::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:15.973Z"
+    },
+    {
+      "id": "1780662250670-czacq1m",
+      "tag": "Boca",
+      "winnerId": "becky-g",
+      "loserId": "ariana-grande",
+      "pairKey": "ariana-grande::becky-g",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:10.670Z"
+    },
+    {
+      "id": "1780662250670-l8kn1tf",
+      "tag": "Boca",
+      "winnerId": "becky-g",
+      "loserId": "nicki-nicole",
+      "pairKey": "becky-g::nicki-nicole",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:24:10.670Z"
+    },
+    {
+      "id": "1780662250670-mieq2j7",
+      "tag": "Boca",
+      "winnerId": "becky-g",
+      "loserId": "emilia-mernes",
+      "pairKey": "becky-g::emilia-mernes",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:24:10.670Z"
+    },
+    {
+      "id": "1780662250670-cln26pn",
+      "tag": "Boca",
+      "winnerId": "becky-g",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "becky-g::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:24:10.670Z"
+    },
+    {
+      "id": "1780662250670-zq2d8h7",
+      "tag": "Boca",
+      "winnerId": "becky-g",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::becky-g",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:24:10.670Z"
+    },
+    {
+      "id": "1780662250670-x0u0i08",
+      "tag": "Boca",
+      "winnerId": "becky-g",
+      "loserId": "clara-galle",
+      "pairKey": "becky-g::clara-galle",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:24:10.670Z"
+    },
+    {
+      "id": "1780662250670-j0bn7v9",
+      "tag": "Boca",
+      "winnerId": "becky-g",
+      "loserId": "sidney-sweeney",
+      "pairKey": "becky-g::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:24:10.670Z"
+    },
+    {
+      "id": "1780662250670-16dnh3m",
+      "tag": "Boca",
+      "winnerId": "becky-g",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::becky-g",
+      "inherited": true,
+      "createdAt": "2026-06-05T12:24:10.670Z"
+    },
+    {
+      "id": "1780662248965-i8loc27",
+      "tag": "Boca",
+      "winnerId": "ariana-grande",
+      "loserId": "anya-olsen",
+      "pairKey": "anya-olsen::ariana-grande",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:08.965Z"
+    },
+    {
+      "id": "1780662247429-tu94pnc",
+      "tag": "Boca",
+      "winnerId": "ariana-grande",
+      "loserId": "sidney-sweeney",
+      "pairKey": "ariana-grande::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:07.429Z"
+    },
+    {
+      "id": "1780662245797-kc5ylvy",
+      "tag": "Boca",
+      "winnerId": "ariana-grande",
+      "loserId": "clara-galle",
+      "pairKey": "ariana-grande::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:05.797Z"
+    },
+    {
+      "id": "1780662243837-duv524d",
+      "tag": "Boca",
+      "winnerId": "ariana-grande",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::ariana-grande",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:03.837Z"
+    },
+    {
+      "id": "1780662241581-67olmmh",
+      "tag": "Boca",
+      "winnerId": "ariana-grande",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "ariana-grande::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:24:01.581Z"
+    },
+    {
+      "id": "1780662238805-tn8rozv",
+      "tag": "Boca",
+      "winnerId": "ariana-grande",
+      "loserId": "emilia-mernes",
+      "pairKey": "ariana-grande::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:23:58.805Z"
+    },
+    {
+      "id": "1780662236966-8jmuynh",
+      "tag": "Boca",
+      "winnerId": "ariana-grande",
+      "loserId": "nicki-nicole",
+      "pairKey": "ariana-grande::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-05T12:23:56.966Z"
+    },
+    {
       "id": "1780661827325-5flj7wa",
       "tag": "Ojos",
       "winnerId": "nicki-nicole",
