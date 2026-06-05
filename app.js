@@ -8,7 +8,7 @@ const GROUPS = [
 ];
 
 const EMPTY_FORM = {
-    name: '', birthDate: '', country: '', city: '', height: '', photo: '', group: 'cantantes'
+    name: '', birthDate: '', country: '', city: '', height: '', photo: '', group: 'cantantes', battlePhotos: {}
 };
 
 const STORAGE_KEY = 'supereliteg2-state-v1';
@@ -19,6 +19,13 @@ const RATINGS_DATA_URL = 'calificaciones.json';
 const BATTLES_DATA_URL = 'Batallas.json';
 const BATTLES_DOWNLOAD_FILENAME = 'Batallas.txt';
 const CHARACTERS_API_URL = '/api/characters';
+const BATTLE_PHOTO_ROLES = [
+    { id: 'face', label: 'Face', description: 'Rostro y etiquetas generales' },
+    { id: 'body', label: 'Body', description: 'Cintura y Cuerpo' },
+    { id: 'back', label: 'Back', description: 'Cola y Piernas' },
+    { id: 'boobs', label: 'Boobs', description: 'Pecho / Pechos' },
+    { id: 'sexy', label: 'Sexy', description: 'Sensualidad' },
+];
 
 const RATING_TAGS = [
     { id: 'facciones', label: 'Facciones' },
@@ -61,6 +68,25 @@ const getGroup = (id) => GROUPS.find(group => group.id === id) || GROUPS[0];
 const uid = () => `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
 const isGifSource = (src = '') => /^data:image\/gif/i.test(src) || /\.gif(?:[?#]|$)/i.test(src);
 const normalizeMediaType = (type, src = '') => isGifSource(src) ? 'gif' : (type === 'video' ? 'video' : 'image');
+const normalizeTextKey = (value = '') => String(value).trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+const isHeightBattleTag = (tag = '') => normalizeTextKey(tag) === 'altura';
+
+function getBattlePhotoRoleForTag(tag = '') {
+    const normalizedTag = normalizeTextKey(tag);
+    if (['cintura', 'cuerpo'].includes(normalizedTag)) return 'body';
+    if (['cola', 'piernas'].includes(normalizedTag)) return 'back';
+    if (['pecho', 'pechos'].includes(normalizedTag)) return 'boobs';
+    if (normalizedTag === 'sensualidad') return 'sexy';
+    return 'face';
+}
+
+function getBattlePhotoForCharacter(character, mediaItems = [], tag = '') {
+    const role = getBattlePhotoRoleForTag(tag);
+    const isSelectableImage = (item) => item && item.characterId === character.id && normalizeMediaType(item.type, item.src) !== 'video';
+    const selectedMedia = mediaItems.find(item => item.id === character?.battlePhotos?.[role] && isSelectableImage(item));
+    const faceMedia = role !== 'face' ? mediaItems.find(item => item.id === character?.battlePhotos?.face && isSelectableImage(item)) : null;
+    return { role, src: selectedMedia?.src || faceMedia?.src || character.photo || fallbackPhoto };
+}
 
 function calculateAge(dateString) {
     if (!dateString) return '';
@@ -87,6 +113,7 @@ function normalizeCharacter(character) {
         ...character,
         group: character.group === 'actriz' ? 'actrices' : character.group,
         id: character.id || uid(),
+        battlePhotos: character.battlePhotos && typeof character.battlePhotos === 'object' ? character.battlePhotos : {},
     };
 }
 
@@ -117,7 +144,7 @@ async function loadRatingsFromJson() {
 }
 
 function normalizeRatingKey(key = '') {
-    return String(key).trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    return normalizeTextKey(key);
 }
 
 function normalizeRatingValue(value) {
@@ -477,8 +504,8 @@ function App() {
 
     useEffect(() => {
         if (!isLoaded) return;
-        localStorage.setItem(STORAGE_KEY, JSON.stringify({ media, battleResults }));
-    }, [media, battleResults, isLoaded]);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({ characters, media, battleResults }));
+    }, [characters, media, battleResults, isLoaded]);
 
     const selectedGroup = view.groupId ? getGroup(view.groupId) : null;
     const selectedCharacter = view.characterId ? characters.find(character => character.id === view.characterId) : null;
@@ -543,6 +570,14 @@ function App() {
         setBattleResults(prev => addBattleResultWithInheritance(prev, { tag, winnerId, loserId, pairKey: getBattlePairKey(winnerId, loserId), createdAt: new Date().toISOString() }));
     };
 
+    const assignBattlePhoto = async (characterId, role, mediaId) => {
+        const nextCharacters = characters.map(character => character.id === characterId
+            ? { ...character, battlePhotos: { ...(character.battlePhotos || {}), [role]: mediaId } }
+            : character);
+        setCharacters(nextCharacters);
+        await persistCharacters(nextCharacters);
+    };
+
     const downloadRatings = () => downloadTextFile('calificaciones.txt', calculatedRatings);
     const downloadBattles = () => downloadTextFile(BATTLES_DOWNLOAD_FILENAME, { battles: battleResults });
 
@@ -554,11 +589,11 @@ function App() {
                 {persistenceStatus && <div className="metal-panel metal-shadow mb-5 rounded-2xl border border-cyan-400/50 p-4 font-bold text-cyan-100">{persistenceStatus}</div>}
                 {view.page === 'characters' && <GroupsScreen onOpenGroup={(groupId) => navigate({ page: 'group', groupId })} />}
                 {view.page === 'gallery' && <GeneralGallery items={mediaWithCharacters} settings={playbackSettings} onSettingsChange={updatePlaybackSettings} onPlay={() => openPlayer(mediaWithCharacters, 'Galería general')} />}
-                {view.page === 'battles' && <BattlesScreen characters={characters} mediaCountByCharacter={mediaCountByCharacter} ratings={calculatedRatings} battleResults={battleResults} onBattleResult={saveBattleResult} onDownloadRatings={downloadRatings} onDownloadBattles={downloadBattles} onOpenProfile={(id) => navigate({ page: 'profile', characterId: id })} />}
+                {view.page === 'battles' && <BattlesScreen characters={characters} media={media} mediaCountByCharacter={mediaCountByCharacter} ratings={calculatedRatings} battleResults={battleResults} onBattleResult={saveBattleResult} onDownloadRatings={downloadRatings} onDownloadBattles={downloadBattles} onOpenProfile={(id) => navigate({ page: 'profile', characterId: id })} />}
                 {view.page === 'ranking' && <RankingScreen characters={characters} mediaCountByCharacter={mediaCountByCharacter} ratings={calculatedRatings} onOpenProfile={(id) => navigate({ page: 'profile', characterId: id })} />}
                 {view.page === 'group' && <GroupScreen group={selectedGroup} characters={groupCharacters} onBack={() => navigate({ page: 'characters' })} onAdd={() => openNewCharacter(selectedGroup.id)} onOpen={(id) => navigate({ page: 'profile', characterId: id })} />}
                 {view.page === 'profile' && selectedCharacter && <ProfileScreen character={selectedCharacter} mediaCount={selectedCharacterMedia.length} onBack={() => navigate({ page: 'group', groupId: selectedCharacter.group })} onGallery={() => navigate({ page: 'characterGallery', characterId: selectedCharacter.id })} onEdit={() => openEditCharacter(selectedCharacter)} onDelete={() => deleteCharacter(selectedCharacter.id)} />}
-                {view.page === 'characterGallery' && selectedCharacter && <CharacterGallery character={selectedCharacter} items={selectedCharacterMedia} settings={playbackSettings} onSettingsChange={updatePlaybackSettings} onPlay={(items) => openPlayer(items, `Galería de ${selectedCharacter.name}`)} onBack={() => navigate({ page: 'profile', characterId: selectedCharacter.id })} onAdd={() => setMediaModal({ character: selectedCharacter })} />}
+                {view.page === 'characterGallery' && selectedCharacter && <CharacterGallery character={selectedCharacter} items={selectedCharacterMedia} settings={playbackSettings} onSettingsChange={updatePlaybackSettings} onPlay={(items) => openPlayer(items, `Galería de ${selectedCharacter.name}`)} onBack={() => navigate({ page: 'profile', characterId: selectedCharacter.id })} onAdd={() => setMediaModal({ character: selectedCharacter })} onAssignBattlePhoto={assignBattlePhoto} />}
             </main>
             {characterModal && <CharacterFormModal initial={characterModal.character} onClose={() => setCharacterModal(null)} onSave={saveCharacter} />}
             {mediaModal && <MediaFormModal character={mediaModal.character} onClose={() => setMediaModal(null)} onSave={saveMedia} />}
@@ -591,8 +626,11 @@ function NavButton({ active, onClick, children }) {
     return <button onClick={onClick} className={`metal-button rounded-xl px-4 py-3 font-black transition ${active ? 'bg-gradient-to-br from-cyan-200 via-white to-slate-300 text-zinc-950' : 'bg-gradient-to-br from-slate-700 via-slate-900 to-black text-white hover:bg-white/10'}`}>{children}</button>;
 }
 
-function BattleCard({ character, score, mediaCount, tag, onChooseWinner, onOpenProfile }) {
+function BattleCard({ character, score, mediaCount, tag, mediaItems, onChooseWinner, onOpenProfile }) {
     const group = getGroup(character.group);
+    const battlePhoto = getBattlePhotoForCharacter(character, mediaItems, tag);
+    const roleLabel = BATTLE_PHOTO_ROLES.find(role => role.id === battlePhoto.role)?.label || 'Face';
+    const showHeight = isHeightBattleTag(tag);
     const handleKeyDown = (event) => {
         if (event.key === 'Enter' || event.key === ' ') {
             event.preventDefault();
@@ -603,8 +641,10 @@ function BattleCard({ character, score, mediaCount, tag, onChooseWinner, onOpenP
     return (
         <article onClick={() => onChooseWinner(character.id)} onKeyDown={handleKeyDown} role="button" tabIndex="0" aria-label={`Dar como ganador a ${character.name} en ${tag}`} className={`battle-card metal-card metal-shadow illuminated-card cursor-pointer overflow-hidden rounded-[2rem] border-2 transition hover:-translate-y-1 hover:brightness-110 ${group.border}`}>
             <div className="battle-card-media relative h-80 bg-black/40">
-                <img src={character.photo || fallbackPhoto} alt={character.name} className="h-full w-full object-cover" />
+                <img src={battlePhoto.src} alt={`${character.name} - ${roleLabel}`} className="h-full w-full object-cover" />
                 <span className="battle-card-action absolute left-4 top-4 rounded-full border border-white/30 bg-black/65 px-4 py-2 text-sm font-black uppercase tracking-[.25em] text-cyan-100">Elegir ganador</span>
+                <span className="absolute right-4 top-4 rounded-full border border-cyan-200/40 bg-cyan-950/75 px-4 py-2 text-xs font-black uppercase tracking-[.2em] text-cyan-100">Foto {roleLabel}</span>
+                {showHeight && <div className="absolute bottom-4 left-4 right-4 rounded-3xl border border-white/25 bg-black/70 p-4 text-center backdrop-blur"><p className="text-xs font-black uppercase tracking-[.25em] text-cyan-100/75">Altura del perfil</p><p className="letter-relief mt-1 text-5xl">{character.height || '—'}</p></div>}
             </div>
             <div className="battle-card-body grid gap-4 p-5">
                 <div>
@@ -613,7 +653,7 @@ function BattleCard({ character, score, mediaCount, tag, onChooseWinner, onOpenP
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                     <Info label="Puntaje" value={Number.isFinite(score) ? score.toFixed(1) : '0.0'} />
-                    <Info label="Multimedia" value={mediaCount} />
+                    {showHeight ? <Info label="Altura" value={character.height || '—'} /> : <Info label="Multimedia" value={mediaCount} />}
                 </div>
                 <button onClick={(event) => { event.stopPropagation(); onOpenProfile(character.id); }} className="metal-button rounded-2xl bg-gradient-to-br from-fuchsia-400 via-purple-600 to-indigo-950 px-5 py-4 font-black">Ver ficha</button>
             </div>
@@ -621,7 +661,7 @@ function BattleCard({ character, score, mediaCount, tag, onChooseWinner, onOpenP
     );
 }
 
-function BattlesScreen({ characters, mediaCountByCharacter, ratings, battleResults, onBattleResult, onDownloadRatings, onDownloadBattles, onOpenProfile }) {
+function BattlesScreen({ characters, media, mediaCountByCharacter, ratings, battleResults, onBattleResult, onDownloadRatings, onDownloadBattles, onOpenProfile }) {
     const tags = useMemo(() => getBattleTags(ratings, battleResults), [ratings, battleResults]);
     const [selectedTag, setSelectedTag] = useState(tags[0] || 'Facciones');
 
@@ -674,12 +714,12 @@ function BattlesScreen({ characters, mediaCountByCharacter, ratings, battleResul
                     </div>
                     {contenders.length < 2 ? <EmptyState title="Etiqueta completada" text={`Ya se jugaron todas las batallas posibles en ${selectedTag}. Elige otra etiqueta para continuar.`} /> : (
                         <div className="battle-duel grid gap-5 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
-                            <BattleCard character={contenders[0]} tag={selectedTag} score={getRatingValue(ratings[contenders[0].id] || {}, selectedTag)} mediaCount={mediaCountByCharacter[contenders[0].id] || 0} onChooseWinner={chooseWinner} onOpenProfile={onOpenProfile} />
+                            <BattleCard character={contenders[0]} tag={selectedTag} mediaItems={media} score={getRatingValue(ratings[contenders[0].id] || {}, selectedTag)} mediaCount={mediaCountByCharacter[contenders[0].id] || 0} onChooseWinner={chooseWinner} onOpenProfile={onOpenProfile} />
                             <div className="vs-badge metal-panel metal-shadow chrome-border rounded-full px-8 py-6 text-center">
                                 <p className="cartoon-title text-6xl">VS</p>
                                 <p className="mt-1 text-xs font-black uppercase tracking-[.25em] text-cyan-100/80">{selectedTag}</p>
                             </div>
-                            <BattleCard character={contenders[1]} tag={selectedTag} score={getRatingValue(ratings[contenders[1].id] || {}, selectedTag)} mediaCount={mediaCountByCharacter[contenders[1].id] || 0} onChooseWinner={chooseWinner} onOpenProfile={onOpenProfile} />
+                            <BattleCard character={contenders[1]} tag={selectedTag} mediaItems={media} score={getRatingValue(ratings[contenders[1].id] || {}, selectedTag)} mediaCount={mediaCountByCharacter[contenders[1].id] || 0} onChooseWinner={chooseWinner} onOpenProfile={onOpenProfile} />
                         </div>
                     )}
                 </div>
@@ -821,13 +861,14 @@ function ProfileScreen({ character, mediaCount, onBack, onGallery, onEdit, onDel
     );
 }
 
-function CharacterGallery({ character, items, settings, onSettingsChange, onPlay, onBack, onAdd }) {
+function CharacterGallery({ character, items, settings, onSettingsChange, onPlay, onBack, onAdd, onAssignBattlePhoto }) {
     const galleryItems = items.map(item => ({ ...item, type: normalizeMediaType(item.type, item.src), character }));
     return (
         <section>
             <HeaderBar title={`Galería de ${character.name}`} onBack={onBack} actionLabel="Agregar archivo" onAction={onAdd} />
+            <BattlePhotoGuide battlePhotos={character.battlePhotos || {}} items={galleryItems} />
             <GalleryControls items={galleryItems} settings={settings} onSettingsChange={onSettingsChange} onPlay={() => onPlay(galleryItems)} />
-            <MediaGrid items={galleryItems} emptyText="Este personaje todavía no tiene multimedia." />
+            <MediaGrid items={galleryItems} emptyText="Este personaje todavía no tiene multimedia." battlePhotos={character.battlePhotos || {}} onAssignBattlePhoto={(role, mediaId) => onAssignBattlePhoto(character.id, role, mediaId)} />
         </section>
     );
 }
@@ -880,7 +921,24 @@ function PlaybackSettingsPanel({ settings, onSettingsChange, compact = false }) 
     );
 }
 
-function MediaGrid({ items, emptyText }) {
+function BattlePhotoGuide({ battlePhotos, items }) {
+    const selectedByRole = BATTLE_PHOTO_ROLES.map(role => {
+        const selectedItem = items.find(item => item.id === battlePhotos[role.id]);
+        return { ...role, selectedItem };
+    });
+
+    return (
+        <div className="metal-panel metal-shadow chrome-border mb-6 rounded-3xl p-5">
+            <p className="text-sm font-black uppercase tracking-[.25em] text-cyan-200">Fotos para batallas</p>
+            <p className="mt-1 text-sm font-semibold text-cyan-50/75">Marca una imagen de la galería como Face, Body, Back, Boobs o Sexy. Las batallas usarán la foto que corresponda a la etiqueta de competencia.</p>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+                {selectedByRole.map(role => <Info key={role.id} label={role.label} value={role.selectedItem ? 'Asignada' : 'Sin asignar'} />)}
+            </div>
+        </div>
+    );
+}
+
+function MediaGrid({ items, emptyText, battlePhotos = null, onAssignBattlePhoto = null }) {
     if (!items.length) return <EmptyState title="Galería vacía" text={emptyText} />;
     return (
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -888,6 +946,18 @@ function MediaGrid({ items, emptyText }) {
                 <figure key={item.id} className="metal-card metal-shadow illuminated-card overflow-hidden rounded-3xl border border-white/20">
                     {item.type === 'video' ? <video src={item.src} controls className="h-72 w-full bg-black object-cover" /> : <img src={item.src} alt={item.caption || item.character.name} className="h-72 w-full object-cover" />}
                     <figcaption className="letter-relief texture-text p-4 text-center text-2xl">{item.character.name}</figcaption>
+                    {onAssignBattlePhoto && (
+                        <div className="grid gap-2 border-t border-white/10 p-4">
+                            {item.type === 'video' ? <p className="text-center text-sm font-bold text-cyan-100/70">Solo las imágenes se pueden usar en tarjetas de batalla.</p> : (
+                                <div className="grid grid-cols-2 gap-2">
+                                    {BATTLE_PHOTO_ROLES.map(role => {
+                                        const active = battlePhotos?.[role.id] === item.id;
+                                        return <button key={role.id} onClick={() => onAssignBattlePhoto(role.id, item.id)} className={`rounded-xl border px-3 py-2 text-xs font-black uppercase tracking-[.16em] transition ${active ? 'border-cyan-200 bg-cyan-300 text-zinc-950' : 'border-white/15 bg-white/10 text-cyan-50 hover:bg-white/20'}`}>{active ? '✓ ' : ''}{role.label}</button>;
+                                    })}
+                                </div>
+                            )}
+                        </div>
+                    )}
                 </figure>
             ))}
         </div>
