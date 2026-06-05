@@ -1,124 +1,142 @@
 {
   "media": [
-    {
+     {
       "id": "m-ariana-1",
-      "characterId": "ariana-grande",
-      "src": "https://media.tenor.com/VSITn9fEIEgAAAAM/ass-hot.gif",
-      "type": "gif"
-    },
-    {
-      "id": "m-ariana-2",
       "characterId": "ariana-grande",
       "src": "Multimedia/arianagrandej (1).jpg",
       "type": "image"
     },
     {
-      "id": "m-ariana-3",
+      "id": "m-ariana-2",
       "characterId": "ariana-grande",
       "src": "Multimedia/arianagrandej (2).jpg",
       "type": "image"
     },
     {
-      "id": "m-ariana-4",
+      "id": "m-ariana-3",
       "characterId": "ariana-grande",
       "src": "Multimedia/arianagrandej (3).jpg",
       "type": "image"
     },
     {
-      "id": "m-ariana-5",
+      "id": "m-ariana-4",
       "characterId": "ariana-grande",
       "src": "Multimedia/arianagrandej (4).jpg",
       "type": "image"
     },
     {
-      "id": "m-ariana-6",
+      "id": "m-ariana-5",
       "characterId": "ariana-grande",
       "src": "Multimedia/arianagrandej (5).jpg",
       "type": "image"
     },
     {
-      "id": "m-ariana-7",
+      "id": "m-ariana-6",
       "characterId": "ariana-grande",
       "src": "Multimedia/arianagrandej (6).jpg",
       "type": "image"
     },
     {
-      "id": "m-ariana-8",
+      "id": "m-ariana-7",
       "characterId": "ariana-grande",
       "src": "Multimedia/arianagrandej (7).jpg",
       "type": "image"
     },
     {
-      "id": "m-ariana-9",
+      "id": "m-ariana-8",
       "characterId": "ariana-grande",
       "src": "Multimedia/arianagrandej (8).jpg",
       "type": "image"
     },
     {
-      "id": "m-ariana-10",
-      "characterId": "ariana-grande",
-      "src": "Multimedia/arianagrandeg (1).gif",
-      "type": "image"
-    },
-    {
-      "id": "m-ariana-11",
-      "characterId": "ariana-grande",
-      "src": "Multimedia/arianagrandeg (2).gif",
-      "type": "image"
-    },
-    {
-      "id": "m-ariana-12",
-      "characterId": "ariana-grande",
-      "src": "Multimedia/arianagrandeg (3).gif",
-      "type": "image"
-    },
-    {
-      "id": "m-ariana-13",
-      "characterId": "ariana-grande",
-      "src": "Multimedia/arianagrandeg (4).gif",
-      "type": "image"
-    },
-    {
-      "id": "m-ariana-14",
-      "characterId": "ariana-grande",
-      "src": "Multimedia/arianagrandeg (5).gif",
-      "type": "image"
-    },
-    {
-      "id": "m-ariana-15",
-      "characterId": "ariana-grande",
-      "src": "Multimedia/arianagrandeg (6).gif",
-      "type": "image"
-    },
-    {
-      "id": "m-ariana-16",
-      "characterId": "ariana-grande",
-      "src": "Multimedia/arianagrandeg (7).gif",
-      "type": "image"
-    },
-    {
-      "id": "m-ariana-17",
-      "characterId": "ariana-grande",
-      "src": "Multimedia/arianagrandeg (8).gif",
-      "type": "image"
-    },
-    {
-      "id": "m-ariana-18",
+      "id": "m-ariana-9",
       "characterId": "ariana-grande",
       "src": "Multimedia/arianagrandej (9).jpg",
       "type": "image"
     },
     {
-      "id": "m-ariana-19",
+      "id": "m-ariana-10",
       "characterId": "ariana-grande",
       "src": "Multimedia/arianagrandej (10).jpg",
       "type": "image"
     },
     {
-      "id": "m-ariana-20",
+      "id": "m-ariana-11",
       "characterId": "ariana-grande",
       "src": "Multimedia/arianagrandej (11).jpg",
       "type": "image"
+    },
+    {
+      "id": "m-ariana-12",
+      "characterId": "ariana-grande",
+      "src": "Multimedia/arianagrandej (12).jpg",
+      "type": "image"
+    },
+    {
+      "id": "m-ariana-13",
+      "characterId": "ariana-grande",
+      "src": "Multimedia/arianagrandej (13).jpg",
+      "type": "image"
+   },
+   {
+      "id": "m-ariana-14",
+      "characterId": "ariana-grande",
+      "src": "Multimedia/arianagrandej (14).jpg",
+      "type": "image"
+    },
+    {
+      "id": "m-ariana-15",
+      "characterId": "ariana-grande",
+      "src": "Multimedia/arianagrandeg (1).gif",
+      "type": "image"
+    },
+    {
+      "id": "m-ariana-16",
+      "characterId": "ariana-grande",
+      "src": "Multimedia/arianagrandeg (2).gif",
+      "type": "image"
+    },
+    {
+      "id": "m-ariana-17",
+      "characterId": "ariana-grande",
+      "src": "Multimedia/arianagrandeg (3).gif",
+      "type": "image"
+    },
+    {
+      "id": "m-ariana-18",
+      "characterId": "ariana-grande",
+      "src": "Multimedia/arianagrandeg (4).gif",
+      "type": "image"
+    },
+    {
+      "id": "m-ariana-19",
+      "characterId": "ariana-grande",
+      "src": "Multimedia/arianagrandeg (5).gif",
+      "type": "image"
+    },
+    {
+      "id": "m-ariana-20",
+      "characterId": "ariana-grande",
+      "src": "Multimedia/arianagrandeg (6).gif",
+      "type": "image"
+    },
+    {
+      "id": "m-ariana-21",
+      "characterId": "ariana-grande",
+      "src": "Multimedia/arianagrandeg (7).gif",
+      "type": "image"
+    },
+    {
+      "id": "m-ariana-22",
+      "characterId": "ariana-grande",
+      "src": "Multimedia/arianagrandeg (8).gif",
+      "type": "image"
+    },
+    {
+      "id": "m-ariana-23",
+      "characterId": "ariana-grande",
+      "src": "Multimedia/arianagrandev (1).mp4",
+      "type": "video"
     },
     {
       "id": "m-nicki-1",
@@ -132,55 +150,55 @@
       "src": "Multimedia/nickinicolej (2).jpg",
       "type": "image"
     },
-{
+    {
       "id": "m-nicki-3",
       "characterId": "nicki-nicole",
       "src": "Multimedia/nickinicolej (3).jpg",
       "type": "image"
     },
-{
+    {
       "id": "m-nicki-4",
       "characterId": "nicki-nicole",
       "src": "Multimedia/nickinicolej (4).jpg",
       "type": "image"
     },
-{
+    {
       "id": "m-nicki-5",
       "characterId": "nicki-nicole",
       "src": "Multimedia/nickinicolej (5).jpg",
       "type": "image"
     },
-{
+    {
       "id": "m-nicki-6",
       "characterId": "nicki-nicole",
       "src": "Multimedia/nickinicolej (6).jpg",
       "type": "image"
     },
-{
+    {
       "id": "m-nicki-7",
       "characterId": "nicki-nicole",
       "src": "Multimedia/nickinicolej (7).jpg",
       "type": "image"
     },
-{
+    {
       "id": "m-nicki-8",
       "characterId": "nicki-nicole",
       "src": "Multimedia/nickinicolej (8).jpg",
       "type": "image"
     },
-{
+    {
       "id": "m-nicki-9",
       "characterId": "nicki-nicole",
       "src": "Multimedia/nickinicolej (9).jpg",
       "type": "image"
     },
-{
+    {
       "id": "m-nicki-10",
       "characterId": "nicki-nicole",
       "src": "Multimedia/nickinicolej (10).jpg",
       "type": "image"
     },
-{
+    {
       "id": "m-nicki-11",
       "characterId": "nicki-nicole",
       "src": "Multimedia/nickinicolej (11).jpg",
@@ -199,42 +217,42 @@
       "type": "image"
     },
     {
-"id": "m-sabrina-1",
-"characterId": "sabrina-carpenter",
-"src": "Multimedia/sabrinacarpenterj (1).jpg",
-"type": "image"
-},
-{
-"id": "m-sabrina-2",
-"characterId": "sabrina-carpenter",
-"src": "Multimedia/sabrinacarpenterj (2).jpg",
-"type": "image"
-},
-{
-"id": "m-sabrina-3",
-"characterId": "sabrina-carpenter",
-"src": "Multimedia/sabrinacarpenterj (3).jpg",
-"type": "image"
-},
-{
-"id": "m-sabrina-4",
-"characterId": "sabrina-carpenter",
-"src": "Multimedia/sabrinacarpenterj (4).jpg",
-"type": "image"
-},
-{
-"id": "m-sabrina-5",
-"characterId": "sabrina-carpenter",
-"src": "Multimedia/sabrinacarpenterj (5).jpg",
-"type": "image"
-},
-{
-"id": "m-sabrina-6",
-"characterId": "sabrina-carpenter",
-"src": "Multimedia/sabrinacarpenterj (6).jpg",
-"type": "image"
-},
-{
+	"id": "m-sabrina-1",
+	"characterId": "sabrina-carpenter",
+	"src": "Multimedia/sabrinacarpenterj (1).jpg",
+	"type": "image"
+    },
+    {
+	"id": "m-sabrina-2",
+	"characterId": "sabrina-carpenter",
+	"src": "Multimedia/sabrinacarpenterj (2).jpg",
+	"type": "image"
+    },
+    {
+	"id": "m-sabrina-3",
+	"characterId": "sabrina-carpenter",
+	"src": "Multimedia/sabrinacarpenterj (3).jpg",
+	"type": "image"
+    },
+    {
+	"id": "m-sabrina-4",
+	"characterId": "sabrina-carpenter",
+	"src": "Multimedia/sabrinacarpenterj (4).jpg",
+	"type": "image"
+    },
+    {
+	"id": "m-sabrina-5",
+	"characterId": "sabrina-carpenter",
+	"src": "Multimedia/sabrinacarpenterj (5).jpg",
+	"type": "image"
+   },
+   {
+	"id": "m-sabrina-6",
+	"characterId": "sabrina-carpenter",
+	"src": "Multimedia/sabrinacarpenterj (6).jpg",
+	"type": "image"
+   },
+   {
 "id": "m-sabrina-7",
 "characterId": "sabrina-carpenter",
 "src": "Multimedia/sabrinacarpenterj (7).jpg",
@@ -396,50 +414,32 @@
 "src": "Multimedia/sabrinacarpenterg (9).gif",
 "type": "image"
 },
-{
-"id": "m-sabrina-34",
-"characterId": "sabrina-carpenter",
-"src": "Multimedia/sabrnaicarpenterg (10).gif",
-"type": "image"
-},
-{
-"id": "m-sabrina-35",
-"characterId": "sabrina-carpenter",
-"src": "Multimedia/sabrinacarpenterg (11).gif",
-"type": "image"
-},
-{
-"id": "m-sabrina-36",
-"characterId": "sabrina-carpenter",
-"src": "Multimedia/sabrinacarpenterg (12).gif",
-"type": "image"
-},
     {
-"id": "m-sabrina-37",
+"id": "m-sabrina-34",
 "characterId": "sabrina-carpenter",
 "src": "Multimedia/sabrinacarpenterv (1).mp4",
 "type": "video"
 },
 {
-"id": "m-sabrina-38",
+"id": "m-sabrina-35",
 "characterId": "sabrina-carpenter",
 "src": "Multimedia/sabrinacarpenterv (2).mp4",
 "type": "video"
 },
 {
-"id": "m-sabrina-39",
+"id": "m-sabrina-36",
 "characterId": "sabrina-carpenter",
 "src": "Multimedia/sabrinacarpenterv (3).mp4",
 "type": "video"
 },
 {
-"id": "m-sabrina-40",
+"id": "m-sabrina-37",
 "characterId": "sabrina-carpenter",
 "src": "Multimedia/sabrinacarpenterv (4).mp4",
 "type": "video"
 },
 {
-"id": "m-sabrina-41",
+"id": "m-sabrina-38",
 "characterId": "sabrina-carpenter",
 "src": "Multimedia/sabrinacarpenterv (5).mp4",
 "type": "video"

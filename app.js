@@ -18,13 +18,14 @@ const MEDIA_DATA_URL = 'media.json';
 const RATINGS_DATA_URL = 'calificaciones.json';
 const BATTLES_DATA_URL = 'Batallas.json';
 const BATTLES_DOWNLOAD_FILENAME = 'Batallas.txt';
+const BATTLE_PHOTOS_DATA_URL = 'battlePhotos.json';
 const CHARACTERS_API_URL = '/api/characters';
 const BATTLE_PHOTO_ROLES = [
-    { id: 'face', label: 'Face', description: 'Rostro y etiquetas generales' },
-    { id: 'body', label: 'Body', description: 'Cintura y Cuerpo' },
-    { id: 'back', label: 'Back', description: 'Cola y Piernas' },
-    { id: 'boobs', label: 'Boobs', description: 'Pecho / Pechos' },
-    { id: 'sexy', label: 'Sexy', description: 'Sensualidad' },
+    { id: 'face', label: '👩', description: 'Rostro y etiquetas generales' },
+    { id: 'body', label: '👙', description: 'Cintura y Cuerpo' },
+    { id: 'back', label: '🍑', description: 'Cola y Piernas' },
+    { id: 'boobs', label: '🍒', description: 'Pecho / Pechos' },
+    { id: 'sexy', label: '👄', description: 'Sensualidad' },
 ];
 
 const RATING_TAGS = [
@@ -139,6 +140,19 @@ async function loadRatingsFromJson() {
         return data && typeof data === 'object' ? data : {};
     } catch (error) {
         console.warn('No se pudo cargar calificaciones.json.', error);
+        return {};
+    }
+}
+
+// Nueva función para cargar la memoria global de fotos de batalla
+async function loadBattlePhotosFromJson() {
+    try {
+        const response = await fetch(BATTLE_PHOTOS_DATA_URL, { cache: 'no-store' });
+        if (!response.ok) return {};
+        const data = await response.json();
+        return data && typeof data === 'object' ? data : {};
+    } catch (error) {
+        console.warn('No se pudo cargar battlePhotos.json. Se usará la memoria local por defecto.', error);
         return {};
     }
 }
@@ -449,6 +463,7 @@ function App() {
             let jsonMedia = [];
             let jsonRatings = {};
             let jsonBattleResults = [];
+            let jsonBattlePhotos = {};
             let storedCharacters = [];
             let storedMedia = [];
             let storedBattleResults = [];
@@ -479,6 +494,12 @@ function App() {
             }
 
             try {
+                jsonBattlePhotos = await loadBattlePhotosFromJson();
+            } catch (error) {
+                console.error(error);
+            }
+
+            try {
                 const stored = localStorage.getItem(STORAGE_KEY);
                 if (stored) {
                     const parsed = JSON.parse(stored);
@@ -491,7 +512,22 @@ function App() {
             }
 
             if (!isMounted) return;
-            setCharacters(mergeCharacters(jsonCharacters, storedCharacters));
+            
+            // Unimos los personajes como siempre
+            let initialCharacters = mergeCharacters(jsonCharacters, storedCharacters);
+            
+            // Inyectamos automáticamente las fotos designadas desde battlePhotos.json si existen
+            if (Object.keys(jsonBattlePhotos).length > 0) {
+                initialCharacters = initialCharacters.map(char => ({
+                    ...char,
+                    battlePhotos: { 
+                        ...(char.battlePhotos || {}), 
+                        ...(jsonBattlePhotos[char.id] || {}) 
+                    }
+                }));
+            }
+
+            setCharacters(initialCharacters);
             setMedia(mergeMedia(jsonMedia, storedMedia));
             setRatings(jsonRatings);
             setBattleResults(mergeBattleResults(jsonBattleResults, storedBattleResults));
@@ -927,12 +963,52 @@ function BattlePhotoGuide({ battlePhotos, items }) {
         return { ...role, selectedItem };
     });
 
+    // Función para descargar el archivo JSON de memoria
+    const handleDownloadMemory = () => {
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(battlePhotos, null, 2));
+        const downloadAnchor = document.createElement('a');
+        downloadAnchor.setAttribute("href", dataStr);
+        
+        // Intenta obtener el ID del personaje dinámicamente para nombrar el archivo
+        const characterId = items?.[0]?.characterId || 'personaje';
+        downloadAnchor.setAttribute("download", `battle_photos_${characterId}.json`);
+        
+        document.body.appendChild(downloadAnchor);
+        downloadAnchor.click();
+        downloadAnchor.remove();
+    };
+
     return (
         <div className="metal-panel metal-shadow chrome-border mb-6 rounded-3xl p-5">
-            <p className="text-sm font-black uppercase tracking-[.25em] text-cyan-200">Fotos para batallas</p>
-            <p className="mt-1 text-sm font-semibold text-cyan-50/75">Marca una imagen de la galería como Face, Body, Back, Boobs o Sexy. Las batallas usarán la foto que corresponda a la etiqueta de competencia.</p>
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <p className="text-sm font-black uppercase tracking-[.25em] text-cyan-200">Fotos para batallas</p>
+                    <p className="mt-1 text-sm font-semibold text-cyan-50/75">Marca una imagen de la galería como Face, Body, Back, Boobs o Sexy. Las batallas usarán la foto que corresponda a la etiqueta de competencia.</p>
+                </div>
+                <button 
+                    onClick={handleDownloadMemory}
+                    className="metal-button rounded-xl bg-gradient-to-br from-slate-500 via-slate-800 to-black p-3 flex items-center justify-center text-xl shadow-md border border-white/10 hover:bg-white/20 transition-all duration-200 shrink-0 w-12 h-12"
+                    title="Descargar memoria de asignación JSON"
+                >
+                    ⬇️
+                </button>
+            </div>
             <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-                {selectedByRole.map(role => <Info key={role.id} label={role.label} value={role.selectedItem ? 'Asignada' : 'Sin asignar'} />)}
+                {selectedByRole.map(role => (
+                    <div 
+                        key={role.id} 
+                        className={`rounded-xl border p-3 text-center flex flex-col justify-center shadow-inner transition-all duration-300 ${
+                            role.selectedItem 
+                                ? 'bg-green-500/20 border-green-500/50 text-green-300 shadow-green-950/50' 
+                                : 'bg-red-500/20 border-red-500/50 text-red-300 shadow-red-950/50'
+                        }`}
+                    >
+                        <span className="text-xs font-bold uppercase tracking-wider text-white/60">{role.label}</span>
+                        <span className="mt-1 text-sm font-black uppercase tracking-wide">
+                            {role.selectedItem ? '🟢 Asignada' : '🔴 Sin asignar'}
+                        </span>
+                    </div>
+                ))}
             </div>
         </div>
     );
@@ -944,15 +1020,26 @@ function MediaGrid({ items, emptyText, battlePhotos = null, onAssignBattlePhoto 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {items.map(item => (
                 <figure key={item.id} className="metal-card metal-shadow illuminated-card overflow-hidden rounded-3xl border border-white/20">
-                    {item.type === 'video' ? <video src={item.src} controls className="h-72 w-full bg-black object-cover" /> : <img src={item.src} alt={item.caption || item.character.name} className="h-72 w-full object-cover" />}
+                    {item.type === 'video' ? <video src={item.src} controls className="aspect-square w-full bg-black/60 object-contain" /> : <img src={item.src} alt={item.caption || item.character.name} className="aspect-square w-full bg-black/60 object-contain" />}
                     <figcaption className="letter-relief texture-text p-4 text-center text-2xl">{item.character.name}</figcaption>
                     {onAssignBattlePhoto && (
                         <div className="grid gap-2 border-t border-white/10 p-4">
                             {item.type === 'video' ? <p className="text-center text-sm font-bold text-cyan-100/70">Solo las imágenes se pueden usar en tarjetas de batalla.</p> : (
-                                <div className="grid grid-cols-2 gap-2">
-                                    {BATTLE_PHOTO_ROLES.map(role => {
+                                <div className="flex flex-row items-center justify-center gap-1.5 flex-nowrap mt-2">
+                                        {BATTLE_PHOTO_ROLES.map(role => {
                                         const active = battlePhotos?.[role.id] === item.id;
-                                        return <button key={role.id} onClick={() => onAssignBattlePhoto(role.id, item.id)} className={`rounded-xl border px-3 py-2 text-xs font-black uppercase tracking-[.16em] transition ${active ? 'border-cyan-200 bg-cyan-300 text-zinc-950' : 'border-white/15 bg-white/10 text-cyan-50 hover:bg-white/20'}`}>{active ? '✓ ' : ''}{role.label}</button>;
+                                        return <button 
+                                                    key={role.id} 
+                                                    onClick={() => onAssignBattlePhoto(role.id, item.id)} 
+                                                    className={`rounded-xl border w-9 h-11 flex items-center justify-center text-xl transition-all duration-200 ${
+                                                        active 
+                                                            ? 'border-cyan-200 bg-cyan-300 text-zinc-950 scale-105 shadow-md shadow-cyan-300/30' 
+                                                            : 'border-white/15 bg-white/10 text-cyan-50 hover:bg-white/20 hover:scale-105'
+                                                    }`}
+                                                    title={role.label}
+                                                >
+                                                    {role.label}
+                                                </button>;
                                     })}
                                 </div>
                             )}
@@ -1059,13 +1146,13 @@ function MediaPlayer({ items, title, settings, onSettingsChange, onClose }) {
                 </div>
             </div>
             {showSettings && <div className="media-player-settings absolute right-4 top-28 z-20 w-[min(28rem,calc(100vw-2rem))]"><PlaybackSettingsPanel settings={settings} onSettingsChange={onSettingsChange} /></div>}
-            <div className="media-player-stage flex h-full w-full items-center justify-center">
-                {current.type === 'video' ? (
-                    <video ref={videoRef} key={current.id} src={current.src} controls autoPlay onEnded={goNext} className="media-player-content max-h-full max-w-full object-contain" />
-                ) : (
-                    <img key={current.id} src={current.src} alt={current.caption || current.character?.name || 'Multimedia'} className="media-player-content max-h-full max-w-full object-contain" />
-                )}
-            </div>
+            <div className="media-player-stage relative flex h-full min-h-[40rem] w-full flex-1 items-center justify-center p-4">
+                    {current.type === 'video' ? (
+                        <video key={current.src} ref={videoRef} src={current.src} autoPlay muted playsInline onEnded={goNext} className="media-player-content pointer-events-auto aspect-square max-h-[60vh] w-full max-w-xl rounded-[1.5rem] object-contain bg-black/60 shadow-2xl" />
+                    ) : (
+                        <img src={current.src} alt="" className="media-player-content pointer-events-auto aspect-square max-h-[60vh] w-full max-w-xl rounded-[1.5rem] object-contain bg-black/60 shadow-2xl" />
+                    )}
+                </div>
             <button onClick={goNext} className="media-next-button absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/15 px-5 py-6 text-4xl font-black backdrop-blur-md hover:bg-white/25" aria-label="Siguiente multimedia">›</button>
             {audioSrc && <audio ref={audioRef} src={audioSrc} loop controls className="media-player-audio absolute bottom-4 left-1/2 z-20 w-[min(36rem,calc(100vw-2rem))] -translate-x-1/2" />}
         </div>
