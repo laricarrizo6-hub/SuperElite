@@ -743,6 +743,132 @@
       "characterId": "becky-g",
       "src": "Multimedia/beckygv (10).mp4",
       "type": "video"
+    },
+    {
+      "id": "m-ana-1",
+      "characterId": "ana-de-armas",
+      "src": "Multimedia/anadearmasj (1).jpg",
+      "type": "image"
+    },
+    {
+      "id": "m-ana-2",
+      "characterId": "ana-de-armas",
+      "src": "Multimedia/anadearmasj (2).jpg",
+      "type": "image"
+    },
+    {
+      "id": "m-ana-3",
+      "characterId": "ana-de-armas",
+      "src": "Multimedia/anadearmasj (3).jpg",
+      "type": "image"
+    },
+    {
+      "id": "m-ana-4",
+      "characterId": "ana-de-armas",
+      "src": "Multimedia/anadearmasj (4).jpg",
+      "type": "image"
+    },
+    {
+      "id": "m-ana-5",
+      "characterId": "ana-de-armas",
+      "src": "Multimedia/anadearmasj (5).jpg",
+      "type": "image"
+    },
+    {
+      "id": "m-ana-6",
+      "characterId": "ana-de-armas",
+      "src": "Multimedia/anadearmasj (6).jpg",
+      "type": "image"
+    },
+    {
+      "id": "m-ana-7",
+      "characterId": "ana-de-armas",
+      "src": "Multimedia/anadearmasj (7).jpg",
+      "type": "image"
+    },
+    {
+      "id": "m-ana-8",
+      "characterId": "ana-de-armas",
+      "src": "Multimedia/anadearmasv (1).mp4",
+      "type": "video"
+    },
+    {
+      "id": "m-ana-9",
+      "characterId": "ana-de-armas",
+      "src": "Multimedia/anadearmasv (2).mp4",
+      "type": "video"
+    },
+    {
+      "id": "m-ana-10",
+      "characterId": "ana-de-armas",
+      "src": "Multimedia/anadearmasv (3).mp4",
+      "type": "video"
+    },
+    {
+      "id": "m-ana-11",
+      "characterId": "ana-de-armas",
+      "src": "Multimedia/anadearmasv (4).mp4",
+      "type": "video"
+    },
+    {
+      "id": "m-ana-12",
+      "characterId": "ana-de-armas",
+      "src": "Multimedia/anadearmasv (5).mp4",
+      "type": "video"
+    },
+    {
+      "id": "m-ana-13",
+      "characterId": "ana-de-armas",
+      "src": "Multimedia/anadearmasv (6).mp4",
+      "type": "video"
+    },
+    {
+      "id": "m-ana-14",
+      "characterId": "ana-de-armas",
+      "src": "Multimedia/anadearmasv (7).mp4",
+      "type": "video"
+    },
+    {
+      "id": "m-ana-15",
+      "characterId": "ana-de-armas",
+      "src": "Multimedia/anadearmasv (8).mp4",
+      "type": "video"
+    },
+    {
+      "id": "m-ana-16",
+      "characterId": "ana-de-armas",
+      "src": "Multimedia/anadearmasv (9).mp4",
+      "type": "video"
+    },
+    {
+      "id": "m-ana-17",
+      "characterId": "ana-de-armas",
+      "src": "Multimedia/anadearmasv (10).mp4",
+      "type": "video"
+    },
+    {
+      "id": "m-ana-18",
+      "characterId": "ana-de-armas",
+      "src": "Multimedia/anadearmasv (11).mp4",
+      "type": "video"
+    },
+    {
+      "id": "m-ana-19",
+      "characterId": "ana-de-armas",
+      "src": "Multimedia/anadearmasv (12).mp4",
+      "type": "video"
+    },
+    {
+      "id": "m-ana-20",
+      "characterId": "ana-de-armas",
+      "src": "Multimedia/anadearmasv (13).mp4",
+      "type": "video"
+    },
+    {
+      "id": "m-ana-21",
+      "characterId": "ana-de-armas",
+      "src": "Multimedia/anadearmasv (14).mp4",
+      "type": "video"
     }
   ]
 }
