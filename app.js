@@ -676,8 +676,8 @@ function BattleCard({ character, score, mediaCount, tag, mediaItems, onChooseWin
 
     return (
         <article onClick={() => onChooseWinner(character.id)} onKeyDown={handleKeyDown} role="button" tabIndex="0" aria-label={`Dar como ganador a ${character.name} en ${tag}`} className={`battle-card metal-card metal-shadow illuminated-card cursor-pointer overflow-hidden rounded-[2rem] border-2 transition hover:-translate-y-1 hover:brightness-110 ${group.border}`}>
-            <div className="battle-card-media relative h-80 bg-black/40">
-                <img src={battlePhoto.src} alt={`${character.name} - ${roleLabel}`} className="h-full w-full object-cover" />
+            <div className="battle-card-media relative h-80 bg-black/40 flex items-center justify-center p-2">
+                <img src={battlePhoto.src} alt={`${character.name} - ${roleLabel}`} className="h-full w-full object-contain" />
                 <span className="battle-card-action absolute left-4 top-4 rounded-full border border-white/30 bg-black/65 px-4 py-2 text-sm font-black uppercase tracking-[.25em] text-cyan-100">Elegir ganador</span>
                 <span className="absolute right-4 top-4 rounded-full border border-cyan-200/40 bg-cyan-950/75 px-4 py-2 text-xs font-black uppercase tracking-[.2em] text-cyan-100">Foto {roleLabel}</span>
                 {showHeight && <div className="absolute bottom-4 left-4 right-4 rounded-3xl border border-white/25 bg-black/70 p-4 text-center backdrop-blur"><p className="text-xs font-black uppercase tracking-[.25em] text-cyan-100/75">Altura del perfil</p><p className="letter-relief mt-1 text-5xl">{character.height || '—'}</p></div>}
