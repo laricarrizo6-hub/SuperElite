@@ -869,6 +869,90 @@
       "characterId": "ana-de-armas",
       "src": "Multimedia/anadearmasv (14).mp4",
       "type": "video"
+    },
+	  {
+      "id": "m-clara-1",
+      "characterId": "clara-galle",
+      "src": "Multimedia/claragallej (1).jpg",
+      "type": "image"
+    },
+    {
+      "id": "m-clara-2",
+      "characterId": "clara-galle",
+      "src": "Multimedia/claragallej (2).jpg",
+      "type": "image"
+    },
+    {
+      "id": "m-clara-3",
+      "characterId": "clara-galle",
+      "src": "Multimedia/claragallej (3).jpg",
+      "type": "image"
+    },
+    {
+      "id": "m-clara-4",
+      "characterId": "clara-galle",
+      "src": "Multimedia/claragallej (4).jpg",
+      "type": "image"
+    },
+    {
+      "id": "m-clara-5",
+      "characterId": "clara-galle",
+      "src": "Multimedia/claragallej (5).jpg",
+      "type": "image"
+    },
+    {
+      "id": "m-clara-6",
+      "characterId": "clara-galle",
+      "src": "Multimedia/claragallej (6).jpg",
+      "type": "image"
+    },
+    {
+      "id": "m-clara-7",
+      "characterId": "clara-galle",
+      "src": "Multimedia/claragallej (7).jpg",
+      "type": "image"
+    },
+    {
+      "id": "m-clara-8",
+      "characterId": "clara-galle",
+      "src": "Multimedia/claragallej (8).jpg",
+      "type": "image"
+    },
+    {
+      "id": "m-clara-9",
+      "characterId": "clara-galle",
+      "src": "Multimedia/claragallej (9).jpg",
+      "type": "image"
+    },
+    {
+      "id": "m-clara-10",
+      "characterId": "clara-galle",
+      "src": "Multimedia/claragallej (10).jpg",
+      "type": "image"
+    },
+    {
+      "id": "m-clara-11",
+      "characterId": "clara-galle",
+      "src": "Multimedia/claragallej (11).jpg",
+      "type": "image"
+    },
+    {
+      "id": "m-clara-12",
+      "characterId": "clara-galle",
+      "src": "Multimedia/claragallej (12).jpg",
+      "type": "image"
+    },
+    {
+      "id": "m-clara-13",
+      "characterId": "clara-galle",
+      "src": "Multimedia/claragallej (13).jpg",
+      "type": "image"
+    },
+    {
+      "id": "m-clara-14",
+      "characterId": "clara-galle",
+      "src": "Multimedia/claragallej (14).jpg",
+      "type": "image"
     }
   ]
 }
