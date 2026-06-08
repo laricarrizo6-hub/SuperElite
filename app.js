@@ -546,9 +546,9 @@ function App() {
     const selectedGroup = view.groupId ? getGroup(view.groupId) : null;
     const selectedCharacter = view.characterId ? characters.find(character => character.id === view.characterId) : null;
     const groupCharacters = selectedGroup ? characters.filter(character => character.group === selectedGroup.id) : [];
-    const selectedCharacterMedia = selectedCharacter ? media.filter(item => item.characterId === selectedCharacter.id) : [];
-    const mediaWithCharacters = useMemo(() => media.map(item => ({ ...item, type: normalizeMediaType(item.type, item.src), character: characters.find(character => character.id === item.characterId) })).filter(item => item.character), [media, characters]);
-    const mediaCountByCharacter = useMemo(() => media.reduce((counts, item) => ({ ...counts, [item.characterId]: (counts[item.characterId] || 0) + 1 }), {}), [media]);
+    const selectedCharacterMedia = selectedCharacter ? media.filter(item => item.characterId === selectedCharacter.id && item.src && item.src.trim() !== '') : [];
+    const mediaWithCharacters = useMemo(() => media.filter(item => item.src && item.src.trim() !== '').map(item => ({ ...item, type: normalizeMediaType(item.type, item.src), character: characters.find(character => character.id === item.characterId) })).filter(item => item.character), [media, characters]);
+    const mediaCountByCharacter = useMemo(() => media.filter(item => item.src && item.src.trim() !== '').reduce((counts, item) => ({ ...counts, [item.characterId]: (counts[item.characterId] || 0) + 1 }), {}), [media]);
     const battleTags = useMemo(() => getBattleTags(ratings, battleResults), [ratings, battleResults]);
     const calculatedRatings = useMemo(() => calculateBattleRatings(characters, battleResults, battleTags), [characters, battleResults, battleTags]);
 
