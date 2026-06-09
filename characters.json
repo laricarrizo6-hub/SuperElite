@@ -121,13 +121,23 @@
       "group": "actriz"
     },   
     {
-      "id": "dove-cameron",
-      "name": "Dove Cameron",
-      "birthDate": "1996-01-15",
+      "id": "dua-lipa",
+      "name": "Dua Lipa",
+      "birthDate": "1995-08-22",
+      "country": "Inglaterra",
+      "city": "Londres",
+      "height": "1,73 m",
+      "photo": "https://i.pinimg.com/736x/56/ec/9e/56ec9e7ab1edbc29e1b213f9b6e24e2c.jpg",
+      "group": "cantante"
+    },   
+    {
+      "id": "amanda-seyfried",
+      "name": "Amanda Seyfried",
+      "birthDate": "1985-12-03",
       "country": "Estados Unidos",
-      "city": "Washington",
-      "height": "1,57 m",
-      "photo": "https://static.wikia.nocookie.net/vengeance-series/images/e/ea/Dove_Cameron.jpg/revision/latest?cb=20180729163747&path-prefix=es",
+      "city": "Pensilvania",
+      "height": "1,6 m",
+      "photo": "https://hips.hearstapps.com/ellees.h-cdn.co/assets/15/37/768x999/768x999-6-11e6-a460-e1ac1866e8c1belleza-vip-amanda-seyfried-beauty-star-natural-8521970-1-esl-es-natural-jpg.jpg",
       "group": "actriz"
     }
   ]
