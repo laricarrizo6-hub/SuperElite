@@ -89,6 +89,26 @@
       "height": "1,53 m",
       "photo": "https://cdn-images.dzcdn.net/images/artist/4592b032de9d1393fcd1c32780755372/1900x1900-000000-80-0-0.jpg",
       "group": "cantantes"
-    }
+    },
+    {
+      "id": "ester-exposito ",
+      "name": "Ester Exposito",
+      "birthDate": "2000-01-26",
+      "country": "España",
+      "city": "Madrid",
+      "height": "1,66 m",
+      "photo": "https://i.pinimg.com/736x/51/b7/50/51b7501d123d4f173a9f330b6584880c.jpg",
+      "group": "actriz"
+    },   
+    {
+      "id": "vanessa-reinhardt ",
+      "name": "Vanessa Reinhardt",
+      "birthDate": "2003-02-24",
+      "country": "Alemania",
+      "city": "Berlín",
+      "height": "1,78 m",
+      "photo": "https://i.pinimg.com/736x/23/d4/ff/23d4ff700eaa4fe39d7182ac96c63c16.jpg",
+      "group": "nfsw"
+    },
   ]
 }
