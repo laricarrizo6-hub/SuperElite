@@ -65,6 +65,12 @@ const fallbackPhoto = 'data:image/svg+xml;utf8,' + encodeURIComponent(`
     </svg>
 `);
 
+const getCharacterPhotoSrc = (photo) => {
+    if (!photo) return fallbackPhoto;
+    if (photo.startsWith('http') || photo.startsWith('data:')) return photo;
+    return `photoPersonaje/${photo}`;
+};
+
 const todayISO = () => new Date().toISOString().slice(0, 10);
 const getGroup = (id) => GROUPS.find(group => group.id === id) || GROUPS[0];
 const uid = () => `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
@@ -87,7 +93,7 @@ function getBattlePhotoForCharacter(character, mediaItems = [], tag = '') {
     const isSelectableImage = (item) => item && item.characterId === character.id && normalizeMediaType(item.type, item.src) !== 'video';
     const selectedMedia = mediaItems.find(item => item.id === character?.battlePhotos?.[role] && isSelectableImage(item));
     const faceMedia = role !== 'face' ? mediaItems.find(item => item.id === character?.battlePhotos?.face && isSelectableImage(item)) : null;
-    return { role, src: selectedMedia?.src || faceMedia?.src || character.photo || fallbackPhoto };
+    return { role, src: selectedMedia?.src || faceMedia?.src || getCharacterPhotoSrc(character.photo) };
 }
 
 function calculateAge(dateString) {
@@ -795,9 +801,9 @@ function RankingScreen({ characters, mediaCountByCharacter, ratings, onOpenProfi
                         const group = getGroup(entry.character.group);
                         return (
                             <button key={entry.character.id} onClick={() => onOpenProfile(entry.character.id)} className="metal-card metal-shadow illuminated-card grid gap-4 rounded-3xl border border-white/20 p-4 text-left transition hover:-translate-y-1 sm:grid-cols-[auto_96px_1fr_auto] sm:items-center">
-                                <div className="cartoon-title text-5xl">#{index + 1}</div>
-                                <img src={entry.character.photo || fallbackPhoto} alt={entry.character.name} className="h-24 w-24 rounded-2xl object-cover" />
-                                <div>
+                            <div className="cartoon-title text-5xl">#{index + 1}</div>
+                            <img src={getCharacterPhotoSrc(entry.character.photo)} alt={entry.character.name} className="h-24 w-24 rounded-2xl object-cover" />
+                            <div>
                                     <p className="text-xs font-black uppercase tracking-[.25em]" style={{ color: group.color }}>{group.emoji} {group.label}</p>
                                     <h3 className="letter-relief texture-text mt-1 text-3xl uppercase">{entry.character.name}</h3>
                                 </div>
@@ -846,11 +852,11 @@ function GroupScreen({ group, characters, onBack, onAdd, onOpen }) {
 
 function CharacterCard({ character, onClick }) {
     const group = getGroup(character.group);
-    return (
+   return (
         <button onClick={onClick} className={`metal-card metal-shadow illuminated-card rounded-3xl border-2 ${group.border} ${group.glow} overflow-hidden text-left transition hover:-translate-y-1`} style={{ boxShadow: `0 0 0 1px ${group.color}55, 0 20px 50px rgba(0,0,0,.38), inset 0 1px 1px rgba(255,255,255,.35)` }}>
             {/* Contenedor adaptado con fondo oscuro y alineación al centro */}
             <div className="relative h-72 overflow-hidden bg-zinc-950/40 flex items-center justify-center p-2">
-                <img src={character.photo || fallbackPhoto} alt={character.name} className="h-full w-full object-contain" />
+                <img src={getCharacterPhotoSrc(character.photo)} alt={character.name} className="h-full w-full object-contain" />
             </div>
             <div className="metal-panel illuminated-card p-5 text-zinc-100 flex flex-col gap-2" style={{ background: `linear-gradient(135deg, rgba(255,255,255,.25), rgba(0,0,0,.45)), ${group.color}` }}>
                 <h3 className="letter-relief texture-text line-clamp-1 text-2xl uppercase tracking-tight">{character.name}</h3>
@@ -871,7 +877,7 @@ function ProfileScreen({ character, mediaCount, onBack, onGallery, onEdit, onDel
             <article className={`metal-card metal-shadow illuminated-card mx-auto max-w-4xl overflow-hidden rounded-[2rem] border-2 ${group.border}`}>
                 <div className="grid gap-0 md:grid-cols-[minmax(0,1fr)_1.2fr]">
                     <div className="bg-black/35 p-5">
-                        <img src={character.photo || fallbackPhoto} alt={character.name} className="h-[32rem] w-full rounded-[1.5rem] object-cover" />
+                        <img src={getCharacterPhotoSrc(character.photo)} alt={character.name} className="h-[32rem] w-full rounded-[1.5rem] object-cover" />
                     </div>
                     <div className="flex flex-col gap-6 p-6 md:p-8">
                         <div>
@@ -1191,7 +1197,7 @@ function CharacterFormModal({ initial, onClose, onSave }) {
                 <label className="grid gap-2 text-sm font-bold text-zinc-200">Foto desde dispositivo
                     <input type="file" accept="image/*" onChange={onFile} className="rounded-xl border border-white/20 bg-black/30 p-3 text-white shadow-inner outline-none focus:border-cyan-300" />
                 </label>
-                {form.photo && <img src={form.photo} alt="Vista previa" className="h-40 w-full rounded-2xl object-cover" />}
+                {form.photo && <img src={getCharacterPhotoSrc(form.photo)} alt="Vista previa" className="h-40 w-full rounded-2xl object-cover" />}
                 <label className="grid gap-2 text-sm font-bold text-zinc-200">Grupo designado
                     <select value={form.group} onChange={event => setField('group', event.target.value)} className="rounded-xl border border-white/20 bg-zinc-900 p-3 text-white shadow-inner outline-none focus:border-cyan-300">
                         {GROUPS.map(group => <option key={group.id} value={group.id}>{group.label}</option>)}
