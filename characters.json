@@ -289,6 +289,126 @@
       "height": "1,65 m",
       "photo": "https://i.pinimg.com/originals/12/e9/27/12e92774aeccc26a6b8fccf27334d56e.jpg",
       "group": "actriz"
-    }
+    },
+    {
+    "id": "ana-mena",
+    "name": "Ana Mena",
+    "birthDate": "1997-02-25",
+    "country": "España",
+    "city": "Estepona",
+    "height": "1,63 m",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5zFtX-9qJySzhOee6iVhKPYul7n_TFb-j3I17GbclSQ&s=10",
+    "group": "cantantes"
+  },
+  {
+    "id": "clara-ceschin",
+    "name": "Clara Ceschin",
+    "birthDate": "1996-01-20",
+    "country": "Argentina",
+    "city": "Mendoza",
+    "height": "1,65 m",
+    "photo": "https://media.losandes.com.ar/p/0b0f185a85bdc72a19eeca00c62a039e/adjuntos/368/imagenes/100/040/0100040141/1000x0/smart/clara-ceschin-la-elegida-arjona-abrir-su-show-velez.png",
+    "group": "cantantes"
+  },
+  {
+    "id": "olivia-rodrigo",
+    "name": "Olivia Rodrigo",
+    "birthDate": "2003-02-20",
+    "country": "Estados Unidos",
+    "city": "California",
+    "height": "1,65 m",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxy8Uhh8B1_-YWgK9CvQk6ceitAtYHJVVAQaoPAq_Ecg&s=10",
+    "group": "cantantes"
+  },
+  {
+    "id": "camila-cremaschi",
+    "name": "Camila Cremaschi",
+    "birthDate": "2002-04-10",
+    "country": "Argentina",
+    "city": "Mendoza",
+    "height": "1,62 m",
+    "photo": "https://media.listaindie.es/wp-content/uploads/2023/06/Clari-Cremaschi.png",
+    "group": "cantantes"
+  },
+  {
+    "id": "danelya",
+    "name": "Danelya",
+    "birthDate": "2006-07-18",
+    "country": "Kazajistán",
+    "city": "Almaty",
+    "height": "1,60 m",
+    "photo": "https://bookingagentinfo.com/wp-content/uploads/2024/02/ab6761610000e5eb2d3cb11f977bb4ef41b43ec2.jpg",
+    "group": "cantantes"
+  },
+  {
+    "id": "avril-lavigne",
+    "name": "Avril Lavigne",
+    "birthDate": "1984-09-27",
+    "country": "Canadá",
+    "city": "Belleville",
+    "height": "1,57 m",
+    "photo": "https://i.pinimg.com/474x/f9/16/06/f91606d1039063ed459a5263f0d1255c.jpg",
+    "group": "cantantes"
+  },
+  {
+    "id": "lali-esposito",
+    "name": "Lali Esposito",
+    "birthDate": "1991-10-10",
+    "country": "Argentina",
+    "city": "Buenos Aires",
+    "height": "1,54 m",
+    "photo": "https://tn.com.ar/resizer/v2/lali-se-mostro-al-natural-en-su-instagram-MDOECO52WMKP5R6JUI6QQRR53A.jpg?auth=6e3c81ce7e8fc665255ee189558e2e52c2d2e51f115f20caa02ac1f1adf51630&width=767",
+    "group": "cantantes"
+  },
+  {
+    "id": "sterre-koning",
+    "name": "Sterre Koning",
+    "birthDate": "2003-01-23",
+    "country": "Países Bajos",
+    "city": "Zutphen",
+    "height": "1,68 m",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmahMlq0qiOGgMgLNLbKLYYEB_2246a7uaJbH2QXFwy2QuPJhYER5Qdxrd&s=10",
+    "group": "cantantes"
+  },
+  {
+    "id": "angela-torres",
+    "name": "Angela Torres",
+    "birthDate": "1998-08-13",
+    "country": "Argentina",
+    "city": "Buenos Aires",
+    "height": "1,50 m",
+    "photo": "https://gcdn.emol.cl/espectaculo-argentino/files/2019/06/angela-torres.jpg",
+    "group": "cantantes"
+  },
+  {
+    "id": "meri-deal",
+    "name": "Meri Deal",
+    "birthDate": "1996-07-27",
+    "country": "Uruguay",
+    "city": "Montevideo",
+    "height": "1,72 m",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1ExF6x_kHyb59OvFCVjjYnRinOzGfwvWK_w8ffUDw4VlJBWJaqeE4AXRM&s=10",
+    "group": "cantantes"
+  },
+  {
+    "id": "mackenzie-porter",
+    "name": "Mackenzie Porter",
+    "birthDate": "1990-01-29",
+    "country": "Canadá",
+    "city": "Medicine Hat",
+    "height": "1,63 m",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRmzHrbKiwP_qxlgPTyMfXQ7D6ad8gUtAK4OB9q2EW7EV3jHn78rUqBpQ&s=10",
+    "group": "cantantes"
+  },
+  {
+    "id": "aitana",
+    "name": "Aitana",
+    "birthDate": "1999-06-27",
+    "country": "España",
+    "city": "Barcelona",
+    "height": "1,60 m",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoqi8SUvPMY26MdBjqkk70sEGPJSvaSDvxQLhLwiSv6Q&s=10",
+    "group": "cantantes"
+  }
   ]
 }
