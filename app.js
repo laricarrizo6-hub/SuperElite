@@ -5,6 +5,7 @@ const GROUPS = [
     { id: 'actrices', label: 'Actrices', singular: 'Actriz', emoji: '🎬', color: '#16a34a', button: 'from-green-400 via-green-600 to-green-900', border: 'border-green-400', glow: 'shadow-green-950/70' },
     { id: 'nsfw', label: 'NSFW', singular: 'NSFW', emoji: '🔥', color: '#dc2626', button: 'from-red-400 via-red-600 to-red-950', border: 'border-red-400', glow: 'shadow-red-950/70' },
     { id: 'otros', label: 'Otros', singular: 'Otro', emoji: '⭐', color: '#ca8a04', button: 'from-yellow-300 via-yellow-500 to-yellow-800', border: 'border-yellow-300', glow: 'shadow-yellow-950/70' },
+    { id: 'modelo', label: 'Modelos', singular: 'Modelo', emoji: '👠', color: '#ec4899', button: 'from-pink-400 via-pink-600 to-pink-900', border: 'border-pink-400', glow: 'shadow-pink-950/70' },
 ];
 
 const EMPTY_FORM = {
