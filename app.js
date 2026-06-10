@@ -66,7 +66,21 @@ const fallbackPhoto = 'data:image/svg+xml;utf8,' + encodeURIComponent(`
 
 const getCharacterPhotoSrc = (photo) => {
     if (!photo) return fallbackPhoto;
-    if (photo.startsWith('http') || photo.startsWith('data:')) return photo;
+
+    // URL externa o data URI
+    if (photo.startsWith('http') || photo.startsWith('data:')) {
+        return photo;
+    }
+
+    // Ruta local explícita
+    if (
+        photo.startsWith('multimedia/') ||
+        photo.startsWith('photoPersonaje/')
+    ) {
+        return photo;
+    }
+
+    // Compatibilidad con los personajes existentes
     return `photoPersonaje/${photo}`;
 };
 
