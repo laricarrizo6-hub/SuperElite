@@ -253,9 +253,11 @@ function getLatestDirectBattleForTag(battleResults, tag) {
 }
 
 function getNextOpponentAfterLastLoser(characters, battleResults, tag, championId, lastLoserId) {
-    const startIndex = Math.max(0, characters.findIndex(character => character.id === lastLoserId));
-    for (let offset = 1; offset <= characters.length; offset += 1) {
-        const candidate = characters[(startIndex + offset) % characters.length];
+    const startIndex = characters.findIndex(character => character.id === lastLoserId);
+    const total = characters.length;
+    for (let offset = 1; offset <= total; offset += 1) {
+        const currentIndex = (startIndex + offset) % total;
+        const candidate = characters[currentIndex];
         if (!candidate || candidate.id === championId) continue;
         if (!hasBattleResult(battleResults, tag, championId, candidate.id)) return candidate;
     }
