@@ -421,16 +421,6 @@
     "group": "nsfw"
   },
   {
-    "id": "fiamma-azul",
-    "name": "Fiamma Azul",
-    "birthDate": "2000-01-24",
-    "country": "Argentina",
-    "city": "Buenos Aires",
-    "height": "1,73 m",
-    "photo": "https://pbs.twimg.com/media/EyyQA9FVIAISeEG.jpg",
-    "group": "nsfw"
-  },
-  {
     "id": "neferet-exposito",
     "name": "Neferet Exposito",
     "birthDate": "1999-06-10",
