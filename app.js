@@ -728,14 +728,23 @@ function BattlesScreen({ characters, media, mediaCountByCharacter, ratings, batt
 
     const nextBattle = useMemo(() => getNextBattleForTag(characters, battleResults, selectedTag, availableBattles), [characters, battleResults, selectedTag, availableBattles]);
     const completedForTag = Math.max(0, (characters.length * (characters.length - 1)) / 2 - availableBattles.length);
-    const contenders = nextBattle || [];
-    const chooseWinner = (winnerId) => {
-        if (contenders.length < 2) return;
+    const contenders = useMemo(() => {
+        return nextBattle || [];
+    }, [nextBattle]);
+
+    // Memorizamos la función para que no se recree y evitar clics fantasma durante el lag
+    const chooseWinner = useCallback((winnerId) => {
+        if (!contenders || contenders.length < 2) return;
+        
         const loser = contenders.find(character => character.id !== winnerId);
         if (!loser) return;
-        onBattleResult({ tag: selectedTag, winnerId, loserId: loser.id });
-    };
-
+        
+        onBattleResult({ 
+            tag: selectedTag, 
+            winnerId: winnerId, 
+            loserId: loser.id 
+        });
+    }, [contenders, selectedTag, onBattleResult]);
     return (
         <section>
             <SectionTitle eyebrow="Arena Elite" title="Batallas" description={`Elige una etiqueta y toca la tarjeta ganadora. El ganador se queda para la siguiente batalla contra un nuevo rival, sin repetir parejas; las victorias heredadas se registran automáticamente y puedes descargar ${BATTLES_DOWNLOAD_FILENAME}.`} />
