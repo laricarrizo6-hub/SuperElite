@@ -74,7 +74,7 @@ const getCharacterPhotoSrc = (photo) => {
 
     // Ruta local explícita
     if (
-        photo.startsWith('multimedia/') ||
+        photo.startsWith('Multimedia/') ||
         photo.startsWith('photoPersonaje/')
     ) {
         return photo;
