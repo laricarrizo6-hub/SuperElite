@@ -1,5 +1,4 @@
-const { useEffect, useMemo, useRef, useState } = React;
-
+const { useEffect, useMemo, useRef, useState, useCallback } = React;
 const GROUPS = [
     { id: 'cantantes', label: 'Cantantes', singular: 'Cantante', emoji: '🎤', color: '#2563eb', button: 'from-blue-400 via-blue-600 to-blue-900', border: 'border-blue-400', glow: 'shadow-blue-950/70' },
     { id: 'actrices', label: 'Actrices', singular: 'Actriz', emoji: '🎬', color: '#16a34a', button: 'from-green-400 via-green-600 to-green-900', border: 'border-green-400', glow: 'shadow-green-950/70' },
