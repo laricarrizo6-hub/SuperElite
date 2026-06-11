@@ -1103,18 +1103,24 @@ function MediaPlayer({ items, title, settings, onSettingsChange, onClose }) {
     const [index, setIndex] = useState(0);
     const [playlist, setPlaylist] = useState(() => settings.shuffle ? shuffleItems(items) : items);
     const [showSettings, setShowSettings] = useState(false);
-    const [audioSrc, setAudioSrc] = useState('');
+    
+    // Estados para la música desde el JSON
+    const [audioList, setAudioList] = useState([]);
+    const [selectedAudio, setSelectedAudio] = useState("");
+
     const videoRef = useRef(null);
     const audioRef = useRef(null);
     const current = playlist[index] || playlist[0];
 
     const goNext = () => setIndex(prev => playlist.length ? (prev + 1) % playlist.length : 0);
 
+    // Efecto para barajar o reordenar la lista
     useEffect(() => {
         setPlaylist(settings.shuffle ? shuffleItems(items) : items);
         setIndex(0);
     }, [items, settings.shuffle]);
 
+    // Efecto para controlar los tiempos de reproducción de imágenes/videos/GIFs
     useEffect(() => {
         if (!current) return undefined;
         if (current.type === 'video') {
@@ -1128,21 +1134,29 @@ function MediaPlayer({ items, title, settings, onSettingsChange, onClose }) {
         return () => window.clearTimeout(timer);
     }, [current?.id, settings.interval, playlist.length]);
 
+    // Efecto para cargar la lista de audios al iniciar
+    useEffect(() => {
+        fetch('audio.json')
+            .then(res => res.json())
+            .then(data => {
+                setAudioList(data);
+                if (data && data.length > 0) {
+                    setSelectedAudio(data[0].src);
+                }
+            })
+            .catch(err => console.error("Error cargando audio.json:", err));
+    }, []);
+
+    // Efecto para controlar la reproducción automática cuando cambia la canción seleccionada
     useEffect(() => {
         if (!audioRef.current) return;
-        audioRef.current.play().catch(() => {});
-    }, [audioSrc]);
-
-    useEffect(() => () => {
-        if (audioSrc) URL.revokeObjectURL(audioSrc);
-    }, [audioSrc]);
-
-    const pickAudio = (event) => {
-        const file = event.target.files?.[0];
-        if (!file) return;
-        if (audioSrc) URL.revokeObjectURL(audioSrc);
-        setAudioSrc(URL.createObjectURL(file));
-    };
+        if (selectedAudio) {
+            audioRef.current.load(); // Carga la nueva pista limpiamente
+            audioRef.current.play().catch(() => {});
+        } else {
+            audioRef.current.pause(); // Si elige "Sin música", se pausa
+        }
+    }, [selectedAudio]);
 
     if (!current) return null;
 
@@ -1152,27 +1166,50 @@ function MediaPlayer({ items, title, settings, onSettingsChange, onClose }) {
                 <div className="media-player-info rounded-2xl bg-black/55 p-4 backdrop-blur-md">
                     <p className="text-xs font-black uppercase tracking-[.25em] text-cyan-200">{title}</p>
                     <h2 className="mt-1 text-2xl font-black">{current.character?.name || current.caption}</h2>
-                    <p className="text-sm font-semibold text-zinc-300">{index + 1} / {playlist.length} · {current.type === 'video' ? 'Video: avanza al finalizar' : current.type === 'gif' ? 'GIF: avanza al finalizar' : `${settings.interval}s por foto`}</p>
+                    <p className="text-sm font-semibold text-zinc-300">
+                        {index + 1} / {playlist.length} · {current.type === 'video' ? 'Video: avanza al finalizar' : current.type === 'gif' ? 'GIF: avanza al finalizar' : `${settings.interval}s por foto`}
+                    </p>
                 </div>
+                
                 <div className="media-player-controls flex flex-wrap justify-end gap-2">
-                    <label className="media-control-button cursor-pointer rounded-2xl bg-white/15 px-4 py-3 font-black backdrop-blur-md hover:bg-white/25">🎵 Sonido
-                        <input type="file" accept="audio/*" onChange={pickAudio} className="hidden" />
-                    </label>
+                    {/* Selector de música dinámico */}
+                    <select 
+                        value={selectedAudio || ""} 
+                        onChange={(e) => setSelectedAudio(e.target.value)}
+                        className="media-control-button cursor-pointer rounded-2xl bg-white/15 px-4 py-3 font-black backdrop-blur-md hover:bg-white/25 text-white bg-zinc-900/40 border-none outline-none appearance-none"
+                    >
+                        <option value="" style={{color: '#000'}}>🚫 Sin música</option>
+                        {audioList.map((audio, idx) => (
+                            <option key={idx} value={audio.src} style={{color: '#000'}}>
+                                🎵 {audio.name}
+                            </option>
+                        ))}
+                    </select>
+
                     <button onClick={() => onSettingsChange({ shuffle: !settings.shuffle })} className={`media-control-button rounded-2xl px-4 py-3 font-black backdrop-blur-md ${settings.shuffle ? 'bg-cyan-400 text-zinc-950' : 'bg-white/15 hover:bg-white/25'}`}>🔀</button>
                     <button onClick={() => setShowSettings(prev => !prev)} className="media-control-button rounded-2xl bg-white/15 px-4 py-3 font-black backdrop-blur-md hover:bg-white/25">⚙</button>
                     <button onClick={onClose} className="media-control-button rounded-2xl bg-red-600 px-4 py-3 font-black hover:bg-red-500">✕</button>
                 </div>
             </div>
-            {showSettings && <div className="media-player-settings absolute right-4 top-28 z-20 w-[min(28rem,calc(100vw-2rem))]"><PlaybackSettingsPanel settings={settings} onSettingsChange={onSettingsChange} /></div>}
-            <div className="media-player-stage relative flex h-full min-h-[40rem] w-full flex-1 items-center justify-center p-4">
-                    {current.type === 'video' ? (
-                        <video key={current.src} ref={videoRef} src={current.src} autoPlay muted playsInline onEnded={goNext} className="media-player-content pointer-events-auto aspect-square max-h-[60vh] w-full max-w-xl rounded-[1.5rem] object-contain bg-black/60 shadow-2xl" />
-                    ) : (
-                        <img src={current.src} alt="" className="media-player-content pointer-events-auto aspect-square max-h-[60vh] w-full max-w-xl rounded-[1.5rem] object-contain bg-black/60 shadow-2xl" />
-                    )}
+
+            {showSettings && (
+                <div className="media-player-settings absolute right-4 top-28 z-20 w-[min(28rem,calc(100vw-2rem))]">
+                    <PlaybackSettingsPanel settings={settings} onSettingsChange={onSettingsChange} />
                 </div>
+            )}
+
+            <div className="media-player-stage relative flex h-full min-h-[40rem] w-full flex-1 items-center justify-center p-4">
+                {current.type === 'video' ? (
+                    <video key={current.src} ref={videoRef} src={current.src} autoPlay muted playsInline onEnded={goNext} className="media-player-content pointer-events-auto aspect-square max-h-[60vh] w-full max-w-xl rounded-[1.5rem] object-contain bg-black/60 shadow-2xl" />
+                ) : (
+                    <img src={current.src} alt="" className="media-player-content pointer-events-auto aspect-square max-h-[60vh] w-full max-w-xl rounded-[1.5rem] object-contain bg-black/60 shadow-2xl" />
+                )}
+            </div>
+
             <button onClick={goNext} className="media-next-button absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/15 px-5 py-6 text-4xl font-black backdrop-blur-md hover:bg-white/25" aria-label="Siguiente multimedia">›</button>
-            {audioSrc && <audio ref={audioRef} src={audioSrc} loop controls className="media-player-audio absolute bottom-4 left-1/2 z-20 w-[min(36rem,calc(100vw-2rem))] -translate-x-1/2" />}
+            
+            {/* Etiqueta de audio siempre lista y controlada por React */}
+            <audio ref={audioRef} src={selectedAudio || ""} loop />
         </div>
     );
 }
