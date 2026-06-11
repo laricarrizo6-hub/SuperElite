@@ -947,6 +947,10 @@ function GalleryControls({ items, settings, onSettingsChange, onPlay }) {
                     <p className="text-sm font-black uppercase tracking-[.25em] text-cyan-200">Reproductor multimedia</p>
                     <p className="mt-1 text-sm font-semibold text-zinc-400">{items.length} archivo(s) listos para reproducción automática.</p>
                 </div>
+                <div className="flex flex-wrap gap-3">
+                    <button disabled={isEmpty} onClick={onPlay} className="metal-shadow rounded-2xl bg-gradient-to-br from-emerald-300 via-emerald-600 to-emerald-950 px-5 py-3 font-black disabled:cursor-not-allowed disabled:opacity-40">▶ Play</button>
+                    <button onClick={() => setShowSettings(prev => !prev)} className="metal-shadow rounded-2xl bg-gradient-to-br from-zinc-200 via-zinc-500 to-zinc-900 px-5 py-3 font-black">⚙ Configuración</button>
+                </div>
             </div>
             {showSettings && <PlaybackSettingsPanel settings={settings} onSettingsChange={onSettingsChange} compact />}
         </div>
