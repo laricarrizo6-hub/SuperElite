@@ -521,22 +521,10 @@ function App() {
                 console.error(error);
             }
 
-            try {
-                const stored = localStorage.getItem(STORAGE_KEY);
-                if (stored) {
-                    const parsed = JSON.parse(stored);
-                    storedCharacters = parsed.characters || [];
-                    storedMedia = parsed.media || [];
-                    storedBattleResults = Array.isArray(parsed.battleResults) ? parsed.battleResults : [];
-                }
-            } catch (error) {
-                console.error('No se pudo leer localStorage:', error);
-            }
-
             if (!isMounted) return;
             
-            // Unimos los personajes como siempre
-            let initialCharacters = mergeCharacters(jsonCharacters, storedCharacters);
+            // Unimos los personajes omitiendo los datos guardados en local
+            let initialCharacters = mergeCharacters(jsonCharacters, []);
             
             // Inyectamos automáticamente las fotos designadas desde battlePhotos.json si existen
             if (Object.keys(jsonBattlePhotos).length > 0) {
@@ -550,9 +538,9 @@ function App() {
             }
 
             setCharacters(initialCharacters);
-            setMedia(mergeMedia(jsonMedia, storedMedia));
+            setMedia(mergeMedia(jsonMedia, []));
             setRatings(jsonRatings);
-            setBattleResults(mergeBattleResults(jsonBattleResults, storedBattleResults));
+            setBattleResults(mergeBattleResults(jsonBattleResults, []));
             setIsLoaded(true);
         }
 
@@ -561,9 +549,8 @@ function App() {
     }, []);
 
     useEffect(() => {
-        if (!isLoaded) return;
-        localStorage.setItem(STORAGE_KEY, JSON.stringify({ characters, media, battleResults }));
-    }, [characters, media, battleResults, isLoaded]);
+        // Desactivado el guardado en localStorage para depender únicamente de los archivos JSON
+    }, [isLoaded]);
 
     const selectedGroup = view.groupId ? getGroup(view.groupId) : null;
     const selectedCharacter = view.characterId ? characters.find(character => character.id === view.characterId) : null;
