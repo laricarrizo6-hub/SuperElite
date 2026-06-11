@@ -1127,6 +1127,48 @@
       "characterId": "sidney-sweeney",
       "src": "Multimedia/sidneysweeneyv (8).mp4",
       "type": "video"
+    },
+	  {
+      "id": "m-ester-1",
+      "characterId": "ester-exposito",
+      "src": "Multimedia/esterexpositoj (1).jpg",
+      "type": "image"
+    }, {
+      "id": "m-ester-2",
+      "characterId": "ester-exposito",
+      "src": "Multimedia/esterexpositoj (2).jpg",
+      "type": "image"
+    },
+     {
+      "id": "m-ester-3",
+      "characterId": "ester-exposito",
+      "src": "Multimedia/esterexpositoj (3).jpg",
+      "type": "image"
+    }, {
+      "id": "m-ester-4",
+      "characterId": "ester-exposito",
+      "src": "Multimedia/esterexpositoj (4).jpg",
+      "type": "image"
+    }, {
+      "id": "m-ester-5",
+      "characterId": "ester-exposito",
+      "src": "Multimedia/esterexpositoj (5).jpg",
+      "type": "image"
+    }, {
+      "id": "m-ester-6",
+      "characterId": "ester-exposito",
+      "src": "Multimedia/esterexpositoj (6).jpg",
+      "type": "image"
+    }, {
+      "id": "m-ester-7",
+      "characterId": "ester-exposito",
+      "src": "Multimedia/esterexpositoj (7).jpg",
+      "type": "image"
+    }, {
+      "id": "m-ester-1",
+      "characterId": "ester-exposito",
+      "src": "Multimedia/esterexpositoj (1).gif",
+      "type": "image"
     }
   ]
 }
