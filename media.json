@@ -853,6 +853,12 @@
       "type": "video"
     },
 	  {
+      "id": "m-ana-22",
+      "characterId": "ana-de-armas",
+      "src": "Multimedia/anadearmasv (15).mp4",
+      "type": "video"
+    },
+	  {
       "id": "m-clara-1",
       "characterId": "clara-galle",
       "src": "Multimedia/claragallej (1).jpg",
@@ -935,6 +941,18 @@
       "characterId": "clara-galle",
       "src": "Multimedia/claragallej (14).jpg",
       "type": "image"
+    },
+	  {
+      "id": "m-clara-15",
+      "characterId": "clara-galle",
+      "src": "Multimedia/claragallev (1).mp4",
+      "type": "video"
+    },
+	  {
+      "id": "m-clara-16",
+      "characterId": "clara-galle",
+      "src": "Multimedia/claragallev (2).mp4",
+      "type": "video"
     },
     {
       "id": "m-sidney-1",
@@ -1109,6 +1127,41 @@
       "characterId": "sidney-sweeney",
       "src": "Multimedia/sidneysweeneyv (8).mp4",
       "type": "video"
+    },{
+      "id": "m-sidney-30",
+      "characterId": "sidney-sweeney",
+      "src": "Multimedia/sidneysweeneyv (9).mp4",
+      "type": "video"
+    },{
+      "id": "m-sidney-31",
+      "characterId": "sidney-sweeney",
+      "src": "Multimedia/sidneysweeneyv (10).mp4",
+      "type": "video"
+    },{
+      "id": "m-sidney-32",
+      "characterId": "sidney-sweeney",
+      "src": "Multimedia/sidneysweeneyv (11).mp4",
+      "type": "video"
+    },{
+      "id": "m-sidney-33",
+      "characterId": "sidney-sweeney",
+      "src": "Multimedia/sidneysweeneyv (12).mp4",
+      "type": "video"
+    },{
+      "id": "m-sidney-34",
+      "characterId": "sidney-sweeney",
+      "src": "Multimedia/sidneysweeneyv (13).mp4",
+      "type": "video"
+    },{
+      "id": "m-sidney-35",
+      "characterId": "sidney-sweeney",
+      "src": "Multimedia/sidneysweeneyv (14).mp4",
+      "type": "video"
+    },{
+      "id": "m-sidney-36",
+      "characterId": "sidney-sweeney",
+      "src": "Multimedia/sidneysweeneyv (15).mp4",
+      "type": "video"
     },
 	  {
       "id": "m-ester-1",
@@ -1147,10 +1200,50 @@
       "src": "Multimedia/esterexpositoj (7).jpg",
       "type": "image"
     }, {
-      "id": "m-ester-1",
+      "id": "m-ester-8",
       "characterId": "ester-exposito",
       "src": "Multimedia/esterexpositoj (1).gif",
       "type": "image"
+    }, {
+      "id": "m-ester-9",
+      "characterId": "ester-exposito",
+      "src": "Multimedia/esterexpositov (1).mp4",
+      "type": "video"
+    }, {
+      "id": "m-ester-10",
+      "characterId": "ester-exposito",
+      "src": "Multimedia/esterexpositov (2).mp4",
+      "type": "video"
+    }, {
+      "id": "m-ester-11",
+      "characterId": "ester-exposito",
+      "src": "Multimedia/esterexpositov (3).mp4",
+      "type": "video"
+    }, {
+      "id": "m-ester-12",
+      "characterId": "ester-exposito",
+      "src": "Multimedia/esterexpositov (4).mp4",
+      "type": "video"
+    }, {
+      "id": "m-ester-13",
+      "characterId": "ester-exposito",
+      "src": "Multimedia/esterexpositov (5).mp4",
+      "type": "video"
+    }, {
+      "id": "m-ester-14",
+      "characterId": "ester-exposito",
+      "src": "Multimedia/esterexpositov (6).mp4",
+      "type": "video"
+    }, {
+      "id": "m-ester-15",
+      "characterId": "ester-exposito",
+      "src": "Multimedia/esterexpositov (7).mp4",
+      "type": "video"
+    }, {
+      "id": "m-ester-16",
+      "characterId": "ester-exposito",
+      "src": "Multimedia/esterexpositov (8).mp4",
+      "type": "video"
     }
   ]
 }
