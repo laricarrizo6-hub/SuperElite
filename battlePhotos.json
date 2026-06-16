@@ -52,6 +52,42 @@
   "boobs": "m-ester-5",
   "body": "m-ester-1",
   "sexy": "m-ester-6"
+},
+  "ana-mena":{
+  "body": "m-anamena-4",
+  "boobs": "m-anamena-1",
+  "sexy": "m-anamena-2",
+  "back": "m-anamena-3"
+},
+  "angela-torres"{
+  "sexy": "m-angela-2",
+  "back": "m-angela-6",
+  "body": "m-angela-3",
+  "boobs": "m-angela-5"
+},
+  "avril-lavigne"{
+  "boobs": "m-avril-6",
+  "back": "m-avril-11",
+  "sexy": "m-avril-9",
+  "body": "m-avril-4"
+},
+  "clara-ceschin" {
+  "back": "m-clara-4",
+  "body": "m-clara-3",
+  "boobs": "m-clara-1",
+  "sexy": "m-clara-7"
+},
+  "dua-lipa"{
+  "sexy": "m-dua-5",
+  "back": "m-dua-17",
+  "boobs": "m-dua-29",
+  "body": "m-dua-28"
+},
+  "olivia-rodrigo"{
+  "back": "m-olivia-11",
+  "body": "m-olivia-5",
+  "boobs": "m-olivia-2",
+  "sexy": "m-olivia-3"
 }
 }
 
