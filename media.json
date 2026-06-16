@@ -1244,7 +1244,7 @@
       "characterId": "ester-exposito",
       "src": "Multimedia/esterexpositov (8).mp4",
       "type": "video"
-    },[
+    },
   {
     "id": "m-dua-1",
     "characterId": "dua-lipa",
@@ -1725,6 +1725,6 @@
     "src": "Multimedia/avrillavignej (13).jpg",
     "type": "image"
   }
-]
+
   ]
 }
