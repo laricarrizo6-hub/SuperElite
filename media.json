@@ -1767,6 +1767,132 @@
     "characterId": "clara-ceschin",
     "src": "Multimedia/claraceschinj (7).jpg",
     "type": "image"
+  },
+	  {
+    "id": "m-aitana-1",
+    "characterId": "aitana",
+    "src": "Multimedia/aitanaj (1).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-aitana-2",
+    "characterId": "aitana",
+    "src": "Multimedia/aitanaj (2).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-aitana-3",
+    "characterId": "aitana",
+    "src": "Multimedia/aitanaj (3).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-aitana-4",
+    "characterId": "aitana",
+    "src": "Multimedia/aitanaj (4).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-aitana-5",
+    "characterId": "aitana",
+    "src": "Multimedia/aitanaj (5).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-aitana-6",
+    "characterId": "aitana",
+    "src": "Multimedia/aitanaj (6).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-aitana-7",
+    "characterId": "aitana",
+    "src": "Multimedia/aitanaj (7).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-aitana-8",
+    "characterId": "aitana",
+    "src": "Multimedia/aitanaj (8).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-aitana-9",
+    "characterId": "aitana",
+    "src": "Multimedia/aitanaj (9).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-aitana-10",
+    "characterId": "aitana",
+    "src": "Multimedia/aitanaj (10).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-aitana-11",
+    "characterId": "aitana",
+    "src": "Multimedia/aitanaj (11).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-aitana-12",
+    "characterId": "aitana",
+    "src": "Multimedia/aitanaj (12).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-aitana-13",
+    "characterId": "aitana",
+    "src": "Multimedia/aitanaj (13).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-aitana-14",
+    "characterId": "aitana",
+    "src": "Multimedia/aitanaj (14).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-aitana-15",
+    "characterId": "aitana",
+    "src": "Multimedia/aitanaj (15).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-aitana-16",
+    "characterId": "aitana",
+    "src": "Multimedia/aitanaj (16).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-aitana-17",
+    "characterId": "aitana",
+    "src": "Multimedia/aitanaj (17).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-aitana-18",
+    "characterId": "aitana",
+    "src": "Multimedia/aitanaj (18).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-aitana-19",
+    "characterId": "aitana",
+    "src": "Multimedia/aitanaj (19).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-aitana-20",
+    "characterId": "aitana",
+    "src": "Multimedia/aitanaj (20).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-aitana-21",
+    "characterId": "aitana",
+    "src": "Multimedia/aitanav.mp4",
+    "type": "video"
   }
   ]
 }
