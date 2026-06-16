@@ -1724,7 +1724,49 @@
     "characterId": "avril-lavigne",
     "src": "Multimedia/avrillavignej (13).jpg",
     "type": "image"
+  },
+  {
+    "id": "m-clara-1",
+    "characterId": "clara-ceschin",
+    "src": "Multimedia/claraceschinj (1).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-clara-2",
+    "characterId": "clara-ceschin",
+    "src": "Multimedia/claraceschinj (2).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-clara-3",
+    "characterId": "clara-ceschin",
+    "src": "Multimedia/claraceschinj (3).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-clara-4",
+    "characterId": "clara-ceschin",
+    "src": "Multimedia/claraceschinj (4).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-clara-5",
+    "characterId": "clara-ceschin",
+    "src": "Multimedia/claraceschinj (5).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-clara-6",
+    "characterId": "clara-ceschin",
+    "src": "Multimedia/claraceschinj (6).jpg",
+    "type": "image"
   }
-
+,
+  {
+    "id": "m-clara-7",
+    "characterId": "clara-ceschin",
+    "src": "Multimedia/claraceschinj (7).jpg",
+    "type": "image"
+  }
   ]
 }
