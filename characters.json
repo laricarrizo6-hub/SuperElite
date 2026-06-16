@@ -331,16 +331,6 @@
     "group": "cantantes"
   },
   {
-    "id": "danelya",
-    "name": "Danelya",
-    "birthDate": "2006-07-18",
-    "country": "Kazajistán",
-    "city": "Almaty",
-    "height": "1,60 m",
-    "photo": "https://bookingagentinfo.com/wp-content/uploads/2024/02/ab6761610000e5eb2d3cb11f977bb4ef41b43ec2.jpg",
-    "group": "cantantes"
-  },
-  {
     "id": "avril-lavigne",
     "name": "Avril Lavigne",
     "birthDate": "1984-09-27",
@@ -361,16 +351,6 @@
     "group": "cantantes"
   },
   {
-    "id": "sterre-koning",
-    "name": "Sterre Koning",
-    "birthDate": "2003-01-23",
-    "country": "Países Bajos",
-    "city": "Zutphen",
-    "height": "1,68 m",
-    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmahMlq0qiOGgMgLNLbKLYYEB_2246a7uaJbH2QXFwy2QuPJhYER5Qdxrd&s=10",
-    "group": "cantantes"
-  },
-  {
     "id": "angela-torres",
     "name": "Angela Torres",
     "birthDate": "1998-08-13",
@@ -378,26 +358,6 @@
     "city": "Buenos Aires",
     "height": "1,50 m",
     "photo": "https://gcdn.emol.cl/espectaculo-argentino/files/2019/06/angela-torres.jpg",
-    "group": "cantantes"
-  },
-  {
-    "id": "meri-deal",
-    "name": "Meri Deal",
-    "birthDate": "1996-07-27",
-    "country": "Uruguay",
-    "city": "Montevideo",
-    "height": "1,72 m",
-    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1ExF6x_kHyb59OvFCVjjYnRinOzGfwvWK_w8ffUDw4VlJBWJaqeE4AXRM&s=10",
-    "group": "cantantes"
-  },
-  {
-    "id": "mackenzie-porter",
-    "name": "Mackenzie Porter",
-    "birthDate": "1990-01-29",
-    "country": "Canadá",
-    "city": "Medicine Hat",
-    "height": "1,63 m",
-    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRmzHrbKiwP_qxlgPTyMfXQ7D6ad8gUtAK4OB9q2EW7EV3jHn78rUqBpQ&s=10",
     "group": "cantantes"
   },
   {
@@ -511,15 +471,6 @@
     "group": "modelo"
   },
   {
-    "id": "victoria-dallier",
-    "name": "Victoria Dallier",
-    "birthDate": "1997-01-13",
-    "country": "Perú",
-    "city": "Lima",
-    "height": "",
-    "photo": "https://cdn-pro.elsalvador.com/wp-content/uploads/2025/04/Victoria-Dallier-Azevedo-Be-Awards.jpg",
-    "group": "modelo"
-  },{
     "id": "soledad-fandino",
     "name": "Soledad Fandiño",
     "birthDate": "1982-04-07",
@@ -559,16 +510,7 @@
     "photo": "https://i.scdn.co/image/ab67616d0000b2734ad6e765027b3e1fb182e158",
     "group": "modelo"
   },
-  {
-    "id": "tuli-acosta",
-    "name": "Tuli Acosta",
-    "birthDate": "2001-06-21",
-    "country": "Argentina",
-    "city": "Córdoba",
-    "height": "1,50 m",
-    "photo": "https://robertoramasso.com/wp-content/uploads/tuliacosta_ramsso.jpg",
-    "group": "modelo"
-  },
+ 
   {
     "id": "georgina-rodriguez",
     "name": "Georgina Rodriguez",
