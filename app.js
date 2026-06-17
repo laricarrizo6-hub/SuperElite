@@ -6,6 +6,8 @@ const GROUPS = [
     { id: 'otros', label: 'Otros', singular: 'Otro', emoji: '📖', color: '#ffffff', button: 'from-slate-100 via-slate-300 to-slate-500', border: 'border-slate-300', glow: 'shadow-slate-800/50' },
     { id: 'modelo', label: 'Modelos', singular: 'Modelo', emoji: '👠', color: '#ec4899', button: 'from-pink-400 via-pink-600 to-pink-900', border: 'border-pink-400', glow: 'shadow-pink-950/70' },
     { id: 'influencer', label: 'Influencers', singular: 'Influencer', emoji: '📱', color: '#eab308', button: 'from-yellow-400 via-yellow-600 to-yellow-900', border: 'border-yellow-400', glow: 'shadow-yellow-950/70' },
+    { id: 'bailarina', label: 'Bailarinas', singular: 'Bailarina', emoji: '🩰', color: '#a855f7', button: 'from-purple-400 via-purple-600 to-purple-900', border: 'border-purple-400', glow: 'shadow-purple-950/70' },
+    { id: 'atleta', label: 'Atletas', singular: 'Atleta', emoji: '⚽', color: '#f97316', button: 'from-orange-400 via-orange-600 to-orange-900', border: 'border-orange-400', glow: 'shadow-orange-950/70' },
 ];
 
 const EMPTY_FORM = {
@@ -267,8 +269,12 @@ function getLatestDirectBattleForTag(battleResults, tag) {
 }
 
 function getNextOpponentAfterLastLoser(characters, battleResults, tag, championId, lastLoserId) {
-    const startIndex = characters.findIndex(character => character.id === lastLoserId);
+    let startIndex = characters.findIndex(character => character.id === lastLoserId);
+    if (startIndex === -1) startIndex = 0; // Evita errores si el perdedor ya no es elegible
+    
     const total = characters.length;
+    if (total === 0) return null;
+    
     for (let offset = 1; offset <= total; offset += 1) {
         const currentIndex = (startIndex + offset) % total;
         const candidate = characters[currentIndex];
@@ -715,25 +721,41 @@ function BattlesScreen({ characters, media, mediaCountByCharacter, ratings, batt
         if (!tags.includes(selectedTag)) setSelectedTag(tags[0] || 'Facciones');
     }, [tags, selectedTag]);
 
+    // Filtramos para que solo compitan los que tengan asignada una foto para EL ROL ESPECÍFICO de esta etiqueta
+    const eligibleCharacters = useMemo(() => {
+        const role = getBattlePhotoRoleForTag(selectedTag);
+        return characters.filter(character => {
+            // Si la categoría requiere el rostro ('face'), le permitimos competir 
+            // tanto si tiene una battlePhoto elegida como si tiene una foto de perfil asignada
+            if (role === 'face') {
+                const tieneFotoPerfil = character.photo;
+                const tieneFotoBatallaFace = character.battlePhotos && character.battlePhotos.face;
+                return tieneFotoBatallaFace || tieneFotoPerfil;
+            }
+            
+            // Para cualquier otro rol (body, back, etc.), sigue requiriendo la foto específica
+            return character.battlePhotos && character.battlePhotos[role];
+        });
+    }, [characters, selectedTag]);
+
     const availableBattles = useMemo(() => {
         const battles = [];
-        for (let firstIndex = 0; firstIndex < characters.length; firstIndex += 1) {
-            for (let secondIndex = firstIndex + 1; secondIndex < characters.length; secondIndex += 1) {
-                const first = characters[firstIndex];
-                const second = characters[secondIndex];
+        for (let firstIndex = 0; firstIndex < eligibleCharacters.length; firstIndex += 1) {
+            for (let secondIndex = firstIndex + 1; secondIndex < eligibleCharacters.length; secondIndex += 1) {
+                const first = eligibleCharacters[firstIndex];
+                const second = eligibleCharacters[secondIndex];
                 if (!hasBattleResult(battleResults, selectedTag, first.id, second.id)) battles.push([first, second]);
             }
         }
         return battles;
-    }, [characters, battleResults, selectedTag]);
+    }, [eligibleCharacters, battleResults, selectedTag]);
 
-    const nextBattle = useMemo(() => getNextBattleForTag(characters, battleResults, selectedTag, availableBattles), [characters, battleResults, selectedTag, availableBattles]);
-    const completedForTag = Math.max(0, (characters.length * (characters.length - 1)) / 2 - availableBattles.length);
+    const nextBattle = useMemo(() => getNextBattleForTag(eligibleCharacters, battleResults, selectedTag, availableBattles), [eligibleCharacters, battleResults, selectedTag, availableBattles]);
+    const completedForTag = Math.max(0, (eligibleCharacters.length * (eligibleCharacters.length - 1)) / 2 - availableBattles.length);
     const contenders = useMemo(() => {
         return nextBattle || [];
     }, [nextBattle]);
 
-    // Memorizamos la función para que no se recree y evitar clics fantasma durante el lag
     const chooseWinner = useCallback((winnerId) => {
         if (!contenders || contenders.length < 2) return;
         
@@ -746,10 +768,11 @@ function BattlesScreen({ characters, media, mediaCountByCharacter, ratings, batt
             loserId: loser.id 
         });
     }, [contenders, selectedTag, onBattleResult]);
+
     return (
         <section>
-            <SectionTitle eyebrow="Arena Elite" title="Batallas" description={`Elige una etiqueta y toca la tarjeta ganadora. El ganador se queda para la siguiente batalla contra un nuevo rival, sin repetir parejas; las victorias heredadas se registran automáticamente y puedes descargar ${BATTLES_DOWNLOAD_FILENAME}.`} />
-            {characters.length < 2 ? <EmptyState title="Faltan participantes" text="Agrega al menos dos personajes para preparar una batalla." /> : (
+            <SectionTitle eyebrow="Arena Elite" title="Batallas" description={`Elige una etiqueta y toca la tarjeta ganadora. Solo competirán los personajes que tengan asignada una foto específica para esta categoría.`} />
+            {characters.length < 2 ? <EmptyState title="Faltan participantes" text="Agrega al menos dos personajes en el sistema para preparar una batalla." /> : (
                 <div className="grid gap-5">
                     <div className="metal-panel metal-shadow chrome-border grid gap-4 rounded-3xl p-5 md:grid-cols-[1fr_auto] md:items-end">
                         <label className="grid gap-2 font-black uppercase tracking-[.2em] text-cyan-100">
@@ -767,7 +790,19 @@ function BattlesScreen({ characters, media, mediaCountByCharacter, ratings, batt
                             <button onClick={onDownloadBattles} className="metal-button rounded-2xl bg-gradient-to-br from-emerald-300 via-emerald-600 to-emerald-950 px-5 py-3 font-black">⬇ Descargar {BATTLES_DOWNLOAD_FILENAME}</button>
                         </div>
                     </div>
-                    {contenders.length < 2 ? <EmptyState title="Etiqueta completada" text={`Ya se jugaron todas las batallas posibles en ${selectedTag}. Elige otra etiqueta para continuar.`} /> : (
+                    
+                    {/* Estados vacíos adaptados para los personajes elegibles */}
+                    {eligibleCharacters.length < 2 ? (
+                        <EmptyState 
+                            title="Faltan competidores" 
+                            text={`No hay suficientes personajes con foto asignada para el rol de esta etiqueta (${getBattlePhotoRoleForTag(selectedTag).toUpperCase()}). Ve a sus galerías y asigna las fotos de batalla para habilitarlos.`} 
+                        />
+                    ) : contenders.length < 2 ? (
+                        <EmptyState 
+                            title="Etiqueta completada" 
+                            text={`Ya se jugaron todas las batallas posibles en ${selectedTag} con los personajes habilitados. Asigna fotos a nuevos personajes o elige otra etiqueta para continuar.`} 
+                        />
+                    ) : (
                         <div className="battle-duel grid gap-5 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
                             <BattleCard character={contenders[0]} tag={selectedTag} mediaItems={media} score={getRatingValue(ratings[contenders[0].id] || {}, selectedTag)} mediaCount={mediaCountByCharacter[contenders[0].id] || 0} onChooseWinner={chooseWinner} onOpenProfile={onOpenProfile} />
                             <div className="vs-badge metal-panel metal-shadow chrome-border rounded-full px-8 py-6 text-center">
@@ -784,48 +819,244 @@ function BattlesScreen({ characters, media, mediaCountByCharacter, ratings, batt
 }
 
 function RankingScreen({ characters, mediaCountByCharacter, ratings, onOpenProfile }) {
+    // 1. Estados para la pestaña actual y la opción de ranking
+    const [activeTab, setActiveTab] = useState('ranking'); // 'ranking' o 'campeonas'
     const [rankingOptionId, setRankingOptionId] = useState('general');
+    
+    // 2. Lógica Original del Ranking (Mantenida intacta)
     const selectedOption = RANKING_OPTIONS.find(option => option.id === rankingOptionId) || RANKING_OPTIONS[0];
+    const generalOption = RANKING_OPTIONS.find(option => option.id === 'general') || selectedOption;
+
     const rankedCharacters = characters.map(character => {
         const rating = getCharacterRating(character, ratings);
         const mediaCount = mediaCountByCharacter[character.id] || 0;
         const score = getRankingScoreForOption(rating, selectedOption);
-        return { character, rating, mediaCount, score };
+        const scoreGeneral = getRankingScoreForOption(rating, generalOption); // Para desempatar en campeonas
+        return { character, rating, mediaCount, score, scoreGeneral };
     }).sort((a, b) => b.score - a.score || a.character.name.localeCompare(b.character.name));
+
+    // 3. Lógica del Salón de Campeonas
+    const campeonasData = useMemo(() => {
+        if (!rankedCharacters.length) return null;
+
+        const findChampion = (filterFn, scoreFn = (item) => item.scoreGeneral) => {
+            let best = null;
+            let bestScore = -1;
+            rankedCharacters.forEach(item => {
+                if (filterFn(item)) {
+                    const currentScore = scoreFn(item);
+                    if (currentScore > bestScore) {
+                        best = item;
+                        bestScore = currentScore;
+                    }
+                }
+            });
+            return best;
+        };
+
+        // Función auxiliar para obtener el año
+        const getYear = (dateStr) => dateStr ? new Date(dateStr).getFullYear() : 0;
+
+        // A) Tronos
+        const maxima = findChampion(() => true);
+        const rostro = findChampion(() => true, item => getRankingScoreForOption(item.rating, RANKING_OPTIONS.find(o => o.id === 'rostro') || {id: 'rostro'}));
+        const fisico = findChampion(() => true, item => getRankingScoreForOption(item.rating, RANKING_OPTIONS.find(o => o.id === 'fisico') || {id: 'fisico'}));
+        const actitud = findChampion(() => true, item => getRankingScoreForOption(item.rating, RANKING_OPTIONS.find(o => o.id === 'actitud') || {id: 'actitud'}));
+
+        // B) EDADES (Usando tu campo birthDate)
+        const teen = findChampion(item => getYear(item.character.birthDate) >= 2005);
+        const reina = findChampion(item => {
+            const y = getYear(item.character.birthDate);
+            return y >= 1995 && y <= 2004;
+        });
+        const leyenda = findChampion(item => {
+            const y = getYear(item.character.birthDate);
+            return y >= 1980 && y <= 1994;
+        });
+
+        // C) NACIONALIDADES (Usando tu campo country)
+        const nats = Array.from(new Set(characters.map(c => c.country).filter(Boolean)));
+        const nacionalidades = nats.map(nat => ({
+            nationality: nat,
+            champion: findChampion(item => item.character.country === nat)
+        })).sort((a, b) => a.nationality.localeCompare(b.nationality));
+
+        // D) GRUPOS
+        const groupIds = Array.from(new Set(characters.map(c => c.group).filter(Boolean)));
+        const grupos = groupIds.map(gId => ({
+            groupObj: getGroup(gId),
+            champion: findChampion(item => item.character.group === gId)
+        }));
+
+        const parametros = RANKING_OPTIONS.filter(o => !['general', 'rostro', 'fisico', 'actitud'].includes(o.id)).map(opt => ({
+            option: opt,
+            champion: findChampion(() => true, item => getRankingScoreForOption(item.rating, opt))
+        }));
+
+        const allTags = new Set();
+        characters.forEach(c => { if (Array.isArray(c.tags)) c.tags.forEach(t => allTags.add(t)); });
+        const etiquetas = Array.from(allTags).map(tag => ({
+            tag,
+            champion: findChampion(item => Array.isArray(item.character.tags) && item.character.tags.includes(tag))
+        }));
+
+        return { maxima, rostro, fisico, actitud, teen, reina, leyenda, nacionalidades, grupos, parametros, etiquetas };
+    }, [rankedCharacters, characters, ratings]);
+    // Sub-componente de Tarjeta de Campeona
+    const ChampionCard = ({ title, entry, scoreLabel, scoreValue, highlight = false }) => (
+        <button
+            onClick={() => entry && onOpenProfile(entry.character.id)}
+            disabled={!entry}
+            className={`metal-card metal-shadow chrome-border grid gap-3 rounded-2xl p-4 text-center transition ${entry ? 'hover:-translate-y-1 hover:border-cyan-300/50 cursor-pointer' : 'opacity-50 grayscale'} ${highlight ? 'bg-gradient-to-b from-zinc-800 to-zinc-900 border-amber-500/50' : 'bg-zinc-900/50'}`}
+        >
+            <div className={`text-xs font-black uppercase tracking-[.15em] ${highlight ? 'text-amber-300' : 'text-cyan-200'} truncate`}>{title}</div>
+            {entry ? (
+                <>
+                    <img src={getCharacterPhotoSrc(entry.character.photo)} alt={entry.character.name} className={`mx-auto h-20 w-20 rounded-full object-cover border-2 ${highlight ? 'border-amber-400' : 'border-cyan-400'}`} />
+                    <div>
+                        <h4 className="font-bold text-white uppercase text-sm truncate">{entry.character.name}</h4>
+                        <p className="text-[10px] text-zinc-400">{entry.character.nationality || ' '} {entry.character.birthYear ? `(${entry.character.birthYear})` : ''}</p>
+                    </div>
+                    <div className="rounded-lg bg-black/40 p-2 border border-white/10">
+                        <span className="text-[10px] text-zinc-400 uppercase">{scoreLabel}:</span> <span className={`font-black ${highlight ? 'text-amber-400' : 'text-cyan-300'}`}>{typeof scoreValue === 'number' ? scoreValue.toFixed(1) : scoreValue}</span>
+                    </div>
+                </>
+            ) : (
+                 <div className="py-6 text-xs text-zinc-500 font-bold uppercase tracking-widest">Vacante</div>
+            )}
+        </button>
+    );
 
     return (
         <section>
-            <SectionTitle eyebrow="Tabla Elite" title="Ranking" description="Selecciona una etiqueta, un grupo o el puntaje general para reordenar automáticamente a las participantes por esa calificación." />
-            <div className="metal-panel metal-shadow chrome-border mb-6 grid gap-3 rounded-3xl p-5 sm:grid-cols-[1fr_auto]">
-                <div>
-                    <p className="text-sm font-black uppercase tracking-[.25em] text-cyan-200">Filtro de ranking</p>
-                    <p className="mt-1 text-sm font-semibold text-cyan-50/75">Las etiquetas sin calificación en el JSON cuentan como 0. Las puntuaciones se muestran de 0 a 100.</p>
-                </div>
-                <label className="grid gap-2 text-sm font-bold text-zinc-200 sm:min-w-72">Ver top por
-                    <select value={rankingOptionId} onChange={event => setRankingOptionId(event.target.value)} className="rounded-xl border border-white/20 bg-zinc-900 p-3 text-white shadow-inner outline-none focus:border-cyan-300">
-                        {RANKING_OPTIONS.map(option => <option key={option.id} value={option.id}>{option.label}</option>)}
-                    </select>
-                </label>
+            <SectionTitle 
+                eyebrow={activeTab === 'ranking' ? "Tabla Elite" : "Salón de la Fama"} 
+                title={activeTab === 'ranking' ? "Ranking" : "Campeonas"} 
+                description={activeTab === 'ranking' ? "Selecciona una etiqueta, un grupo o el puntaje general para reordenar automáticamente a las participantes por esa calificación." : "Las monarcas absolutas de cada categoría, etiqueta, parámetro y país."} 
+            />
+            
+            {/* SWITCHER DE PESTAÑAS */}
+            <div className="metal-panel metal-shadow chrome-border mb-6 flex gap-2 rounded-3xl p-2 bg-zinc-900">
+                <button
+                    onClick={() => setActiveTab('ranking')}
+                    className={`flex-1 rounded-2xl px-4 py-3 text-sm font-black uppercase tracking-wider transition ${activeTab === 'ranking' ? 'bg-cyan-600 text-white shadow-lg' : 'text-zinc-400 hover:bg-white/5 hover:text-white'}`}
+                >
+                    📊 Clasificación
+                </button>
+                <button
+                    onClick={() => setActiveTab('campeonas')}
+                    className={`flex-1 rounded-2xl px-4 py-3 text-sm font-black uppercase tracking-wider transition ${activeTab === 'campeonas' ? 'bg-amber-500 text-black shadow-lg' : 'text-zinc-400 hover:bg-white/5 hover:text-white'}`}
+                >
+                    🏆 Campeonas
+                </button>
             </div>
-            {rankedCharacters.length === 0 ? <EmptyState title="Ranking vacío" text="Agrega personajes para crear la tabla de posiciones." /> : (
-                <div className="grid gap-4">
-                    {rankedCharacters.map((entry, index) => {
-                        const group = getGroup(entry.character.group);
-                        return (
-                            <button key={entry.character.id} onClick={() => onOpenProfile(entry.character.id)} className="metal-card metal-shadow illuminated-card grid gap-4 rounded-3xl border border-white/20 p-4 text-left transition hover:-translate-y-1 sm:grid-cols-[auto_96px_1fr_auto] sm:items-center">
-                            <div className="cartoon-title text-5xl">#{index + 1}</div>
-                            <img src={getCharacterPhotoSrc(entry.character.photo)} alt={entry.character.name} className="h-24 w-24 rounded-2xl object-cover" />
-                            <div>
-                                    <p className="text-xs font-black uppercase tracking-[.25em]" style={{ color: group.color }}>{group.emoji} {group.label}</p>
-                                    <h3 className="letter-relief texture-text mt-1 text-3xl uppercase">{entry.character.name}</h3>
+
+            {activeTab === 'ranking' ? (
+                /* ================= VISTA ORIGINAL ================= */
+                <>
+                    <div className="metal-panel metal-shadow chrome-border mb-6 grid gap-3 rounded-3xl p-5 sm:grid-cols-[1fr_auto]">
+                        <div>
+                            <p className="text-sm font-black uppercase tracking-[.25em] text-cyan-200">Filtro de ranking</p>
+                            <p className="mt-1 text-sm font-semibold text-cyan-50/75">Las etiquetas sin calificación en el JSON cuentan como 0. Las puntuaciones se muestran de 0 a 100.</p>
+                        </div>
+                        <label className="grid gap-2 text-sm font-bold text-zinc-200 sm:min-w-72">Ver top por
+                            <select value={rankingOptionId} onChange={event => setRankingOptionId(event.target.value)} className="rounded-xl border border-white/20 bg-zinc-900 p-3 text-white shadow-inner outline-none focus:border-cyan-300">
+                                {RANKING_OPTIONS.map(option => <option key={option.id} value={option.id}>{option.label}</option>)}
+                            </select>
+                        </label>
+                    </div>
+
+                    {rankedCharacters.length === 0 ? <EmptyState title="Ranking vacío" text="Agrega personajes para crear la tabla de posiciones." /> : (
+                        <div className="grid gap-4">
+                            {rankedCharacters.map((entry, index) => {
+                                const group = getGroup(entry.character.group);
+                                return (
+                                    <button key={entry.character.id} onClick={() => onOpenProfile(entry.character.id)} className="metal-card metal-shadow illuminated-card grid gap-4 rounded-3xl border border-white/20 p-4 text-left transition hover:-translate-y-1 sm:grid-cols-[auto_96px_1fr_auto] sm:items-center">
+                                        <div className="cartoon-title text-5xl">#{index + 1}</div>
+                                        <img src={getCharacterPhotoSrc(entry.character.photo)} alt={entry.character.name} className="h-24 w-24 rounded-2xl object-cover" />
+                                        <div>
+                                            <p className="text-xs font-black uppercase tracking-[.25em]" style={{ color: group.color }}>{group.emoji} {group.label}</p>
+                                            <h3 className="letter-relief texture-text mt-1 text-3xl uppercase">{entry.character.name}</h3>
+                                        </div>
+                                        <div className="grid grid-cols-2 gap-3 sm:min-w-64">
+                                            <Info label={selectedOption.label} value={entry.score.toFixed(1)} />
+                                            <Info label="Archivos" value={entry.mediaCount} />
+                                        </div>
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    )}
+                </>
+            ) : (
+                /* ================= VISTA CAMPEONAS ================= */
+                <div className="grid gap-8 animate-[fadeIn_0.3s_ease-out_forwards]">
+                    {rankedCharacters.length === 0 ? <EmptyState title="Sin Campeonas" text="Agrega personajes para generar a las campeonas." /> : (
+                        <>
+                            {/* TRONOS PRINCIPALES */}
+                            <div className="metal-panel metal-shadow chrome-border rounded-3xl p-5">
+                                <h3 className="text-sm font-black uppercase tracking-[.2em] text-amber-400 mb-4 border-b border-white/10 pb-2">👑 DIOSAS SUPREMAS</h3>
+                                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                    <ChampionCard highlight title="DIOSA SUPREMA" entry={campeonasData.maxima} scoreLabel="General" scoreValue={campeonasData.maxima?.scoreGeneral} />
+                                    <ChampionCard title="DIOSA DE LA BELLEZA" entry={campeonasData.rostro} scoreLabel="Puntos" scoreValue={campeonasData.rostro ? getRankingScoreForOption(campeonasData.rostro.rating, {id:'rostro'}) : 0} />
+                                    <ChampionCard title="DIOSA DE LA SENSUALIDAD" entry={campeonasData.fisico} scoreLabel="Puntos" scoreValue={campeonasData.fisico ? getRankingScoreForOption(campeonasData.fisico.rating, {id:'fisico'}) : 0} />
+                                    <ChampionCard title="DIOSA DE LA SEDUCCIÓN" entry={campeonasData.actitud} scoreLabel="Puntos" scoreValue={campeonasData.actitud ? getRankingScoreForOption(campeonasData.actitud.rating, {id:'actitud'}) : 0} />
                                 </div>
-                                <div className="grid grid-cols-2 gap-3 sm:min-w-64">
-                                    <Info label={selectedOption.label} value={entry.score.toFixed(1)} />
-                                    <Info label="Archivos" value={entry.mediaCount} />
+                            </div>
+
+                            {/* EDADES */}
+                            <div className="metal-panel metal-shadow chrome-border rounded-3xl p-5">
+                                <h3 className="text-sm font-black uppercase tracking-[.2em] text-cyan-400 mb-4 border-b border-white/10 pb-2">⏳ REINAS DE ERAS</h3>
+                                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                    <ChampionCard title="Promesa" entry={campeonasData.teen} scoreLabel="General" scoreValue={campeonasData.teen?.scoreGeneral} />
+                                    <ChampionCard title="Maestra" entry={campeonasData.reina} scoreLabel="General" scoreValue={campeonasData.reina?.scoreGeneral} />
+                                    <ChampionCard title="Leyenda" entry={campeonasData.leyenda} scoreLabel="General" scoreValue={campeonasData.leyenda?.scoreGeneral} />
                                 </div>
-                            </button>
-                        );
-                    })}
+                            </div>
+
+                            {/* GRUPOS / CATEGORIAS */}
+                            <div className="metal-panel metal-shadow chrome-border rounded-3xl p-5">
+                                <h3 className="text-sm font-black uppercase tracking-[.2em] text-green-400 mb-4 border-b border-white/10 pb-2">🎭 Monarcas por Grupo</h3>
+                                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                    {campeonasData.grupos.map(g => (
+                                        <ChampionCard key={g.groupObj.id} title={`${g.groupObj.emoji} ${g.groupObj.label}`} entry={g.champion} scoreLabel="General" scoreValue={g.champion?.scoreGeneral} />
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* NACIONALIDADES */}
+                            <div className="metal-panel metal-shadow chrome-border rounded-3xl p-5">
+                                <h3 className="text-sm font-black uppercase tracking-[.2em] text-purple-400 mb-4 border-b border-white/10 pb-2">🌍 Orgullo Nacional</h3>
+                                <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-3">
+                                    {campeonasData.nacionalidades.map(n => (
+                                        <ChampionCard key={n.nationality} title={`📍 ${n.nationality}`} entry={n.champion} scoreLabel="General" scoreValue={n.champion?.scoreGeneral} />
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* PARÁMETROS ESPECÍFICOS */}
+                            <div className="metal-panel metal-shadow chrome-border rounded-3xl p-5">
+                                <h3 className="text-sm font-black uppercase tracking-[.2em] text-rose-400 mb-4 border-b border-white/10 pb-2">🎯 Perfección por Parámetros</h3>
+                                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                                    {campeonasData.parametros.map(p => (
+                                        <ChampionCard key={p.option.id} title={p.option.label} entry={p.champion} scoreLabel={p.option.label} scoreValue={p.champion ? getRankingScoreForOption(p.champion.rating, p.option) : 0} />
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* ETIQUETAS (TAGS) */}
+                            {campeonasData.etiquetas.length > 0 && (
+                                <div className="metal-panel metal-shadow chrome-border rounded-3xl p-5">
+                                    <h3 className="text-sm font-black uppercase tracking-[.2em] text-blue-400 mb-4 border-b border-white/10 pb-2">🏷️ Destacadas por Etiquetas</h3>
+                                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                                        {campeonasData.etiquetas.map(t => (
+                                            <ChampionCard key={t.tag} title={t.tag} entry={t.champion} scoreLabel="General" scoreValue={t.champion?.scoreGeneral} />
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+                        </>
+                    )}
                 </div>
             )}
         </section>
