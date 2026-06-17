@@ -864,14 +864,14 @@ function RankingScreen({ characters, mediaCountByCharacter, ratings, onOpenProfi
         const actitud = findChampion(() => true, item => getRankingScoreForOption(item.rating, RANKING_OPTIONS.find(o => o.id === 'actitud') || {id: 'actitud'}));
 
         // B) EDADES (Usando tu campo birthDate)
-        const teen = findChampion(item => getYear(item.character.birthDate) >= 2005);
+        const teen = findChampion(item => getYear(item.character.birthDate) >= 2000);
         const reina = findChampion(item => {
             const y = getYear(item.character.birthDate);
-            return y >= 1995 && y <= 2004;
+            return y >= 1990 && y <= 1999;
         });
         const leyenda = findChampion(item => {
             const y = getYear(item.character.birthDate);
-            return y >= 1980 && y <= 1994;
+            return y >= 1970 && y <= 1989;
         });
 
         // C) NACIONALIDADES (Usando tu campo country)
