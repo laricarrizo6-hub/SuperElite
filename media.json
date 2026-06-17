@@ -595,6 +595,18 @@
       "type": "video"
     },
 	  {
+      "id": "m-emilia-26",
+      "characterId": "emilia-mernes",
+      "src": "Multimedia/emimernesj  (8).jpg",
+      "type": "image"
+    },
+	   {
+      "id": "m-emilia-27",
+      "characterId": "emilia-mernes",
+      "src": "Multimedia/emimernesj  (9).jpg",
+      "type": "image"
+    },
+	  {
       "id": "m-becky-1",
       "characterId": "becky-g",
       "src": "Multimedia/beckygj (1).jpg",
