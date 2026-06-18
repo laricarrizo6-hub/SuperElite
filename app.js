@@ -705,8 +705,8 @@ function BattleCard({ character, score, battlesStats, tag, mediaItems, onChooseW
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                     <Info label="Puntaje" value={Number.isFinite(score) ? score.toFixed(1) : '0.0'} />
-                    {/* Aquí cambiamos el Info de multimedia por el de Batallas */}
-                    {showHeight ? <Info label="Altura" value={character.height || '—'} /> : <Info label="Batallas (Real|Her)" value={`${battlesStats.fought} | ${battlesStats.inherited}`} />}
+                    {/* Aquí se muestra el número limpio: completadas/pendientes */}
+                    {showHeight ? <Info label="Altura" value={character.height || '—'} /> : <Info label="Batallas" value={`${battlesStats.completed}/${battlesStats.pending}`} />}
                 </div>
                 <button onClick={(event) => { event.stopPropagation(); onOpenProfile(character.id); }} className="metal-button rounded-2xl bg-gradient-to-br from-fuchsia-400 via-purple-600 to-indigo-950 px-5 py-4 font-black">Ver ficha</button>
             </div>
@@ -810,7 +810,7 @@ function BattlesScreen({ characters, media, mediaCountByCharacter, ratings, batt
         tag={selectedTag} 
         mediaItems={media} 
         score={getRatingValue(ratings[contenders[0].id] || {}, selectedTag)} 
-        battlesStats={getBattleStatsForCharacter(contenders[0].id, selectedTag, battleResults)} 
+        battlesStats={getBattleStats(contenders[0].id, selectedTag, battleResults, eligibleCharacters)} 
         onChooseWinner={chooseWinner} 
         onOpenProfile={onOpenProfile} 
     />
@@ -823,7 +823,7 @@ function BattlesScreen({ characters, media, mediaCountByCharacter, ratings, batt
         tag={selectedTag} 
         mediaItems={media} 
         score={getRatingValue(ratings[contenders[1].id] || {}, selectedTag)} 
-        battlesStats={getBattleStatsForCharacter(contenders[1].id, selectedTag, battleResults)} 
+        battlesStats={getBattleStats(contenders[1].id, selectedTag, battleResults, eligibleCharacters)} 
         onChooseWinner={chooseWinner} 
         onOpenProfile={onOpenProfile} 
     />
@@ -1584,21 +1584,22 @@ function Modal({ title, children, onClose }) {
         </div>
     );
 }
-function getBattleStatsForCharacter(characterId, tag, battleResults) {
-    let fought = 0;
-    let inherited = 0;
+function getBattleStats(characterId, tag, battleResults, eligibleCharacters) {
+    let completed = 0;
+    let pending = 0;
     
-    battleResults.forEach(result => {
-        if (result.tag === tag && (result.winnerId === characterId || result.loserId === characterId)) {
-            if (result.inherited) {
-                inherited += 1;
+    // Revisamos contra todos los rivales disponibles en esta etiqueta
+    eligibleCharacters.forEach(opponent => {
+        if (opponent.id !== characterId) {
+            if (hasBattleResult(battleResults, tag, characterId, opponent.id)) {
+                completed += 1; // Ya se enfrentaron (directa o heredada)
             } else {
-                fought += 1;
+                pending += 1; // Aún no se enfrentan
             }
         }
     });
     
-    return { fought, inherited };
+    return { completed, pending };
 }
 function FormActions({ onClose, saveLabel }) {
     return <div className="mt-2 grid gap-3 sm:grid-cols-2"><button type="button" onClick={onClose} className="metal-button rounded-2xl bg-gradient-to-br from-slate-500 via-slate-800 to-black px-5 py-4 font-black hover:bg-white/20">Cancelar</button><button type="submit" className="metal-button rounded-2xl bg-gradient-to-br from-emerald-300 via-emerald-600 to-emerald-950 px-5 py-4 font-black">{saveLabel}</button></div>;
