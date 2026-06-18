@@ -1,6 +1,1086 @@
 {
   "battles": [
     {
+      "id": "1781783997700-aod427r",
+      "tag": "Cola",
+      "winnerId": "avril-lavigne",
+      "loserId": "olivia-rodrigo",
+      "pairKey": "avril-lavigne::olivia-rodrigo",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:57.699Z"
+    },
+    {
+      "id": "1781783996043-a329ann",
+      "tag": "Cola",
+      "winnerId": "clara-ceschin",
+      "loserId": "avril-lavigne",
+      "pairKey": "avril-lavigne::clara-ceschin",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:56.043Z"
+    },
+    {
+      "id": "1781783994307-cu9ymx9",
+      "tag": "Cola",
+      "winnerId": "clara-ceschin",
+      "loserId": "olivia-rodrigo",
+      "pairKey": "clara-ceschin::olivia-rodrigo",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:54.307Z"
+    },
+    {
+      "id": "1781783992006-70zxfs1",
+      "tag": "Cola",
+      "winnerId": "ana-mena",
+      "loserId": "avril-lavigne",
+      "pairKey": "ana-mena::avril-lavigne",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:52.006Z"
+    },
+    {
+      "id": "1781783992006-4g9e50v",
+      "tag": "Cola",
+      "winnerId": "ana-de-armas",
+      "loserId": "avril-lavigne",
+      "pairKey": "ana-de-armas::avril-lavigne",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:52.006Z"
+    },
+    {
+      "id": "1781783992003-nvhh02g",
+      "tag": "Cola",
+      "winnerId": "ariana-grande",
+      "loserId": "avril-lavigne",
+      "pairKey": "ariana-grande::avril-lavigne",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:52.003Z"
+    },
+    {
+      "id": "1781783990647-jfuvzfx",
+      "tag": "Cola",
+      "winnerId": "ana-mena",
+      "loserId": "olivia-rodrigo",
+      "pairKey": "ana-mena::olivia-rodrigo",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:50.647Z"
+    },
+    {
+      "id": "1781783990647-v463vu3",
+      "tag": "Cola",
+      "winnerId": "ana-de-armas",
+      "loserId": "olivia-rodrigo",
+      "pairKey": "ana-de-armas::olivia-rodrigo",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:50.647Z"
+    },
+    {
+      "id": "1781783990643-65omy3j",
+      "tag": "Cola",
+      "winnerId": "ariana-grande",
+      "loserId": "olivia-rodrigo",
+      "pairKey": "ariana-grande::olivia-rodrigo",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:50.643Z"
+    },
+    {
+      "id": "1781783988752-sva0fuu",
+      "tag": "Cola",
+      "winnerId": "ana-mena",
+      "loserId": "clara-ceschin",
+      "pairKey": "ana-mena::clara-ceschin",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:48.752Z"
+    },
+    {
+      "id": "1781783988752-hyscx2l",
+      "tag": "Cola",
+      "winnerId": "ana-de-armas",
+      "loserId": "clara-ceschin",
+      "pairKey": "ana-de-armas::clara-ceschin",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:48.752Z"
+    },
+    {
+      "id": "1781783988747-r7ag9hr",
+      "tag": "Cola",
+      "winnerId": "ariana-grande",
+      "loserId": "clara-ceschin",
+      "pairKey": "ariana-grande::clara-ceschin",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:48.747Z"
+    },
+    {
+      "id": "1781783985451-h3gzoce",
+      "tag": "Cola",
+      "winnerId": "dua-lipa",
+      "loserId": "avril-lavigne",
+      "pairKey": "avril-lavigne::dua-lipa",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:45.451Z"
+    },
+    {
+      "id": "1781783984179-r778b6s",
+      "tag": "Cola",
+      "winnerId": "dua-lipa",
+      "loserId": "olivia-rodrigo",
+      "pairKey": "dua-lipa::olivia-rodrigo",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:44.179Z"
+    },
+    {
+      "id": "1781783982892-5upqzhb",
+      "tag": "Cola",
+      "winnerId": "dua-lipa",
+      "loserId": "clara-ceschin",
+      "pairKey": "clara-ceschin::dua-lipa",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:42.892Z"
+    },
+    {
+      "id": "1781783981016-38jgtfn",
+      "tag": "Cola",
+      "winnerId": "dua-lipa",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::dua-lipa",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:41.016Z"
+    },
+    {
+      "id": "1781783981011-sf47o5p",
+      "tag": "Cola",
+      "winnerId": "dua-lipa",
+      "loserId": "ana-mena",
+      "pairKey": "ana-mena::dua-lipa",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:41.011Z"
+    },
+    {
+      "id": "1781783979372-s6rmwji",
+      "tag": "Cola",
+      "winnerId": "ana-mena",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::ana-mena",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:39.372Z"
+    },
+    {
+      "id": "1781783977187-qjg7jgq",
+      "tag": "Cola",
+      "winnerId": "ana-mena",
+      "loserId": "ariana-grande",
+      "pairKey": "ana-mena::ariana-grande",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:37.187Z"
+    },
+    {
+      "id": "1781783972643-4ulb895",
+      "tag": "Cola",
+      "winnerId": "sidney-sweeney",
+      "loserId": "angela-torres",
+      "pairKey": "angela-torres::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:32.643Z"
+    },
+    {
+      "id": "1781783970595-ocgrcpi",
+      "tag": "Cola",
+      "winnerId": "angela-torres",
+      "loserId": "ariana-grande",
+      "pairKey": "angela-torres::ariana-grande",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:30.595Z"
+    },
+    {
+      "id": "1781783970595-upu4np7",
+      "tag": "Cola",
+      "winnerId": "angela-torres",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::angela-torres",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:30.595Z"
+    },
+    {
+      "id": "1781783970595-ojrnq9t",
+      "tag": "Cola",
+      "winnerId": "angela-torres",
+      "loserId": "dua-lipa",
+      "pairKey": "angela-torres::dua-lipa",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:30.595Z"
+    },
+    {
+      "id": "1781783970595-ik4v0p0",
+      "tag": "Cola",
+      "winnerId": "angela-torres",
+      "loserId": "ana-mena",
+      "pairKey": "ana-mena::angela-torres",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:30.595Z"
+    },
+    {
+      "id": "1781783970595-4ib0kqw",
+      "tag": "Cola",
+      "winnerId": "angela-torres",
+      "loserId": "clara-ceschin",
+      "pairKey": "angela-torres::clara-ceschin",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:30.595Z"
+    },
+    {
+      "id": "1781783970595-7vunfwl",
+      "tag": "Cola",
+      "winnerId": "angela-torres",
+      "loserId": "olivia-rodrigo",
+      "pairKey": "angela-torres::olivia-rodrigo",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:30.595Z"
+    },
+    {
+      "id": "1781783970595-xk3eumi",
+      "tag": "Cola",
+      "winnerId": "angela-torres",
+      "loserId": "avril-lavigne",
+      "pairKey": "angela-torres::avril-lavigne",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:30.595Z"
+    },
+    {
+      "id": "1781783970587-y58vnkj",
+      "tag": "Cola",
+      "winnerId": "angela-torres",
+      "loserId": "nicki-nicole",
+      "pairKey": "angela-torres::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:30.587Z"
+    },
+    {
+      "id": "1781783968832-79lfpyk",
+      "tag": "Cola",
+      "winnerId": "sidney-sweeney",
+      "loserId": "avril-lavigne",
+      "pairKey": "avril-lavigne::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:28.832Z"
+    },
+    {
+      "id": "1781783968827-dyc5n6n",
+      "tag": "Cola",
+      "winnerId": "nicki-nicole",
+      "loserId": "avril-lavigne",
+      "pairKey": "avril-lavigne::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:28.827Z"
+    },
+    {
+      "id": "1781783967528-hrqkj5g",
+      "tag": "Cola",
+      "winnerId": "sidney-sweeney",
+      "loserId": "olivia-rodrigo",
+      "pairKey": "olivia-rodrigo::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:27.528Z"
+    },
+    {
+      "id": "1781783967523-ajlrrrp",
+      "tag": "Cola",
+      "winnerId": "nicki-nicole",
+      "loserId": "olivia-rodrigo",
+      "pairKey": "nicki-nicole::olivia-rodrigo",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:27.523Z"
+    },
+    {
+      "id": "1781783966103-nk15e4r",
+      "tag": "Cola",
+      "winnerId": "sidney-sweeney",
+      "loserId": "clara-ceschin",
+      "pairKey": "clara-ceschin::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:26.103Z"
+    },
+    {
+      "id": "1781783966099-wedxjq3",
+      "tag": "Cola",
+      "winnerId": "nicki-nicole",
+      "loserId": "clara-ceschin",
+      "pairKey": "clara-ceschin::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:26.099Z"
+    },
+    {
+      "id": "1781783964346-8t0f3zu",
+      "tag": "Cola",
+      "winnerId": "sidney-sweeney",
+      "loserId": "ana-mena",
+      "pairKey": "ana-mena::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:24.346Z"
+    },
+    {
+      "id": "1781783964339-auftw69",
+      "tag": "Cola",
+      "winnerId": "nicki-nicole",
+      "loserId": "ana-mena",
+      "pairKey": "ana-mena::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:24.339Z"
+    },
+    {
+      "id": "1781783962638-opc8mth",
+      "tag": "Cola",
+      "winnerId": "sidney-sweeney",
+      "loserId": "dua-lipa",
+      "pairKey": "dua-lipa::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:22.638Z"
+    },
+    {
+      "id": "1781783962635-hydb0lg",
+      "tag": "Cola",
+      "winnerId": "nicki-nicole",
+      "loserId": "dua-lipa",
+      "pairKey": "dua-lipa::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:22.635Z"
+    },
+    {
+      "id": "1781783960035-ib08wwt",
+      "tag": "Cola",
+      "winnerId": "dua-lipa",
+      "loserId": "ariana-grande",
+      "pairKey": "ariana-grande::dua-lipa",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:20.035Z"
+    },
+    {
+      "id": "1781783958120-n6jhyen",
+      "tag": "Cola",
+      "winnerId": "aitana",
+      "loserId": "ariana-grande",
+      "pairKey": "aitana::ariana-grande",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:18.120Z"
+    },
+    {
+      "id": "1781783958120-8k4ktcf",
+      "tag": "Cola",
+      "winnerId": "aitana",
+      "loserId": "nicki-nicole",
+      "pairKey": "aitana::nicki-nicole",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:18.120Z"
+    },
+    {
+      "id": "1781783958120-1jwbt5r",
+      "tag": "Cola",
+      "winnerId": "aitana",
+      "loserId": "ana-de-armas",
+      "pairKey": "aitana::ana-de-armas",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:18.120Z"
+    },
+    {
+      "id": "1781783958120-ieo3w63",
+      "tag": "Cola",
+      "winnerId": "aitana",
+      "loserId": "sidney-sweeney",
+      "pairKey": "aitana::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:18.120Z"
+    },
+    {
+      "id": "1781783958120-x9vqwzc",
+      "tag": "Cola",
+      "winnerId": "aitana",
+      "loserId": "dua-lipa",
+      "pairKey": "aitana::dua-lipa",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:18.120Z"
+    },
+    {
+      "id": "1781783958120-dyondu3",
+      "tag": "Cola",
+      "winnerId": "aitana",
+      "loserId": "ana-mena",
+      "pairKey": "aitana::ana-mena",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:18.120Z"
+    },
+    {
+      "id": "1781783958120-d1w4luu",
+      "tag": "Cola",
+      "winnerId": "aitana",
+      "loserId": "clara-ceschin",
+      "pairKey": "aitana::clara-ceschin",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:18.120Z"
+    },
+    {
+      "id": "1781783958120-ql4ki0c",
+      "tag": "Cola",
+      "winnerId": "aitana",
+      "loserId": "olivia-rodrigo",
+      "pairKey": "aitana::olivia-rodrigo",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:18.120Z"
+    },
+    {
+      "id": "1781783958120-dj42fd9",
+      "tag": "Cola",
+      "winnerId": "aitana",
+      "loserId": "avril-lavigne",
+      "pairKey": "aitana::avril-lavigne",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:18.120Z"
+    },
+    {
+      "id": "1781783958120-0bsfb4q",
+      "tag": "Cola",
+      "winnerId": "aitana",
+      "loserId": "angela-torres",
+      "pairKey": "aitana::angela-torres",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:18.120Z"
+    },
+    {
+      "id": "1781783958115-ht1y19g",
+      "tag": "Cola",
+      "winnerId": "aitana",
+      "loserId": "ester-exposito",
+      "pairKey": "aitana::ester-exposito",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:18.115Z"
+    },
+    {
+      "id": "1781783956523-g6u9v57",
+      "tag": "Cola",
+      "winnerId": "ester-exposito",
+      "loserId": "angela-torres",
+      "pairKey": "angela-torres::ester-exposito",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:16.523Z"
+    },
+    {
+      "id": "1781783954795-wbpt6ir",
+      "tag": "Cola",
+      "winnerId": "ester-exposito",
+      "loserId": "avril-lavigne",
+      "pairKey": "avril-lavigne::ester-exposito",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:14.795Z"
+    },
+    {
+      "id": "1781783953579-4ujb92f",
+      "tag": "Cola",
+      "winnerId": "ester-exposito",
+      "loserId": "olivia-rodrigo",
+      "pairKey": "ester-exposito::olivia-rodrigo",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:13.579Z"
+    },
+    {
+      "id": "1781783952499-is1uppu",
+      "tag": "Cola",
+      "winnerId": "ester-exposito",
+      "loserId": "clara-ceschin",
+      "pairKey": "clara-ceschin::ester-exposito",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:12.499Z"
+    },
+    {
+      "id": "1781783951363-sbcsku6",
+      "tag": "Cola",
+      "winnerId": "ester-exposito",
+      "loserId": "ana-mena",
+      "pairKey": "ana-mena::ester-exposito",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:11.363Z"
+    },
+    {
+      "id": "1781783950267-u228fze",
+      "tag": "Cola",
+      "winnerId": "ester-exposito",
+      "loserId": "dua-lipa",
+      "pairKey": "dua-lipa::ester-exposito",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:10.267Z"
+    },
+    {
+      "id": "1781783948827-unboqbo",
+      "tag": "Cola",
+      "winnerId": "ester-exposito",
+      "loserId": "sidney-sweeney",
+      "pairKey": "ester-exposito::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:08.827Z"
+    },
+    {
+      "id": "1781783947062-uazxsb4",
+      "tag": "Cola",
+      "winnerId": "ester-exposito",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::ester-exposito",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:59:07.062Z"
+    },
+    {
+      "id": "1781783947059-ubf0f1l",
+      "tag": "Cola",
+      "winnerId": "ester-exposito",
+      "loserId": "nicki-nicole",
+      "pairKey": "ester-exposito::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:07.059Z"
+    },
+    {
+      "id": "1781783945043-gusupan",
+      "tag": "Cola",
+      "winnerId": "ester-exposito",
+      "loserId": "ariana-grande",
+      "pairKey": "ariana-grande::ester-exposito",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:05.043Z"
+    },
+    {
+      "id": "1781783943043-xtna9q2",
+      "tag": "Cola",
+      "winnerId": "emilia-mernes",
+      "loserId": "aitana",
+      "pairKey": "aitana::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:59:03.043Z"
+    },
+    {
+      "id": "1781783938195-3u0gn2y",
+      "tag": "Cola",
+      "winnerId": "emilia-mernes",
+      "loserId": "angela-torres",
+      "pairKey": "angela-torres::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:58.195Z"
+    },
+    {
+      "id": "1781783936739-683tkq9",
+      "tag": "Cola",
+      "winnerId": "emilia-mernes",
+      "loserId": "avril-lavigne",
+      "pairKey": "avril-lavigne::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:56.739Z"
+    },
+    {
+      "id": "1781783935020-ktq96vt",
+      "tag": "Cola",
+      "winnerId": "emilia-mernes",
+      "loserId": "olivia-rodrigo",
+      "pairKey": "emilia-mernes::olivia-rodrigo",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:55.020Z"
+    },
+    {
+      "id": "1781783933563-ba6yj4d",
+      "tag": "Cola",
+      "winnerId": "emilia-mernes",
+      "loserId": "clara-ceschin",
+      "pairKey": "clara-ceschin::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:53.563Z"
+    },
+    {
+      "id": "1781783932411-5n1z3l9",
+      "tag": "Cola",
+      "winnerId": "emilia-mernes",
+      "loserId": "ana-mena",
+      "pairKey": "ana-mena::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:52.411Z"
+    },
+    {
+      "id": "1781783930531-s8igbnz",
+      "tag": "Cola",
+      "winnerId": "emilia-mernes",
+      "loserId": "dua-lipa",
+      "pairKey": "dua-lipa::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:50.531Z"
+    },
+    {
+      "id": "1781783928611-2k7uxq3",
+      "tag": "Cola",
+      "winnerId": "emilia-mernes",
+      "loserId": "ester-exposito",
+      "pairKey": "emilia-mernes::ester-exposito",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:48.611Z"
+    },
+    {
+      "id": "1781783926379-0byejd7",
+      "tag": "Cola",
+      "winnerId": "emilia-mernes",
+      "loserId": "sidney-sweeney",
+      "pairKey": "emilia-mernes::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:46.379Z"
+    },
+    {
+      "id": "1781783924527-98buofu",
+      "tag": "Cola",
+      "winnerId": "sidney-sweeney",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:58:44.527Z"
+    },
+    {
+      "id": "1781783924523-fpbl5dw",
+      "tag": "Cola",
+      "winnerId": "sidney-sweeney",
+      "loserId": "nicki-nicole",
+      "pairKey": "nicki-nicole::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:44.523Z"
+    },
+    {
+      "id": "1781783920587-nqtpavm",
+      "tag": "Cola",
+      "winnerId": "sidney-sweeney",
+      "loserId": "ariana-grande",
+      "pairKey": "ariana-grande::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:40.587Z"
+    },
+    {
+      "id": "1781783918302-8dtx5zt",
+      "tag": "Cola",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "aitana",
+      "pairKey": "aitana::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:58:38.302Z"
+    },
+    {
+      "id": "1781783918299-58jocnk",
+      "tag": "Cola",
+      "winnerId": "clara-galle",
+      "loserId": "aitana",
+      "pairKey": "aitana::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:38.299Z"
+    },
+    {
+      "id": "1781783916886-ro45f3p",
+      "tag": "Cola",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "angela-torres",
+      "pairKey": "angela-torres::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:58:36.886Z"
+    },
+    {
+      "id": "1781783916883-duo497v",
+      "tag": "Cola",
+      "winnerId": "clara-galle",
+      "loserId": "angela-torres",
+      "pairKey": "angela-torres::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:36.883Z"
+    },
+    {
+      "id": "1781783915743-i3rklhm",
+      "tag": "Cola",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "avril-lavigne",
+      "pairKey": "avril-lavigne::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:58:35.743Z"
+    },
+    {
+      "id": "1781783915739-ftxw988",
+      "tag": "Cola",
+      "winnerId": "clara-galle",
+      "loserId": "avril-lavigne",
+      "pairKey": "avril-lavigne::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:35.739Z"
+    },
+    {
+      "id": "1781783914431-h3aj6kz",
+      "tag": "Cola",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "olivia-rodrigo",
+      "pairKey": "olivia-rodrigo::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:58:34.431Z"
+    },
+    {
+      "id": "1781783914427-alosjs9",
+      "tag": "Cola",
+      "winnerId": "clara-galle",
+      "loserId": "olivia-rodrigo",
+      "pairKey": "clara-galle::olivia-rodrigo",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:34.427Z"
+    },
+    {
+      "id": "1781783913110-uwtfjsb",
+      "tag": "Cola",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "clara-ceschin",
+      "pairKey": "clara-ceschin::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:58:33.110Z"
+    },
+    {
+      "id": "1781783913107-owiskwj",
+      "tag": "Cola",
+      "winnerId": "clara-galle",
+      "loserId": "clara-ceschin",
+      "pairKey": "clara-ceschin::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:33.107Z"
+    },
+    {
+      "id": "1781783911958-e9en0v4",
+      "tag": "Cola",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "ana-mena",
+      "pairKey": "ana-mena::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:58:31.958Z"
+    },
+    {
+      "id": "1781783911955-4giwky9",
+      "tag": "Cola",
+      "winnerId": "clara-galle",
+      "loserId": "ana-mena",
+      "pairKey": "ana-mena::clara-galle",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:31.955Z"
+    },
+    {
+      "id": "1781783910158-xrm2big",
+      "tag": "Cola",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "dua-lipa",
+      "pairKey": "dua-lipa::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:58:30.158Z"
+    },
+    {
+      "id": "1781783910155-tv1sc6l",
+      "tag": "Cola",
+      "winnerId": "clara-galle",
+      "loserId": "dua-lipa",
+      "pairKey": "clara-galle::dua-lipa",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:30.155Z"
+    },
+    {
+      "id": "1781783908837-0xq0htp",
+      "tag": "Cola",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "ester-exposito",
+      "pairKey": "ester-exposito::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:58:28.837Z"
+    },
+    {
+      "id": "1781783908835-hhfxonu",
+      "tag": "Cola",
+      "winnerId": "clara-galle",
+      "loserId": "ester-exposito",
+      "pairKey": "clara-galle::ester-exposito",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:28.835Z"
+    },
+    {
+      "id": "1781783907755-f1vmigp",
+      "tag": "Cola",
+      "winnerId": "clara-galle",
+      "loserId": "sidney-sweeney",
+      "pairKey": "clara-galle::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:27.755Z"
+    },
+    {
+      "id": "1781783906292-03upbao",
+      "tag": "Cola",
+      "winnerId": "clara-galle",
+      "loserId": "emilia-mernes",
+      "pairKey": "clara-galle::emilia-mernes",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:26.292Z"
+    },
+    {
+      "id": "1781783904479-6wwwzl3",
+      "tag": "Cola",
+      "winnerId": "clara-galle",
+      "loserId": "ariana-grande",
+      "pairKey": "ariana-grande::clara-galle",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:58:24.479Z"
+    },
+    {
+      "id": "1781783904479-erpx5xj",
+      "tag": "Cola",
+      "winnerId": "clara-galle",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::clara-galle",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:58:24.479Z"
+    },
+    {
+      "id": "1781783904475-8nd1xgl",
+      "tag": "Cola",
+      "winnerId": "clara-galle",
+      "loserId": "nicki-nicole",
+      "pairKey": "clara-galle::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:24.475Z"
+    },
+    {
+      "id": "1781783902654-e1fganu",
+      "tag": "Cola",
+      "winnerId": "emilia-mernes",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::emilia-mernes",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:58:22.654Z"
+    },
+    {
+      "id": "1781783902651-655z4mi",
+      "tag": "Cola",
+      "winnerId": "nicki-nicole",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:22.651Z"
+    },
+    {
+      "id": "1781783901067-9n6a0qv",
+      "tag": "Cola",
+      "winnerId": "ana-de-armas",
+      "loserId": "ariana-grande",
+      "pairKey": "ana-de-armas::ariana-grande",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:21.067Z"
+    },
+    {
+      "id": "1781783895331-dmvtg80",
+      "tag": "Cola",
+      "winnerId": "becky-g",
+      "loserId": "aitana",
+      "pairKey": "aitana::becky-g",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:15.331Z"
+    },
+    {
+      "id": "1781783894067-vffh4xu",
+      "tag": "Cola",
+      "winnerId": "becky-g",
+      "loserId": "angela-torres",
+      "pairKey": "angela-torres::becky-g",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:14.067Z"
+    },
+    {
+      "id": "1781783892891-xdyl3ku",
+      "tag": "Cola",
+      "winnerId": "becky-g",
+      "loserId": "avril-lavigne",
+      "pairKey": "avril-lavigne::becky-g",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:12.891Z"
+    },
+    {
+      "id": "1781783891067-l6zppmz",
+      "tag": "Cola",
+      "winnerId": "becky-g",
+      "loserId": "olivia-rodrigo",
+      "pairKey": "becky-g::olivia-rodrigo",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:11.067Z"
+    },
+    {
+      "id": "1781783886139-hkjvcu4",
+      "tag": "Cola",
+      "winnerId": "becky-g",
+      "loserId": "clara-ceschin",
+      "pairKey": "becky-g::clara-ceschin",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:06.139Z"
+    },
+    {
+      "id": "1781783885083-rvbo5lp",
+      "tag": "Cola",
+      "winnerId": "becky-g",
+      "loserId": "ana-mena",
+      "pairKey": "ana-mena::becky-g",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:05.083Z"
+    },
+    {
+      "id": "1781783883803-lj4owzn",
+      "tag": "Cola",
+      "winnerId": "becky-g",
+      "loserId": "dua-lipa",
+      "pairKey": "becky-g::dua-lipa",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:03.803Z"
+    },
+    {
+      "id": "1781783882339-jfkkye4",
+      "tag": "Cola",
+      "winnerId": "becky-g",
+      "loserId": "ester-exposito",
+      "pairKey": "becky-g::ester-exposito",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:02.339Z"
+    },
+    {
+      "id": "1781783880178-osooo2d",
+      "tag": "Cola",
+      "winnerId": "becky-g",
+      "loserId": "emilia-mernes",
+      "pairKey": "becky-g::emilia-mernes",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:58:00.178Z"
+    },
+    {
+      "id": "1781783880178-4on8g3b",
+      "tag": "Cola",
+      "winnerId": "becky-g",
+      "loserId": "nicki-nicole",
+      "pairKey": "becky-g::nicki-nicole",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:58:00.178Z"
+    },
+    {
+      "id": "1781783880178-ytwd5hy",
+      "tag": "Cola",
+      "winnerId": "becky-g",
+      "loserId": "ariana-grande",
+      "pairKey": "ariana-grande::becky-g",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:58:00.178Z"
+    },
+    {
+      "id": "1781783880178-pt9z4i4",
+      "tag": "Cola",
+      "winnerId": "becky-g",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::becky-g",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:58:00.178Z"
+    },
+    {
+      "id": "1781783880178-pg2mg1u",
+      "tag": "Cola",
+      "winnerId": "becky-g",
+      "loserId": "clara-galle",
+      "pairKey": "becky-g::clara-galle",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:58:00.178Z"
+    },
+    {
+      "id": "1781783880178-e0etzra",
+      "tag": "Cola",
+      "winnerId": "becky-g",
+      "loserId": "sidney-sweeney",
+      "pairKey": "becky-g::sidney-sweeney",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:58:00.178Z"
+    },
+    {
+      "id": "1781783880173-0s2zn0s",
+      "tag": "Cola",
+      "winnerId": "becky-g",
+      "loserId": "sabrina-carpenter",
+      "pairKey": "becky-g::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:58:00.173Z"
+    },
+    {
+      "id": "1781783878019-9cjfirq",
+      "tag": "Cola",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "sidney-sweeney",
+      "pairKey": "sabrina-carpenter::sidney-sweeney",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:57:58.019Z"
+    },
+    {
+      "id": "1781783876755-8vk8hhu",
+      "tag": "Cola",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "clara-galle",
+      "pairKey": "clara-galle::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:57:56.755Z"
+    },
+    {
+      "id": "1781783873212-0adwk9q",
+      "tag": "Cola",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "ana-de-armas",
+      "pairKey": "ana-de-armas::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:57:53.212Z"
+    },
+    {
+      "id": "1781783871192-0adxivw",
+      "tag": "Cola",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "nicki-nicole",
+      "pairKey": "nicki-nicole::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:57:51.192Z"
+    },
+    {
+      "id": "1781783871192-oeti7qt",
+      "tag": "Cola",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "ariana-grande",
+      "pairKey": "ariana-grande::sabrina-carpenter",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:57:51.192Z"
+    },
+    {
+      "id": "1781783871187-8by61rt",
+      "tag": "Cola",
+      "winnerId": "sabrina-carpenter",
+      "loserId": "emilia-mernes",
+      "pairKey": "emilia-mernes::sabrina-carpenter",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:57:51.187Z"
+    },
+    {
+      "id": "1781783869797-jy46c3n",
+      "tag": "Cola",
+      "winnerId": "emilia-mernes",
+      "loserId": "ariana-grande",
+      "pairKey": "ariana-grande::emilia-mernes",
+      "inherited": true,
+      "createdAt": "2026-06-18T11:57:49.797Z"
+    },
+    {
+      "id": "1781783869795-ciylmub",
+      "tag": "Cola",
+      "winnerId": "emilia-mernes",
+      "loserId": "nicki-nicole",
+      "pairKey": "emilia-mernes::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:57:49.795Z"
+    },
+    {
+      "id": "1781783868531-kehkhnm",
+      "tag": "Cola",
+      "winnerId": "nicki-nicole",
+      "loserId": "ariana-grande",
+      "pairKey": "ariana-grande::nicki-nicole",
+      "inherited": false,
+      "createdAt": "2026-06-18T11:57:48.531Z"
+    },
+    {
       "id": "1781783114931-kt4sxks",
       "tag": "Facciones",
       "winnerId": "antonela-rocuzzo",
