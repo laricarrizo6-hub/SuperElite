@@ -678,7 +678,7 @@ function NavButton({ active, onClick, children }) {
     return <button onClick={onClick} className={`metal-button rounded-xl px-4 py-3 font-black transition ${active ? 'bg-gradient-to-br from-cyan-200 via-white to-slate-300 text-zinc-950' : 'bg-gradient-to-br from-slate-700 via-slate-900 to-black text-white hover:bg-white/10'}`}>{children}</button>;
 }
 
-function BattleCard({ character, score, mediaCount, tag, mediaItems, onChooseWinner, onOpenProfile }) {
+function BattleCard({ character, score, battlesStats, tag, mediaItems, onChooseWinner, onOpenProfile }) {
     const group = getGroup(character.group);
     const battlePhoto = getBattlePhotoForCharacter(character, mediaItems, tag);
     const roleLabel = BATTLE_PHOTO_ROLES.find(role => role.id === battlePhoto.role)?.label || 'Face';
@@ -705,7 +705,8 @@ function BattleCard({ character, score, mediaCount, tag, mediaItems, onChooseWin
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                     <Info label="Puntaje" value={Number.isFinite(score) ? score.toFixed(1) : '0.0'} />
-                    {showHeight ? <Info label="Altura" value={character.height || '—'} /> : <Info label="Multimedia" value={mediaCount} />}
+                    {/* Aquí cambiamos el Info de multimedia por el de Batallas */}
+                    {showHeight ? <Info label="Altura" value={character.height || '—'} /> : <Info label="Batallas (Real|Her)" value={`${battlesStats.fought} | ${battlesStats.inherited}`} />}
                 </div>
                 <button onClick={(event) => { event.stopPropagation(); onOpenProfile(character.id); }} className="metal-button rounded-2xl bg-gradient-to-br from-fuchsia-400 via-purple-600 to-indigo-950 px-5 py-4 font-black">Ver ficha</button>
             </div>
@@ -804,13 +805,29 @@ function BattlesScreen({ characters, media, mediaCountByCharacter, ratings, batt
                         />
                     ) : (
                         <div className="battle-duel grid gap-5 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
-                            <BattleCard character={contenders[0]} tag={selectedTag} mediaItems={media} score={getRatingValue(ratings[contenders[0].id] || {}, selectedTag)} mediaCount={mediaCountByCharacter[contenders[0].id] || 0} onChooseWinner={chooseWinner} onOpenProfile={onOpenProfile} />
-                            <div className="vs-badge metal-panel metal-shadow chrome-border rounded-full px-8 py-6 text-center">
-                                <p className="cartoon-title text-6xl">VS</p>
-                                <p className="mt-1 text-xs font-black uppercase tracking-[.25em] text-cyan-100/80">{selectedTag}</p>
-                            </div>
-                            <BattleCard character={contenders[1]} tag={selectedTag} mediaItems={media} score={getRatingValue(ratings[contenders[1].id] || {}, selectedTag)} mediaCount={mediaCountByCharacter[contenders[1].id] || 0} onChooseWinner={chooseWinner} onOpenProfile={onOpenProfile} />
-                        </div>
+    <BattleCard 
+        character={contenders[0]} 
+        tag={selectedTag} 
+        mediaItems={media} 
+        score={getRatingValue(ratings[contenders[0].id] || {}, selectedTag)} 
+        battlesStats={getBattleStatsForCharacter(contenders[0].id, selectedTag, battleResults)} 
+        onChooseWinner={chooseWinner} 
+        onOpenProfile={onOpenProfile} 
+    />
+    <div className="vs-badge metal-panel metal-shadow chrome-border rounded-full px-8 py-6 text-center">
+        <p className="cartoon-title text-6xl">VS</p>
+        <p className="mt-1 text-xs font-black uppercase tracking-[.25em] text-cyan-100/80">{selectedTag}</p>
+    </div>
+    <BattleCard 
+        character={contenders[1]} 
+        tag={selectedTag} 
+        mediaItems={media} 
+        score={getRatingValue(ratings[contenders[1].id] || {}, selectedTag)} 
+        battlesStats={getBattleStatsForCharacter(contenders[1].id, selectedTag, battleResults)} 
+        onChooseWinner={chooseWinner} 
+        onOpenProfile={onOpenProfile} 
+    />
+</div>
                     )}
                 </div>
             )}
@@ -1567,7 +1584,22 @@ function Modal({ title, children, onClose }) {
         </div>
     );
 }
-
+function getBattleStatsForCharacter(characterId, tag, battleResults) {
+    let fought = 0;
+    let inherited = 0;
+    
+    battleResults.forEach(result => {
+        if (result.tag === tag && (result.winnerId === characterId || result.loserId === characterId)) {
+            if (result.inherited) {
+                inherited += 1;
+            } else {
+                fought += 1;
+            }
+        }
+    });
+    
+    return { fought, inherited };
+}
 function FormActions({ onClose, saveLabel }) {
     return <div className="mt-2 grid gap-3 sm:grid-cols-2"><button type="button" onClick={onClose} className="metal-button rounded-2xl bg-gradient-to-br from-slate-500 via-slate-800 to-black px-5 py-4 font-black hover:bg-white/20">Cancelar</button><button type="submit" className="metal-button rounded-2xl bg-gradient-to-br from-emerald-300 via-emerald-600 to-emerald-950 px-5 py-4 font-black">{saveLabel}</button></div>;
 }
