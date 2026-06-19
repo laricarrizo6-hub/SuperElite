@@ -1891,6 +1891,330 @@
     "characterId": "aitana",
     "src": "Multimedia/aitanav.mp4",
     "type": "video"
+  },
+	  {
+    "id": "m-xenia-1",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (1).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-2",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (2).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-3",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (3).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-4",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (4).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-5",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (5).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-6",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (6).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-7",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (7).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-8",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (8).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-9",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (9).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-10",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (10).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-11",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (11).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-12",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (12).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-13",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (13).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-14",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (14).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-15",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (15).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-16",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (16).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-17",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (17).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-18",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (18).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-19",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (19).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-20",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (20).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-21",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (21).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-22",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (22).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-23",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniaj (23).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-xenia-24",
+    "characterId": "xenia-tchoumitcheva",
+    "src": "Multimedia/xeniav.mp4",
+    "type": "video"
+  },
+	  {
+    "id": "m-barbara-1",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinj (1).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-2",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinj (2).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-3",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinj (3).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-4",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinj (4).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-5",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinj (5).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-6",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinj (6).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-7",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinj (7).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-8",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinj (8).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-9",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinj (9).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-10",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinj (10).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-11",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinj (11).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-12",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinj (12).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-13",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinj (13).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-14",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinj (14).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-15",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinj (15).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-16",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinj (16).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-17",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinj (17).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-18",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinj (18).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-19",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinj (19).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-20",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinj (20).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-21",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinj (21).jpg",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-22",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinv (1).mp4",
+    "type": "video"
+  },
+  {
+    "id": "m-barbara-23",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinv (2).mp4",
+    "type": "video"
+  },
+  {
+    "id": "m-barbara-24",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinv (3).mp4",
+    "type": "video"
+  },
+  {
+    "id": "m-barbara-25",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinv (4).mp4",
+    "type": "video"
+  },
+  {
+    "id": "m-barbara-26",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinv (5).mp4",
+    "type": "video"
+  },
+  {
+    "id": "m-barbara-27",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalvinv (6).mp4",
+    "type": "video"
+  },
+	  {
+    "id": "m-barbara-28",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalving (1).gif",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-29",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalving (2).gif",
+    "type": "image"
+  },
+  {
+    "id": "m-barbara-30",
+    "characterId": "barbara-palvin",
+    "src": "Multimedia/barbarapalving (3).gif",
+    "type": "image"
   }
   ]
 }
